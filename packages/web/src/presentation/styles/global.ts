@@ -25,6 +25,12 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
 
+  #__next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   * {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }

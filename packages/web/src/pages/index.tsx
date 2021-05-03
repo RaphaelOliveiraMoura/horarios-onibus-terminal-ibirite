@@ -1,5 +1,5 @@
-import Main from 'presentation/components/Main'
+import HomePage from 'presentation/pages/home'
 
 export default function Home() {
-  return <Main />
+  return <HomePage />
 }

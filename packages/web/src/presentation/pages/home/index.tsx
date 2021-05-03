@@ -4,11 +4,7 @@ import AutoCompĺete from 'presentation/components/AutoCompĺete'
 import { getBusLinesService } from 'main/services'
 import { useEffect, useState } from 'react'
 
-type BusLinesSearchBarProps = {
-  onSearch: (text: string) => void
-}
-
-const BusLinesSearchBar: React.FC<BusLinesSearchBarProps> = () => {
+const HomePage: React.FC = () => {
   const [options, setOptions] = useState<{ value: string; label: string }[]>([])
 
   useEffect(() => {
@@ -24,13 +20,16 @@ const BusLinesSearchBar: React.FC<BusLinesSearchBarProps> = () => {
 
   return (
     <S.Wrapper>
+      <S.Title>
+        Consulte os horários de ônibus do terminal de ibirité atualizados
+      </S.Title>
       <AutoCompĺete
         options={options}
-        placeholder="Selecione o ônibus que deseja ver os horários"
+        placeholder="Selecione o ônibus para consulta de horários"
         label="horarios-onibus"
       />
     </S.Wrapper>
   )
 }
 
-export default BusLinesSearchBar
+export default HomePage
