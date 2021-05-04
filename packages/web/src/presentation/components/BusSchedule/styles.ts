@@ -1,10 +1,20 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.article``
+export const Wrapper = styled.article`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 1rem;
+  padding: 1.4rem;
+`
 
 export const Title = styled.h2`
   font-size: 1.4rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2rem;
 `
 
 export const BusScheduleContainer = styled.div`

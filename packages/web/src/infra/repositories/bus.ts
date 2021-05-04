@@ -1,26 +1,7 @@
-import { Bus, BusSchedule, Schedule } from 'domain/models'
+import { Bus, BusSchedule } from 'domain/models'
 import { BusRepository } from 'domain/repositories'
 
-type BusesMemoryDatabase = { id: string; name: string; schedule: Schedule }
-
-const buses: BusesMemoryDatabase[] = [
-  {
-    id: '301C',
-    name: '301C - Terminal Ibirité via amazonas',
-    schedule: { saturdays: [], sundays: [], workingDays: [] }
-  },
-  {
-    id: '303M',
-    name: '303M - Terminal Ibirité/estação metrô eldorado',
-    schedule: { saturdays: [], sundays: [], workingDays: [] }
-  },
-  {
-    id: '3390',
-    name: '3390 - Terminal Ibirité jardim das rosas',
-    schedule: { saturdays: [], sundays: [], workingDays: [] }
-  }
-]
-
+import buses from './memory-database'
 export class BusRepositoryMemory implements BusRepository {
   async getBusLines(): Promise<Bus[]> {
     return buses.map(({ id, name }) => ({ id, name }))
