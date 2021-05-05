@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
 
   .react-select-container {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   .react-select__control {

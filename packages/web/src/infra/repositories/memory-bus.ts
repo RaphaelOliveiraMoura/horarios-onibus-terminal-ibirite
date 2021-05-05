@@ -2,6 +2,7 @@ import { Bus, BusSchedule } from 'domain/models'
 import { BusRepository } from 'domain/repositories'
 
 import buses from './memory-database'
+
 export class BusRepositoryMemory implements BusRepository {
   async getBusLines(): Promise<Bus[]> {
     return buses.map(({ id, name }) => ({ id, name }))
