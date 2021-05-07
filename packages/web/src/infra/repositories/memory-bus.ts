@@ -5,8 +5,6 @@ import database from '../memory-database'
 
 const mutableDatabase = [...database]
 
-console.log('AAAAA')
-
 export class BusRepositoryMemory implements BusRepository {
   async getBusLines(): Promise<Bus[]> {
     return mutableDatabase.map(({ id, name }) => ({ id, name }))

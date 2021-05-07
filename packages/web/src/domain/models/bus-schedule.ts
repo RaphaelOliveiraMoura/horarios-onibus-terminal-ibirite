@@ -7,6 +7,12 @@ export type Schedule = {
   sundays: Time[]
 }
 
+export type ScheduleJSON = {
+  workingDays: string[]
+  saturdays: string[]
+  sundays: string[]
+}
+
 export type BusSchedule = {
   bus: Bus
   schedule: Schedule
@@ -14,40 +20,44 @@ export type BusSchedule = {
 
 export type BusScheduleJSON = {
   bus: Bus
-  schedule: {
-    workingDays: string[]
-    saturdays: string[]
-    sundays: string[]
-  }
+  schedule: ScheduleJSON
 }
 
 export namespace BusSchedule {
-  export function toJson(busSchedule: BusSchedule): BusScheduleJSON {
+  export function mapScheduleToString(schedule: Schedule): ScheduleJSON {
     const toStringMap = (time: Time) => time.toString()
 
     return {
-      ...busSchedule,
-      schedule: {
-        workingDays: busSchedule.schedule.workingDays.map(toStringMap),
-        saturdays: busSchedule.schedule.saturdays.map(toStringMap),
-        sundays: busSchedule.schedule.sundays.map(toStringMap)
-      }
+      workingDays: schedule.workingDays.map(toStringMap),
+      saturdays: schedule.saturdays.map(toStringMap),
+      sundays: schedule.sundays.map(toStringMap)
     }
   }
 
-  export function fromJson(busScheduleJSON: BusScheduleJSON): BusSchedule {
+  export function mapScheduleToTime(scheduleJSON: ScheduleJSON): Schedule {
     const toTimeMap = (time: string) => {
       const [hours, minutes] = time.split(':').map(Number)
       return new Time(hours, minutes)
     }
 
     return {
+      workingDays: scheduleJSON.workingDays.map(toTimeMap),
+      saturdays: scheduleJSON.saturdays.map(toTimeMap),
+      sundays: scheduleJSON.sundays.map(toTimeMap)
+    }
+  }
+
+  export function toJson(busSchedule: BusSchedule): BusScheduleJSON {
+    return {
+      ...busSchedule,
+      schedule: mapScheduleToString(busSchedule.schedule)
+    }
+  }
+
+  export function fromJson(busScheduleJSON: BusScheduleJSON): BusSchedule {
+    return {
       ...busScheduleJSON,
-      schedule: {
-        workingDays: busScheduleJSON.schedule.workingDays.map(toTimeMap),
-        saturdays: busScheduleJSON.schedule.saturdays.map(toTimeMap),
-        sundays: busScheduleJSON.schedule.sundays.map(toTimeMap)
-      }
+      schedule: mapScheduleToTime(busScheduleJSON.schedule)
     }
   }
 }

@@ -14,6 +14,7 @@ export default {
 export const Default: Story = (args) => (
   <EditableBusSchedule
     title={args.title}
+    onUpdateBusSchedule={() => null}
     schedule={[
       new Time(8, 0),
       new Time(8, 10),

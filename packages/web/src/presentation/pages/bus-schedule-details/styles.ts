@@ -30,3 +30,22 @@ export const BusScheduleContainer = styled.div`
   align-items: center;
   margin-top: 2rem;
 `
+
+export const UpdateButton = styled.button`
+  cursor: pointer;
+  padding: 6px 22px;
+  background: #a0937d;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  outline: none;
+  transition: all 0.4s;
+
+  &:hover {
+    background: #8e9775;
+  }
+
+  &:focus {
+    box-shadow: 1px 1px 3px #a0937d;
+  }
+`

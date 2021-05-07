@@ -1,5 +1,8 @@
 import { BusSchedule, BusScheduleJSON } from 'domain/models'
-import { getBusLinesService } from 'main/services'
+import {
+  getBusLinesService,
+  getBusScheduleService
+} from 'main/services/server-side'
 import { useRouter } from 'next/router'
 import { GetServerSidePropsContext } from 'next'
 
@@ -13,11 +16,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     label: name
   }))
 
-  const busId = String(context.params?.id)
-  const responseBusSchedule = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/get-bus-schedule/${busId}`
+  const busSchedule = await getBusScheduleService.execute(
+    String(context.params?.id)
   )
-  const busSchedule = await responseBusSchedule.json()
 
   return { props: { busOptions, busSchedule: BusSchedule.toJson(busSchedule) } }
 }

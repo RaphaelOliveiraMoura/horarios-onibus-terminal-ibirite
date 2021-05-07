@@ -1,11 +1,37 @@
-import { GetBusLines } from 'domain/use-cases/get-bus-lines'
-import { GetBusSchedule } from 'domain/use-cases/get-bus-schedule'
+import { Bus, BusSchedule, Schedule } from 'domain/models'
 
-import { UpdateBusSchedule } from 'domain/use-cases/update-bus-schedule'
-import { BusRepositoryMemory } from 'infra/repositories/memory-bus'
+export const updateBusScheduleService = async (
+  busId: string,
+  schedule: Schedule
+): Promise<BusSchedule> => {
+  const responseBusSchedule = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/update-bus-schedule/${busId}`,
+    {
+      method: 'PUT',
+      body: JSON.stringify(BusSchedule.mapScheduleToString(schedule))
+    }
+  )
+  const updatedBusSchedule = await responseBusSchedule.json()
 
-const repository = new BusRepositoryMemory()
+  return BusSchedule.fromJson(updatedBusSchedule)
+}
 
-export const updateBusScheduleService = new UpdateBusSchedule(repository)
-export const getBusScheduleService = new GetBusSchedule(repository)
-export const getBusLinesService = new GetBusLines(repository)
+export const getBusScheduleService = async (
+  busId: string
+): Promise<BusSchedule> => {
+  const responseBusSchedule = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/get-bus-schedule/${busId}`
+  )
+  const busSchedule = await responseBusSchedule.json()
+
+  return BusSchedule.fromJson(busSchedule)
+}
+
+export const getBusLinesService = async (): Promise<Bus[]> => {
+  const responseBusLines = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/get-bus-lines`
+  )
+  const busLines = await responseBusLines.json()
+
+  return busLines
+}

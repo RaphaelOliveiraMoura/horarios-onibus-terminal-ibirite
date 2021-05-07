@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb'
 
-import { Bus, BusSchedule } from 'domain/models'
+import { Bus, BusSchedule, Schedule } from 'domain/models'
 import { BusRepository } from 'domain/repositories'
 
 const uri = process.env.MONGO_URI as string
@@ -33,5 +33,18 @@ export class BusRepositoryMongo implements BusRepository {
         sundays: busSchedule.sundays
       }
     } as BusSchedule
+  }
+
+  async updateBusSchedule(
+    busId: string,
+    busSchedule: Schedule
+  ): Promise<BusSchedule> {
+    console.log(busId)
+    console.log(busSchedule)
+
+    return {
+      bus: { id: '', name: '' },
+      schedule: { workingDays: [], saturdays: [], sundays: [] }
+    }
   }
 }

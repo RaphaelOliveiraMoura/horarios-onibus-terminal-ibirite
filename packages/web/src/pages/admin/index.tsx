@@ -3,32 +3,54 @@ import EditableBusSchedule from 'presentation/components/EditableBusSchedule'
 import AutoCompĺete from 'presentation/components/AutoCompĺete'
 import { BusSchedule as BusScheduleModel, Time } from 'domain/models'
 
-import { updateBusScheduleService } from 'main/services'
+import {
+  updateBusScheduleService,
+  getBusScheduleService,
+  getBusLinesService
+} from 'main/services/client-side'
 
-import * as S from './styles'
-import { useState } from 'react'
-import { useGetBusOptions } from 'presentation/hooks'
+import * as S from 'presentation/pages/bus-schedule-details/styles'
+import { useEffect, useState } from 'react'
 
 type Option = { value: string; label: string }
 
+type PageStatus = 'loading' | 'success' | 'error'
+
 const BusScheduleDetailsAdminPage: React.FC = () => {
+  const [pageStatus, setPageStatus] = useState<PageStatus>('loading')
+  const [busOptions, setBusOptions] = useState<Option[]>([])
+
   const [
     currentBusSchedule,
     setCurrentBusSchedule
   ] = useState<BusScheduleModel | null>(null)
 
-  const { busOptions } = useGetBusOptions()
+  useEffect(() => {
+    async function fetch() {
+      try {
+        const buses = await getBusLinesService()
+        const options = buses.map(({ id, name }) => ({
+          value: id,
+          label: name
+        }))
+
+        setBusOptions(options)
+        setPageStatus('success')
+      } catch (error) {
+        setPageStatus('error')
+      }
+    }
+
+    fetch()
+  }, [])
 
   async function onSelectBusOption(inputValue: Option | null) {
     if (!inputValue?.value) return
 
-    const responseBusSchedule = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/get-bus-schedule/${inputValue.value}`
-    )
-    const busSchedule = await responseBusSchedule.json()
+    const busSchedule = await getBusScheduleService(inputValue.value)
 
     setCurrentBusSchedule(null)
-    setCurrentBusSchedule({ ...BusScheduleModel.fromJson(busSchedule) })
+    setCurrentBusSchedule({ ...busSchedule })
   }
 
   async function onSave() {
@@ -37,7 +59,7 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
     console.log('onSave')
 
     try {
-      await updateBusScheduleService.execute(
+      await updateBusScheduleService(
         currentBusSchedule.bus.id,
         currentBusSchedule.schedule
       )
@@ -48,12 +70,19 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
     }
   }
 
+  function onUpdateBusSchedule(key: 'workingDays' | 'saturdays' | 'sundays') {
+    return (schedule: Time[]) => {
+      if (!currentBusSchedule) return
+      const draft = { ...currentBusSchedule }
+      draft.schedule[key] = schedule
+      setCurrentBusSchedule(draft)
+    }
+  }
+
   return (
     <S.Wrapper>
       <S.Header>
-        <S.Title>
-          Consulte os horários de ônibus do terminal de ibirité atualizados
-        </S.Title>
+        <S.Title>Quadro de horários Terminal de Ibirité</S.Title>
         <AutoCompĺete
           options={busOptions}
           onChange={onSelectBusOption}
@@ -62,36 +91,24 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
         />
       </S.Header>
 
-      {currentBusSchedule && (
+      {pageStatus === 'success' && currentBusSchedule && (
         <S.BusScheduleContainer>
-          <button onClick={onSave}>Salvar</button>
+          <S.UpdateButton onClick={onSave}>Salvar</S.UpdateButton>
 
           <EditableBusSchedule
             title="Dias úteis"
             schedule={currentBusSchedule.schedule.workingDays}
-            onUpdateBusSchedule={(schedule: Time[]) => {
-              const draft = { ...currentBusSchedule }
-              draft.schedule.workingDays = schedule
-              setCurrentBusSchedule(draft)
-            }}
+            onUpdateBusSchedule={onUpdateBusSchedule('workingDays')}
           />
           <EditableBusSchedule
             title="Sábados"
             schedule={currentBusSchedule.schedule.saturdays}
-            onUpdateBusSchedule={(schedule: Time[]) => {
-              const draft = { ...currentBusSchedule }
-              draft.schedule.saturdays = schedule
-              setCurrentBusSchedule(draft)
-            }}
+            onUpdateBusSchedule={onUpdateBusSchedule('saturdays')}
           />
           <EditableBusSchedule
             title="Domingos e feriados"
             schedule={currentBusSchedule.schedule.sundays}
-            onUpdateBusSchedule={(schedule: Time[]) => {
-              const draft = { ...currentBusSchedule }
-              draft.schedule.sundays = schedule
-              setCurrentBusSchedule(draft)
-            }}
+            onUpdateBusSchedule={onUpdateBusSchedule('sundays')}
           />
         </S.BusScheduleContainer>
       )}
