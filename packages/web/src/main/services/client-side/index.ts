@@ -4,13 +4,10 @@ export const updateBusScheduleService = async (
   busId: string,
   schedule: Schedule
 ): Promise<BusSchedule> => {
-  const responseBusSchedule = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/update-bus-schedule/${busId}`,
-    {
-      method: 'PUT',
-      body: JSON.stringify(BusSchedule.mapScheduleToString(schedule))
-    }
-  )
+  const responseBusSchedule = await fetch(`/api/update-bus-schedule/${busId}`, {
+    method: 'PUT',
+    body: JSON.stringify(BusSchedule.mapScheduleToString(schedule))
+  })
   const updatedBusSchedule = await responseBusSchedule.json()
 
   return BusSchedule.fromJson(updatedBusSchedule)
@@ -19,18 +16,14 @@ export const updateBusScheduleService = async (
 export const getBusScheduleService = async (
   busId: string
 ): Promise<BusSchedule> => {
-  const responseBusSchedule = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/get-bus-schedule/${busId}`
-  )
+  const responseBusSchedule = await fetch(`/api/get-bus-schedule/${busId}`)
   const busSchedule = await responseBusSchedule.json()
 
   return BusSchedule.fromJson(busSchedule)
 }
 
 export const getBusLinesService = async (): Promise<Bus[]> => {
-  const responseBusLines = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/get-bus-lines`
-  )
+  const responseBusLines = await fetch('/api/get-bus-lines')
   const busLines = await responseBusLines.json()
 
   return busLines
