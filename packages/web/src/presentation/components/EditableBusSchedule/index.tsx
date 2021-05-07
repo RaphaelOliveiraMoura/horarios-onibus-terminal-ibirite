@@ -10,6 +10,7 @@ import * as S from './styles'
 export type EditableBusScheduleProps = {
   title: string
   schedule: Time[]
+  onUpdateBusSchedule: (schedule: Time[]) => void
 }
 
 const EditableBusSchedule: React.FC<EditableBusScheduleProps> = ({ title }) => {
@@ -34,10 +35,18 @@ const EditableBusSchedule: React.FC<EditableBusScheduleProps> = ({ title }) => {
 
 const EditableBusScheduleWithProvider: React.FC<EditableBusScheduleProps> = ({
   schedule,
+  onUpdateBusSchedule,
   ...props
 }) => (
-  <EditableBusScheduleProvider schedule={schedule}>
-    <EditableBusSchedule schedule={schedule} {...props} />
+  <EditableBusScheduleProvider
+    schedule={schedule}
+    onUpdateBusSchedule={onUpdateBusSchedule}
+  >
+    <EditableBusSchedule
+      schedule={schedule}
+      onUpdateBusSchedule={onUpdateBusSchedule}
+      {...props}
+    />
   </EditableBusScheduleProvider>
 )
 

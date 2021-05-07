@@ -15,7 +15,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const busId = String(context.params?.id)
   const responseBusSchedule = await fetch(
-    `${process.env.API_URL}/api/get-bus-schedule/${busId}`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/get-bus-schedule/${busId}`
   )
   const busSchedule = await responseBusSchedule.json()
 

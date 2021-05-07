@@ -10,4 +10,5 @@ export const Title = styled.h2`
 export const BusScheduleContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `

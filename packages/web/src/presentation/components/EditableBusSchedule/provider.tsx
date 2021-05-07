@@ -4,7 +4,7 @@ import {
   emptyScheduleMap,
   ScheduleMap
 } from 'presentation/view-model'
-import React, { useState, createContext, useContext } from 'react'
+import React, { useState, createContext, useContext, useEffect } from 'react'
 
 type EditableBusScheduleContextValues = {
   scheduleMap: ScheduleMap
@@ -20,16 +20,23 @@ const EditableBusScheduleContext = createContext<EditableBusScheduleContextValue
 
 type EditableBusScheduleProviderProps = {
   schedule: Time[]
+  onUpdateBusSchedule: (schedule: Time[]) => void
 }
 
 export const EditableBusScheduleProvider: React.FC<EditableBusScheduleProviderProps> = ({
   children,
-  schedule
+  schedule,
+  onUpdateBusSchedule
 }) => {
   const [scheduleMap, _setScheduleMap] = useState({
     ...emptyScheduleMap(),
     ...BusScheduleViewModel.parse(schedule)
   })
+
+  useEffect(() => {
+    onUpdateBusSchedule(BusScheduleViewModel.unparse(scheduleMap))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scheduleMap])
 
   function setScheduleMap(newScheduleMap: ScheduleMap) {
     _setScheduleMap({

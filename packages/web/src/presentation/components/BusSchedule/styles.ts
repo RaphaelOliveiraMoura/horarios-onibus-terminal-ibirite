@@ -38,32 +38,8 @@ export const Title = styled.h2`
 export const BusScheduleContainer = styled.div`
   display: flex;
   flex-direction: row;
-
-  @media (max-width: 1350px) {
-    display: grid;
-    grid-template-columns: repeat(20, 2fr);
-    grid-gap: 0.4rem;
-  }
-
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(14, 2fr);
-  }
-
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(8, 2fr);
-  }
-
-  @media (max-width: 800px) {
-    grid-template-columns: repeat(6, 2fr);
-  }
-
-  @media (max-width: 580px) {
-    grid-template-columns: repeat(4, 2fr);
-  }
-
-  @media (max-width: 320px) {
-    grid-template-columns: repeat(3, 2fr);
-  }
+  flex-wrap: wrap;
+  justify-content: center;
 `
 
 export const BusScheduleHourColumn = styled.div`

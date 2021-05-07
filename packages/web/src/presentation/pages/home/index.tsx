@@ -1,22 +1,21 @@
-import * as S from './styles'
+import { useRouter } from 'next/router'
 
 import AutoCompĺete from 'presentation/components/AutoCompĺete'
-import { getBusLinesService } from 'main/services'
-import { useEffect, useState } from 'react'
 
-const HomePage: React.FC = () => {
-  const [options, setOptions] = useState<{ value: string; label: string }[]>([])
+import * as S from './styles'
 
-  useEffect(() => {
-    getBusLinesService.execute().then((buses) => {
-      const busesOptions = buses.map(({ id, name }) => ({
-        value: id,
-        label: name
-      }))
+type HomePageProps = {
+  busOptions: { value: string; label: string }[]
+}
 
-      setOptions(busesOptions)
-    })
-  }, [])
+const HomePage: React.FC<HomePageProps> = ({ busOptions }) => {
+  const router = useRouter()
+
+  function onSelectBusLine(inputValue: { value: string } | null) {
+    if (!inputValue) return
+
+    router.push(`/linhas/${inputValue.value}`)
+  }
 
   return (
     <S.Wrapper>
@@ -24,7 +23,8 @@ const HomePage: React.FC = () => {
         Consulte os horários de ônibus do terminal de ibirité atualizados
       </S.Title>
       <AutoCompĺete
-        options={options}
+        options={busOptions}
+        onChange={onSelectBusLine}
         placeholder="Selecione o ônibus para consulta de horários"
         label="horarios-onibus"
       />

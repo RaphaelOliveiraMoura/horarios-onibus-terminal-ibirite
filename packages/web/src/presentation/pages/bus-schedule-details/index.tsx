@@ -14,7 +14,6 @@ type BusScheduleDetailsPageProps = {
 const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
   busOptions,
   busSchedule,
-  busId,
   navigate
 }) => {
   return (
@@ -24,7 +23,6 @@ const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
           Consulte os horários de ônibus do terminal de ibirité atualizados
         </S.Title>
         <AutoCompĺete
-          defaultValue={busOptions.find(({ value }) => value === busId)?.label}
           options={busOptions}
           onChange={(inputValue: { value: string; label: string } | null) =>
             inputValue && navigate(`/linhas/${inputValue.value}`)

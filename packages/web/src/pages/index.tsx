@@ -1,5 +1,8 @@
+import { useGetBusOptions } from 'presentation/hooks'
 import HomePage from 'presentation/pages/home'
 
 export default function Home() {
-  return <HomePage />
+  const { busOptions } = useGetBusOptions()
+
+  return <HomePage busOptions={busOptions} />
 }

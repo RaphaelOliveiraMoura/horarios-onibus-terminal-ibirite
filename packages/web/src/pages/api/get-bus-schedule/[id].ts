@@ -6,7 +6,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const busId = req.query.id
-  const busSchedule = await getBusScheduleService.execute(String(busId))
-  return res.json(BusSchedule.toJson(busSchedule))
+  try {
+    const busId = req.query.id
+    const busSchedule = await getBusScheduleService.execute(String(busId))
+    return res.json(BusSchedule.toJson(busSchedule))
+  } catch (error) {
+    console.log(error)
+  }
 }
