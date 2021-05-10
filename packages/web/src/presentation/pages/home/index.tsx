@@ -1,23 +1,47 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import AutoCompĺete from 'presentation/components/AutoCompĺete'
 
 import * as S from './styles'
+import Loader from 'presentation/components/Loader'
+import { getBusLinesService } from 'main/services/client-side'
 
-type HomePageProps = {
-  busOptions: { value: string; label: string }[]
-}
+type Option = { value: string; label: string }
 
-const HomePage: React.FC<HomePageProps> = ({ busOptions }) => {
+const HomePage: React.FC = () => {
   const router = useRouter()
 
+  const [busOptions, setBusOptions] = useState<Option[]>([])
   const [inputFocused, setInputFocused] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetch() {
+      try {
+        setLoading(true)
+        const buses = await getBusLinesService()
+        const options = buses.map(({ id, name }) => ({
+          value: id,
+          label: name
+        }))
+
+        setBusOptions(options)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetch()
+  }, [])
 
   function onSelectBusLine(inputValue: { value: string } | null) {
     if (!inputValue) return
 
-    router.push(`/linhas/${inputValue.value}`)
+    setLoading(true)
+    router.push(`/linhas/${inputValue.value}`).finally(() => setLoading(false))
   }
 
   return (
@@ -34,6 +58,7 @@ const HomePage: React.FC<HomePageProps> = ({ busOptions }) => {
           onFocus={() => setInputFocused(true)}
           onBlur={() => setInputFocused(false)}
         />
+        {loading && <Loader />}
       </S.ContentWrapper>
     </S.Wrapper>
   )

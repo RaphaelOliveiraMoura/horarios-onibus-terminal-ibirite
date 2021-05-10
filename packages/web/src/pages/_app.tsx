@@ -30,6 +30,26 @@ function App({ Component, pageProps }: AppProps) {
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           ></script>
         )}
+        {/* Google Analytics */}
+        {process.browser && (
+          <>
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-1BWK900E42"
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                
+                  gtag('config', 'G-1BWK900E42');
+                 `
+              }}
+            />
+          </>
+        )}
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
