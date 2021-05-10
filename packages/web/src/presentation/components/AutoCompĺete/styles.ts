@@ -23,4 +23,13 @@ export const Wrapper = styled.div`
   .react-select__menu {
     z-index: 20;
   }
+
+  .react-select__option:nth-child(even) {
+    background: #efefef;
+  }
+
+  .react-select__option--is-selected {
+    background: #444;
+    color: #fff;
+  }
 `

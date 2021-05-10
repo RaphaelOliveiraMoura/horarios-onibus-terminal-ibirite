@@ -32,6 +32,7 @@ type BusesMemoryDatabase = { id: string; name: string; schedule: Schedule }
 
 type BusJson = {
   id: string
+  name: string
   workingDays: string[]
   saturdays: string[]
   sundays: string[]
@@ -40,7 +41,7 @@ type BusJson = {
 function mapJson(json: BusJson) {
   return {
     id: json.id,
-    name: json.id,
+    name: json.name,
     schedule: {
       workingDays: json.workingDays.map(Schedule.toTimeMap),
       saturdays: json.saturdays.map(Schedule.toTimeMap),

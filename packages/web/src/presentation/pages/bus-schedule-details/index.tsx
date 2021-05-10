@@ -6,6 +6,7 @@ import { BusSchedule as BusScheduleModel } from 'domain/models'
 
 import * as S from './styles'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 import Loader from 'presentation/components/Loader'
 
 type BusScheduleDetailsPageProps = {
@@ -33,43 +34,48 @@ const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
   if (typeof id !== 'string') return <div>error</div>
 
   return (
-    <S.Wrapper>
-      <S.Header>
-        <S.Title>
-          Consulte os horários de ônibus do terminal de ibirité atualizados
-        </S.Title>
-        <AutoCompĺete
-          options={busOptions}
-          onChange={onSelectBusLine}
-          placeholder="Selecione a linha de ônibus"
-          label="horarios-onibus"
-        />
-      </S.Header>
+    <>
+      <Head>
+        <title>Hórarios ônibus {busSchedule.bus.name} ATUALIZADO</title>
+      </Head>
+      <S.Wrapper>
+        <S.Header>
+          <S.Title>
+            Consulte os horários de ônibus do terminal de ibirité atualizados
+          </S.Title>
+          <AutoCompĺete
+            options={busOptions}
+            onChange={onSelectBusLine}
+            placeholder="Selecione a linha de ônibus"
+            label="horarios-onibus"
+          />
+        </S.Header>
 
-      {loading && <Loader />}
+        {loading && <Loader />}
 
-      {!loading && (
-        <>
-          <S.BusLineTitle>
-            Horários da linha: <strong>{id}</strong>
-          </S.BusLineTitle>
-          <S.BusScheduleContainer>
-            <BusSchedule
-              title="Dias úteis"
-              schedule={busSchedule.schedule.workingDays}
-            />
-            <BusSchedule
-              title="Sábados"
-              schedule={busSchedule.schedule.saturdays}
-            />
-            <BusSchedule
-              title="Domingos e feriados"
-              schedule={busSchedule.schedule.sundays}
-            />
-          </S.BusScheduleContainer>
-        </>
-      )}
-    </S.Wrapper>
+        {!loading && (
+          <>
+            <S.BusLineTitle>
+              Horários da linha: <strong>{busSchedule.bus.name}</strong>
+            </S.BusLineTitle>
+            <S.BusScheduleContainer>
+              <BusSchedule
+                title="Dias úteis"
+                schedule={busSchedule.schedule.workingDays}
+              />
+              <BusSchedule
+                title="Sábados"
+                schedule={busSchedule.schedule.saturdays}
+              />
+              <BusSchedule
+                title="Domingos e feriados"
+                schedule={busSchedule.schedule.sundays}
+              />
+            </S.BusScheduleContainer>
+          </>
+        )}
+      </S.Wrapper>
+    </>
   )
 }
 
