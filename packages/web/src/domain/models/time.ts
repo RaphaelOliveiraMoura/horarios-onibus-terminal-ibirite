@@ -1,7 +1,8 @@
 export enum TimeType {
   Default = '',
   PI = 'pi',
-  RI = 'ri'
+  RI = 'ri',
+  AL = 'al'
 }
 
 export class Time {

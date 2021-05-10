@@ -35,6 +35,12 @@ const BusSchedule: React.FC<BusScheduleProps> = ({ title, schedule }) => {
                   </S.BusScheduleItemTooltip>
                 )}
 
+                {time.type === TimeType.AL && (
+                  <S.BusScheduleItemTooltip text="Trajeto pela 040">
+                    <span>AL</span>
+                  </S.BusScheduleItemTooltip>
+                )}
+
                 {time.toString()}
               </S.BusScheduleItem>
             ))}
