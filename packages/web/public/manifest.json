@@ -3,14 +3,9 @@
   "short_name": "HorariosÔnibusTerminalIbirité",
   "icons": [
     {
-      "src": "/img/icon-192.png",
+      "src": "/img/icon-200.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/img/icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "200x200"
     }
   ],
   "background_color": "#fff",
