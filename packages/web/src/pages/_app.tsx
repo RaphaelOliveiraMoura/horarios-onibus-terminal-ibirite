@@ -21,6 +21,14 @@ function App({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;500&display=swap"
           rel="stylesheet"
         />
+        {/* Google AdSense */}
+        {process.browser && (
+          <script
+            data-ad-client="ca-pub-3607857001646781"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+        )}
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
