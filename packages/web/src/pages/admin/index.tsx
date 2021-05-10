@@ -4,7 +4,6 @@ import AutoCompĺete from 'presentation/components/AutoCompĺete'
 import { BusSchedule as BusScheduleModel, Time } from 'domain/models'
 
 import {
-  updateBusScheduleService,
   getBusScheduleService,
   getBusLinesService
 } from 'main/services/client-side'
@@ -54,20 +53,18 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
   }
 
   async function onSave() {
-    if (!currentBusSchedule) return
-
-    console.log('onSave')
-
-    try {
-      await updateBusScheduleService(
-        currentBusSchedule.bus.id,
-        currentBusSchedule.schedule
-      )
-      console.log('onSaveSuccess')
-    } catch (error) {
-      console.log('onSaveError')
-      console.log(error)
-    }
+    // if (!currentBusSchedule) return
+    // console.log('onSave')
+    // try {
+    //   await updateBusScheduleService(
+    //     currentBusSchedule.bus.id,
+    //     currentBusSchedule.schedule
+    //   )
+    //   console.log('onSaveSuccess')
+    // } catch (error) {
+    //   console.log('onSaveError')
+    //   console.log(error)
+    // }
   }
 
   function onUpdateBusSchedule(key: 'workingDays' | 'saturdays' | 'sundays') {

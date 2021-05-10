@@ -1,4 +1,4 @@
-import { BusSchedule } from 'domain/models'
+import { BusSchedule, Schedule } from 'domain/models'
 import { updateBusScheduleService } from 'main/services/server-side'
 import { NextApiRequest, NextApiResponse } from 'next'
 
@@ -12,7 +12,7 @@ export default async function handler(
 
     const busSchedule = await updateBusScheduleService.execute(
       String(busId),
-      BusSchedule.mapScheduleToTime(schedule)
+      Schedule.fromJson(schedule)
     )
 
     return res.json(BusSchedule.toJson(busSchedule))

@@ -38,7 +38,8 @@ export const TooltipContent = styled.div<TooltipContentProps>`
       content: '${text}';
       position: absolute;
       width: max-content;
-      max-width: 20rem;
+      max-width: 10rem;
+      text-align: center;
       background-color: #555;
       color: #fff;
       border: 1px solid #444;
@@ -46,6 +47,7 @@ export const TooltipContent = styled.div<TooltipContentProps>`
       padding: 0.4rem 0.8rem;
       overflow-wrap: anywhere;
       opacity: 1;
+      z-index: 50;
     `}
   }
 `

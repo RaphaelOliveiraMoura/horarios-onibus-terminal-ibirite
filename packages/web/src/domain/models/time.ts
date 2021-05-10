@@ -1,14 +1,26 @@
+export enum TimeType {
+  Default = '',
+  PI = 'pi',
+  RI = 'ri'
+}
+
 export class Time {
   public hours: number
   public minutes: number
+  public type: TimeType
 
   private inRange(value: number, min: number, max: number) {
     return value >= min && value <= max
   }
 
-  constructor(hours: number, minutes: number) {
+  constructor(
+    hours: number,
+    minutes: number,
+    type: TimeType = TimeType.Default
+  ) {
     this.hours = hours
     this.minutes = minutes
+    this.type = type
 
     if (!this.inRange(this.hours, 0, 23)) {
       throw new Error(`invalid-hours: '${this.hours}' must be in range 0 - 23`)
@@ -30,7 +42,11 @@ export class Time {
   }
 
   public isEqual(time: Time) {
-    return this.hours === time.hours && this.minutes === time.minutes
+    return (
+      this.hours === time.hours &&
+      this.minutes === time.minutes &&
+      this.type === time.type
+    )
   }
 
   public toString() {

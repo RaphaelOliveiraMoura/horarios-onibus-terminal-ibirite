@@ -1,4 +1,4 @@
-import { Time } from 'domain/models'
+import { Time, TimeType } from 'domain/models'
 import {
   BusScheduleViewModel,
   ScheduleMapNonNull
@@ -23,6 +23,18 @@ const BusSchedule: React.FC<BusScheduleProps> = ({ title, schedule }) => {
             <S.BusScheduleHeader>{hour}</S.BusScheduleHeader>
             {scheduleTime.map((time) => (
               <S.BusScheduleItem key={time.toString()}>
+                {time.type === TimeType.PI && (
+                  <S.BusScheduleItemTooltip text="Ônibus sai do bairro">
+                    <span>PI</span>
+                  </S.BusScheduleItemTooltip>
+                )}
+
+                {time.type === TimeType.RI && (
+                  <S.BusScheduleItemTooltip text="Ônibus chega no bairro e recolhe">
+                    <span>RI</span>
+                  </S.BusScheduleItemTooltip>
+                )}
+
                 {time.toString()}
               </S.BusScheduleItem>
             ))}

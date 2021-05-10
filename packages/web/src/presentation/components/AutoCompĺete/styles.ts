@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
     box-shadow: var(--shadow-default);
   }
 
-  .react-select__menu-list {
-    height: 100%;
+  .react-select__menu {
+    z-index: 20;
   }
 `

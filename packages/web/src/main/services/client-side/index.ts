@@ -6,7 +6,7 @@ export const updateBusScheduleService = async (
 ): Promise<BusSchedule> => {
   const responseBusSchedule = await fetch(`/api/update-bus-schedule/${busId}`, {
     method: 'PUT',
-    body: JSON.stringify(BusSchedule.mapScheduleToString(schedule))
+    body: JSON.stringify(Schedule.toJson(schedule))
   })
   const updatedBusSchedule = await responseBusSchedule.json()
 

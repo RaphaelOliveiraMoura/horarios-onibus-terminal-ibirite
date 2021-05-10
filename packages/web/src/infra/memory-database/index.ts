@@ -1,4 +1,4 @@
-import { Schedule, Time } from 'domain/models'
+import { Schedule } from 'domain/models'
 
 import _1012 from './1012.json'
 import _1013 from './1013.json'
@@ -38,18 +38,13 @@ type BusJson = {
 }
 
 function mapJson(json: BusJson) {
-  const toTimeMap = (time: string) => {
-    const [hours, minutes] = time.split(':').map(Number)
-    return new Time(hours, minutes)
-  }
-
   return {
     id: json.id,
     name: json.id,
     schedule: {
-      workingDays: json.workingDays.map(toTimeMap),
-      saturdays: json.saturdays.map(toTimeMap),
-      sundays: json.sundays.map(toTimeMap)
+      workingDays: json.workingDays.map(Schedule.toTimeMap),
+      saturdays: json.saturdays.map(Schedule.toTimeMap),
+      sundays: json.sundays.map(Schedule.toTimeMap)
     }
   } as BusesMemoryDatabase
 }
