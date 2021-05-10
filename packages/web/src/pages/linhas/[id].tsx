@@ -3,7 +3,6 @@ import {
   getBusLinesService,
   getBusScheduleService
 } from 'main/services/server-side'
-import { useRouter } from 'next/router'
 import { GetServerSidePropsContext } from 'next'
 
 import BusScheduleDetailsPage from 'presentation/pages/bus-schedule-details'
@@ -29,15 +28,8 @@ type PageProps = {
 }
 
 const Page: React.FC<PageProps> = ({ busSchedule, busOptions }) => {
-  const router = useRouter()
-  const { id } = router.query
-
-  if (typeof id !== 'string') return <div>error</div>
-
   return (
     <BusScheduleDetailsPage
-      busId={id}
-      navigate={router.push}
       busOptions={busOptions}
       busSchedule={BusSchedule.fromJson(busSchedule)}
     />

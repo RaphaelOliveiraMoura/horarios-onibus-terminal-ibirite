@@ -23,6 +23,16 @@ export const Title = styled.h1`
   margin-bottom: 1.6rem;
 `
 
+export const BusLineTitle = styled.h2`
+  text-align: center;
+  margin-top: 1.6rem;
+  font-weight: normal;
+
+  strong {
+    font-weight: bold;
+  }
+`
+
 export const BusScheduleContainer = styled.div`
   display: flex;
   justify-content: center;

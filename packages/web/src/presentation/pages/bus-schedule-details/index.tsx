@@ -1,21 +1,37 @@
+import { useState } from 'react'
+
 import AutoCompĺete from 'presentation/components/AutoCompĺete'
 import BusSchedule from 'presentation/components/BusSchedule'
 import { BusSchedule as BusScheduleModel } from 'domain/models'
 
 import * as S from './styles'
+import { useRouter } from 'next/router'
+import Loader from 'presentation/components/Loader'
 
 type BusScheduleDetailsPageProps = {
-  busId: string
-  navigate: (route: string) => void
   busOptions: { label: string; value: string }[]
   busSchedule: BusScheduleModel
 }
 
 const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
   busOptions,
-  busSchedule,
-  navigate
+  busSchedule
 }) => {
+  const router = useRouter()
+
+  const { id } = router.query
+
+  const [loading, setLoading] = useState(false)
+
+  function onSelectBusLine(inputValue: { value: string } | null) {
+    if (!inputValue) return
+
+    setLoading(true)
+    router.push(`/linhas/${inputValue.value}`).finally(() => setLoading(false))
+  }
+
+  if (typeof id !== 'string') return <div>error</div>
+
   return (
     <S.Wrapper>
       <S.Header>
@@ -24,28 +40,35 @@ const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
         </S.Title>
         <AutoCompĺete
           options={busOptions}
-          onChange={(inputValue: { value: string; label: string } | null) =>
-            inputValue && navigate(`/linhas/${inputValue.value}`)
-          }
+          onChange={onSelectBusLine}
           placeholder="Selecione a linha de ônibus"
           label="horarios-onibus"
         />
       </S.Header>
 
-      <S.BusScheduleContainer>
-        <BusSchedule
-          title="Dias úteis"
-          schedule={busSchedule.schedule.workingDays}
-        />
-        <BusSchedule
-          title="Sábados"
-          schedule={busSchedule.schedule.saturdays}
-        />
-        <BusSchedule
-          title="Domingos e feriados"
-          schedule={busSchedule.schedule.sundays}
-        />
-      </S.BusScheduleContainer>
+      {loading && <Loader />}
+
+      {!loading && (
+        <>
+          <S.BusLineTitle>
+            Horários da linha: <strong>{id}</strong>
+          </S.BusLineTitle>
+          <S.BusScheduleContainer>
+            <BusSchedule
+              title="Dias úteis"
+              schedule={busSchedule.schedule.workingDays}
+            />
+            <BusSchedule
+              title="Sábados"
+              schedule={busSchedule.schedule.saturdays}
+            />
+            <BusSchedule
+              title="Domingos e feriados"
+              schedule={busSchedule.schedule.sundays}
+            />
+          </S.BusScheduleContainer>
+        </>
+      )}
     </S.Wrapper>
   )
 }
