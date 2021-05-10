@@ -86,7 +86,7 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
         <AutoCompĺete
           options={busOptions}
           onChange={onSelectBusOption}
-          placeholder="Selecione o ônibus para consulta de horários"
+          placeholder="Selecione a linha de ônibus"
           label="horarios-onibus"
         />
       </S.Header>

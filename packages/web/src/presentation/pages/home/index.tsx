@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 
 import AutoCompĺete from 'presentation/components/AutoCompĺete'
@@ -11,6 +12,8 @@ type HomePageProps = {
 const HomePage: React.FC<HomePageProps> = ({ busOptions }) => {
   const router = useRouter()
 
+  const [inputFocused, setInputFocused] = useState(false)
+
   function onSelectBusLine(inputValue: { value: string } | null) {
     if (!inputValue) return
 
@@ -19,15 +22,19 @@ const HomePage: React.FC<HomePageProps> = ({ busOptions }) => {
 
   return (
     <S.Wrapper>
-      <S.Title>
-        Consulte os horários de ônibus do terminal de ibirité atualizados
-      </S.Title>
-      <AutoCompĺete
-        options={busOptions}
-        onChange={onSelectBusLine}
-        placeholder="Selecione o ônibus para consulta de horários"
-        label="horarios-onibus"
-      />
+      <S.ContentWrapper inputFocused={inputFocused}>
+        <S.Title>
+          Consulte os horários de ônibus do terminal de ibirité atualizados
+        </S.Title>
+        <AutoCompĺete
+          options={busOptions}
+          onChange={onSelectBusLine}
+          placeholder="Selecione a linha de ônibus"
+          label="horarios-onibus"
+          onFocus={() => setInputFocused(true)}
+          onBlur={() => setInputFocused(false)}
+        />
+      </S.ContentWrapper>
     </S.Wrapper>
   )
 }

@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
 
   .react-select-container {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .react-select__control {
@@ -18,5 +18,9 @@ export const Wrapper = styled.div`
   .react-select__control--is-focused {
     border-color: var(--ligth-gray);
     box-shadow: var(--shadow-default);
+  }
+
+  .react-select__menu-list {
+    height: 100%;
   }
 `
