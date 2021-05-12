@@ -69,24 +69,36 @@ export const BusScheduleItem = styled.div`
   position: relative;
 `
 
-export const BusScheduleItemTooltip = styled(Tooltip)`
+export const WidgetsContainer = styled.div`
   position: absolute;
-  color: #000;
   top: -4px;
-  right: -4px;
-  cursor: pointer;
+  left: 0;
+  display: flex;
+`
+
+type WidgetProps = {
+  color?: string
+  background?: string
+}
+
+export const Widget = styled(Tooltip)<WidgetProps>`
+  background: ${({ background }) => background || '#333'};
+  color: ${({ color }) => color || '#fff'};
+  border-radius: 100%;
+  padding: 4px;
+  width: 15px;
+  height: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: -4px;
+
+  & > div {
+    display: flex;
+    cursor: pointer;
+  }
 
   span {
-    border-radius: 100%;
-    background: #ddd;
-    width: 15px;
-    height: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 0.7rem;
   }
 `

@@ -1,6 +1,6 @@
 {
   "id": "1015",
-  "name": "1015 - TERMINAL IBIRITÉ / JARDIM ROSÁRIO / TERMINAL IBIRITÉ / PALMEIRAS - FAZENDINHA",
+  "name": "1015 - Terminal Ibirité / Jardim Rosário / Terminal Ibirité / Palmeiras - Fazendinha",
   "workingDays": [
     "05:00:pi",
     "05:40",
@@ -16,7 +16,22 @@
     "17:00",
     "18:00",
     "19:00",
-    "20:30"
+    "20:30",
+    "05:10:prev-pi",
+    "05:55:prev",
+    "06:25:prev",
+    "06:55:prev",
+    "07:55:prev",
+    "08:55:prev",
+    "10:15:prev",
+    "11:45:prev",
+    "13:15:prev",
+    "14:45:prev",
+    "16:15:prev",
+    "17:15:prev",
+    "18:15:prev",
+    "19:20:prev",
+    "20:45:prev"
   ],
   "saturdays": [
     "05:20:pi",
@@ -29,7 +44,18 @@
     "14:25",
     "16:10",
     "17:55",
-    "20:00"
+    "20:00",
+    "05:30:prev-pi",
+    "06:15:prev",
+    "07:35:prev",
+    "08:45:prev",
+    "09:55:prev",
+    "10:55:prev",
+    "12:55:prev",
+    "14:40:prev",
+    "16:25:prev",
+    "18:10:prev",
+    "20:15:prev"
   ],
   "sundays": [
     "06:00",
@@ -39,6 +65,14 @@
     "14:30",
     "16:30",
     "18:30",
-    "20:30"
+    "20:30",
+    "06:10:prev",
+    "08:45:prev",
+    "10:45:prev",
+    "12:45:prev",
+    "14:45:prev",
+    "16:45:prev",
+    "18:45:prev",
+    "20:45:prev"
   ]
 }

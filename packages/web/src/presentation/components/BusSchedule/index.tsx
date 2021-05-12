@@ -24,21 +24,58 @@ const BusSchedule: React.FC<BusScheduleProps> = ({ title, schedule }) => {
             {scheduleTime.map((time) => (
               <S.BusScheduleItem key={time.toString()}>
                 {time.type === TimeType.PI && (
-                  <S.BusScheduleItemTooltip text="Ônibus sai do bairro">
-                    <span>PI</span>
-                  </S.BusScheduleItemTooltip>
+                  <S.WidgetsContainer>
+                    <S.Widget
+                      text="Ônibus sai do bairro"
+                      color="#333"
+                      background="#ddd"
+                    >
+                      <span>PI</span>
+                    </S.Widget>
+                  </S.WidgetsContainer>
                 )}
 
                 {time.type === TimeType.RI && (
-                  <S.BusScheduleItemTooltip text="Ônibus chega no bairro e recolhe">
-                    <span>RI</span>
-                  </S.BusScheduleItemTooltip>
+                  <S.WidgetsContainer>
+                    <S.Widget
+                      text="Ônibus chega no bairro e recolhe"
+                      color="#333"
+                      background="#ddd"
+                    >
+                      <span>RI</span>
+                    </S.Widget>
+                  </S.WidgetsContainer>
                 )}
 
                 {time.type === TimeType.AL && (
-                  <S.BusScheduleItemTooltip text="Trajeto pela 040">
-                    <span>AL</span>
-                  </S.BusScheduleItemTooltip>
+                  <S.WidgetsContainer>
+                    <S.Widget text="Trajeto pela 040">
+                      <span>AL</span>
+                    </S.Widget>
+                  </S.WidgetsContainer>
+                )}
+
+                {time.type === TimeType.PREV && (
+                  <S.WidgetsContainer>
+                    <S.Widget text="Previsão">
+                      <span>PR</span>
+                    </S.Widget>
+                  </S.WidgetsContainer>
+                )}
+
+                {time.type === TimeType.PREV_PI && (
+                  <S.WidgetsContainer>
+                    <S.Widget text="Previsão">
+                      <span>PR</span>
+                    </S.Widget>
+                    <S.Widget
+                      text="Ônibus sai do bairro"
+                      color="#333"
+                      background="#ddd"
+                    >
+                      <span>PI</span>
+                    </S.Widget>
+                  </S.WidgetsContainer>
                 )}
 
                 {time.toString()}

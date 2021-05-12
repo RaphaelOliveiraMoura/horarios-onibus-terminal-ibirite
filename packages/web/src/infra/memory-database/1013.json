@@ -1,6 +1,6 @@
 {
   "id": "1013",
-  "name": "1013 - TERMINAL IBIRITÉ / RECANTO DAS ÁRVORES / TERMINAL IBIRITÉ / PALMEIRAS",
+  "name": "1013 - Terminal Ibirité / Recanto das Árvores / Terminal Ibirité / Palmeiras",
   "workingDays": [
     "05:30",
     "06:50",
@@ -14,7 +14,20 @@
     "17:05",
     "17:50",
     "19:10",
-    "21:15"
+    "21:15",
+    "06:00:prev",
+    "07:20:prev",
+    "08:10:prev",
+    "09:30:prev",
+    "11:50:prev",
+    "12:40:prev",
+    "14:00:prev",
+    "15:10:prev",
+    "16:10:prev",
+    "17:35:prev",
+    "18:20:prev",
+    "19:40:prev",
+    "21:40:prev"
   ],
   "saturdays": [
     "05:45",
@@ -25,7 +38,16 @@
     "14:25",
     "16:05",
     "17:45",
-    "19:40"
+    "19:40",
+    "06:15:prev",
+    "07:55:prev",
+    "09:35:prev",
+    "11:15:prev",
+    "13:15:prev",
+    "14:55:prev",
+    "16:35:prev",
+    "18:15:prev",
+    "20:10:prev"
   ],
   "sundays": [
     "05:45",
@@ -35,6 +57,14 @@
     "13:00",
     "15:00",
     "17:00",
-    "19:00"
+    "19:00",
+    "06:15:prev",
+    "08:00:prev",
+    "09:45:prev",
+    "11:30:prev",
+    "13:30:prev",
+    "15:30:prev",
+    "17:30:prev",
+    "19:30:prev"
   ]
 }

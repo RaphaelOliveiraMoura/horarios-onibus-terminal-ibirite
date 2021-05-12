@@ -2,7 +2,9 @@ export enum TimeType {
   Default = '',
   PI = 'pi',
   RI = 'ri',
-  AL = 'al'
+  AL = 'al',
+  PREV = 'prev',
+  PREV_PI = 'prev-pi'
 }
 
 export class Time {
