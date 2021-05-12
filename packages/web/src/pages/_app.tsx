@@ -4,10 +4,13 @@ import Head from 'next/head'
 import GlobalStyles from 'presentation/styles/global'
 
 function App({ Component, pageProps }: AppProps) {
+  const disableAnalytics = process.env.NEXT_PUBLIC_DISABLE_ANALYTICS === 'true'
+
   return (
     <>
       <Head>
         <title>Hórarios de ônibus - terminal ibirité ATUALIZADOS</title>
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/img/icon-200.png" />
         <link rel="apple-touch-icon" href="/img/icon-200.png" />
         <link rel="manifest" href="/manifest.json" />
@@ -31,7 +34,7 @@ function App({ Component, pageProps }: AppProps) {
           ></script>
         )}
         {/* Google Analytics */}
-        {process.browser && (
+        {process.browser && !disableAnalytics && (
           <>
             <script
               async

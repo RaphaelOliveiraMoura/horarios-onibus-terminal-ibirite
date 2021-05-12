@@ -1,11 +1,11 @@
-import { Time } from 'domain/models/'
+import { BusTime } from 'domain/models/'
 
 export type ScheduleMap = {
-  [key: string]: Array<Time | null>
+  [key: string]: Array<BusTime | null>
 }
 
 export type ScheduleMapNonNull = {
-  [key: string]: Array<Time>
+  [key: string]: Array<BusTime>
 }
 
 export const emptyScheduleMap: () => ScheduleMap = () =>
@@ -37,18 +37,18 @@ export const emptyScheduleMap: () => ScheduleMap = () =>
   })
 
 export class BusScheduleViewModel {
-  static parse(schedule: Time[]): ScheduleMap {
+  static parse(schedule: BusTime[]): ScheduleMap {
     const scheduleMap: ScheduleMap = schedule
       .sort(BusScheduleViewModel.sort)
-      .reduce((accumulator, time) => {
+      .reduce((accumulator, busTime) => {
         const draft: ScheduleMap = { ...accumulator }
 
-        const alreadyExists = draft[String(time.hours)]
+        const alreadyExists = draft[String(busTime.time.hours)]
 
         if (alreadyExists) {
-          draft[String(time.hours)].push(time)
+          draft[String(busTime.time.hours)].push(busTime)
         } else {
-          draft[String(time.hours)] = [time]
+          draft[String(busTime.time.hours)] = [busTime]
         }
 
         return draft
@@ -57,24 +57,24 @@ export class BusScheduleViewModel {
     return scheduleMap
   }
 
-  static unparse(scheduleMap: ScheduleMap): Time[] {
+  static unparse(scheduleMap: ScheduleMap): BusTime[] {
     return Object.values(scheduleMap).reduce((accumulator, value) => {
-      const times = value.filter((v) => !!v) as Time[]
+      const times = value.filter((v) => !!v) as BusTime[]
       return [...accumulator, ...times]
-    }, []) as Time[]
+    }, []) as BusTime[]
   }
 
-  static sort(time1: Time | null, time2: Time | null): 1 | -1 {
-    if (!time1) return -1
-    if (!time2) return 1
+  static sort(busTime1: BusTime | null, busTime2: BusTime | null): 1 | -1 {
+    if (!busTime1) return -1
+    if (!busTime2) return 1
 
-    return time1.isAfter(time2) ? 1 : -1
+    return busTime1.time.isAfter(busTime2.time) ? 1 : -1
   }
 
   static removeDuplicationsFilter(
-    time: Time | null,
+    time: BusTime | null,
     index: number,
-    array: Array<Time | null>
+    array: Array<BusTime | null>
   ): boolean {
     if (!time) return false
 

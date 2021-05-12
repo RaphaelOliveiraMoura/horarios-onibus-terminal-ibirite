@@ -2,7 +2,7 @@ import { GetBusLines } from 'domain/use-cases/get-bus-lines'
 import { GetBusSchedule } from 'domain/use-cases/get-bus-schedule'
 
 import { UpdateBusSchedule } from 'domain/use-cases/update-bus-schedule'
-import { BusRepositoryMemory } from 'infra/repositories/memory-bus'
+import { BusRepositoryMemory } from 'infra/repositories/memory'
 
 const repository = new BusRepositoryMemory()
 

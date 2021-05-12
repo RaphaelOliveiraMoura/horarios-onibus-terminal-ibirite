@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
     async function fetch() {
       try {
         setLoading(true)
-        const buses = await getBusLinesService()
+        const buses = await getBusLinesService.execute()
         const options = buses.map(({ id, name }) => ({
           value: id,
           label: name

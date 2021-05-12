@@ -1,38 +1,23 @@
-export enum TimeType {
-  Default = '',
-  PI = 'pi',
-  RI = 'ri',
-  AL = 'al',
-  PREV = 'prev',
-  PREV_PI = 'prev-pi'
-}
+import { InvalidHoursError, InvalidMinutesError } from 'domain/errors'
 
 export class Time {
   public hours: number
   public minutes: number
-  public type: TimeType
 
   private inRange(value: number, min: number, max: number) {
     return value >= min && value <= max
   }
 
-  constructor(
-    hours: number,
-    minutes: number,
-    type: TimeType = TimeType.Default
-  ) {
+  constructor(hours: number, minutes: number) {
     this.hours = hours
     this.minutes = minutes
-    this.type = type
 
     if (!this.inRange(this.hours, 0, 23)) {
-      throw new Error(`invalid-hours: '${this.hours}' must be in range 0 - 23`)
+      throw new InvalidHoursError(this.hours)
     }
 
     if (!this.inRange(this.minutes, 0, 59)) {
-      throw new Error(
-        `invalid-minutes: '${this.minutes}' must be in range 0 - 59`
-      )
+      throw new InvalidMinutesError(this.minutes)
     }
   }
 
@@ -45,11 +30,7 @@ export class Time {
   }
 
   public isEqual(time: Time) {
-    return (
-      this.hours === time.hours &&
-      this.minutes === time.minutes &&
-      this.type === time.type
-    )
+    return this.hours === time.hours && this.minutes === time.minutes
   }
 
   public toString() {

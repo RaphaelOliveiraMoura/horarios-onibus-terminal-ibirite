@@ -1,30 +1,28 @@
 import { Bus, BusSchedule, Schedule } from 'domain/models'
 import { BusRepository } from 'domain/repositories'
 
-import database from '../memory-database'
+import database from './db'
 
 const mutableDatabase = [...database]
 
 export class BusRepositoryMemory implements BusRepository {
   async getBusLines(): Promise<Bus[]> {
-    return mutableDatabase.map(({ id, name }) => ({ id, name }))
+    return mutableDatabase.map(({ bus }) => ({ ...bus }))
   }
 
   async getBusSchedule(busId: string): Promise<BusSchedule> {
-    const bus = mutableDatabase.find(({ id }) => id === busId)
+    const bus = mutableDatabase.find(({ bus: { id } }) => id === busId)
 
     if (!bus) throw Error(`Bus with id '${busId}' not found`)
 
-    const { id, name, schedule } = bus
-
-    return { bus: { id, name }, schedule }
+    return bus
   }
 
   async updateBusSchedule(
     busId: string,
     busSchedule: Schedule
   ): Promise<BusSchedule> {
-    const busIndex = mutableDatabase.findIndex(({ id }) => id === busId)
+    const busIndex = mutableDatabase.findIndex(({ bus }) => bus.id === busId)
 
     if (busIndex < 0) throw Error(`Bus with id '${busId}' not found`)
 
@@ -32,6 +30,6 @@ export class BusRepositoryMemory implements BusRepository {
     bus.schedule = busSchedule
     mutableDatabase[busIndex] = bus
 
-    return { bus: { id: bus.id, name: bus.name }, schedule: busSchedule }
+    return mutableDatabase[busIndex]
   }
 }

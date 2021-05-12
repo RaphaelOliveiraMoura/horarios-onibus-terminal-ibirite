@@ -1,13 +1,13 @@
 import { ChangeEvent, useState } from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
 
-import { Time } from 'domain/models'
+import { BusTime, Time } from 'domain/models'
 import { useEditableBusSchedule } from 'presentation/components/EditableBusSchedule/provider'
 
 import * as S from './styles'
 
 type BusScheduleItemProps = {
-  time: Time | null
+  time: BusTime | null
 }
 
 const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ time }) => {
@@ -21,7 +21,7 @@ const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ time }) => {
 
       const [newHours, newMinutes] = inputValue.split(':').map(Number)
 
-      onEditTime(time, new Time(newHours, newMinutes))
+      onEditTime(time, new BusTime(new Time(newHours, newMinutes)))
 
       setFocus(false)
     } catch (error) {
@@ -33,7 +33,7 @@ const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ time }) => {
   return (
     <S.BusScheduleItem focused={isFocused}>
       <S.BusScheduleInput
-        defaultValue={time ? time.toString() : ''}
+        defaultValue={time ? time.time.toString() : ''}
         maxLength={5}
         onFocus={() => setFocus(true)}
         onBlur={onBlur}

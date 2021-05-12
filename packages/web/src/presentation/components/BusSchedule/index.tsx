@@ -1,4 +1,4 @@
-import { Time, TimeType } from 'domain/models'
+import { BusTime, BusModifiers } from 'domain/models'
 import {
   BusScheduleViewModel,
   ScheduleMapNonNull
@@ -8,7 +8,48 @@ import * as S from './styles'
 
 export type BusScheduleProps = {
   title: string
-  schedule: Time[]
+  schedule: BusTime[]
+}
+
+const modifiersMap = {
+  [BusModifiers.AL]: function Widget(key: string) {
+    return (
+      <S.Widget key={key} text="Trajeto pela 040">
+        <span>AL</span>
+      </S.Widget>
+    )
+  },
+  [BusModifiers.PI]: function Widget(key: string) {
+    return (
+      <S.Widget
+        key={key}
+        text="Ônibus sai do bairro"
+        color="#333"
+        background="#ddd"
+      >
+        <span>PI</span>
+      </S.Widget>
+    )
+  },
+  [BusModifiers.PREV]: function Widget(key: string) {
+    return (
+      <S.Widget key={key} text="Previsão">
+        <span>PR</span>
+      </S.Widget>
+    )
+  },
+  [BusModifiers.RI]: function Widget(key: string) {
+    return (
+      <S.Widget
+        key={key}
+        text="Ônibus chega no bairro e recolhe"
+        color="#333"
+        background="#ddd"
+      >
+        <span>RI</span>
+      </S.Widget>
+    )
+  }
 }
 
 const BusSchedule: React.FC<BusScheduleProps> = ({ title, schedule }) => {
@@ -21,64 +62,19 @@ const BusSchedule: React.FC<BusScheduleProps> = ({ title, schedule }) => {
         {Object.entries(scheduleMap).map(([hour, scheduleTime]) => (
           <S.BusScheduleHourColumn key={hour}>
             <S.BusScheduleHeader>{hour}</S.BusScheduleHeader>
-            {scheduleTime.map((time) => (
-              <S.BusScheduleItem key={time.toString()}>
-                {time.type === TimeType.PI && (
+            {scheduleTime.map((busTime) => (
+              <S.BusScheduleItem key={busTime.time.toString()}>
+                {busTime.modifiers.length > 0 && (
                   <S.WidgetsContainer>
-                    <S.Widget
-                      text="Ônibus sai do bairro"
-                      color="#333"
-                      background="#ddd"
-                    >
-                      <span>PI</span>
-                    </S.Widget>
+                    {busTime.modifiers.map((modifier) =>
+                      modifiersMap[modifier](
+                        `${busTime.time.toString()}${modifier}`
+                      )
+                    )}
                   </S.WidgetsContainer>
                 )}
 
-                {time.type === TimeType.RI && (
-                  <S.WidgetsContainer>
-                    <S.Widget
-                      text="Ônibus chega no bairro e recolhe"
-                      color="#333"
-                      background="#ddd"
-                    >
-                      <span>RI</span>
-                    </S.Widget>
-                  </S.WidgetsContainer>
-                )}
-
-                {time.type === TimeType.AL && (
-                  <S.WidgetsContainer>
-                    <S.Widget text="Trajeto pela 040">
-                      <span>AL</span>
-                    </S.Widget>
-                  </S.WidgetsContainer>
-                )}
-
-                {time.type === TimeType.PREV && (
-                  <S.WidgetsContainer>
-                    <S.Widget text="Previsão">
-                      <span>PR</span>
-                    </S.Widget>
-                  </S.WidgetsContainer>
-                )}
-
-                {time.type === TimeType.PREV_PI && (
-                  <S.WidgetsContainer>
-                    <S.Widget text="Previsão">
-                      <span>PR</span>
-                    </S.Widget>
-                    <S.Widget
-                      text="Ônibus sai do bairro"
-                      color="#333"
-                      background="#ddd"
-                    >
-                      <span>PI</span>
-                    </S.Widget>
-                  </S.WidgetsContainer>
-                )}
-
-                {time.toString()}
+                {busTime.time.toString()}
               </S.BusScheduleItem>
             ))}
           </S.BusScheduleHourColumn>

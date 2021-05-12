@@ -13,7 +13,7 @@ export function useGetBusOptions() {
   useEffect(() => {
     async function fetch() {
       try {
-        const buses = await getBusLinesService()
+        const buses = await getBusLinesService.execute()
         const options = buses.map(({ id, name }) => ({
           value: id,
           label: name

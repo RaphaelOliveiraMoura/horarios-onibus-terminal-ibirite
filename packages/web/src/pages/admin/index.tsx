@@ -1,7 +1,7 @@
 // import AutoCompĺete from 'presentation/components/AutoCompĺete'
 import EditableBusSchedule from 'presentation/components/EditableBusSchedule'
 import AutoCompĺete from 'presentation/components/AutoCompĺete'
-import { BusSchedule as BusScheduleModel, Time } from 'domain/models'
+import { BusSchedule as BusScheduleModel, BusTime } from 'domain/models'
 
 import {
   getBusScheduleService,
@@ -27,7 +27,7 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
   useEffect(() => {
     async function fetch() {
       try {
-        const buses = await getBusLinesService()
+        const buses = await getBusLinesService.execute()
         const options = buses.map(({ id, name }) => ({
           value: id,
           label: name
@@ -46,7 +46,7 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
   async function onSelectBusOption(inputValue: Option | null) {
     if (!inputValue?.value) return
 
-    const busSchedule = await getBusScheduleService(inputValue.value)
+    const busSchedule = await getBusScheduleService.execute(inputValue.value)
 
     setCurrentBusSchedule(null)
     setCurrentBusSchedule({ ...busSchedule })
@@ -68,7 +68,7 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
   }
 
   function onUpdateBusSchedule(key: 'workingDays' | 'saturdays' | 'sundays') {
-    return (schedule: Time[]) => {
+    return (schedule: BusTime[]) => {
       if (!currentBusSchedule) return
       const draft = { ...currentBusSchedule }
       draft.schedule[key] = schedule

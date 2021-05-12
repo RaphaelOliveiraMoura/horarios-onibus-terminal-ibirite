@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
   }
 
   .react-select__option--is-selected {
-    background: #444;
-    color: #fff;
+    background: #444 !important;
+    color: #fff !important;
   }
 `

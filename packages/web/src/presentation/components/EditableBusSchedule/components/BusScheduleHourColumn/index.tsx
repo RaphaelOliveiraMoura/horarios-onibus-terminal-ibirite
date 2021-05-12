@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { IoIosAddCircleOutline } from 'react-icons/io'
 
-import { Time } from 'domain/models'
+import { BusTime } from 'domain/models'
 import BusScheduleItem from 'presentation/components/EditableBusSchedule/components/BusScheduleItem'
 import { useEditableBusSchedule } from 'presentation/components/EditableBusSchedule/provider'
 
@@ -9,7 +9,7 @@ import * as S from './styles'
 
 type BusScheduleHourColumnProps = {
   hourKey: string
-  scheduleTimes: Array<Time | null>
+  scheduleTimes: Array<BusTime | null>
 }
 
 const BusScheduleHourColumn: React.FC<BusScheduleHourColumnProps> = ({
@@ -38,10 +38,10 @@ const BusScheduleHourColumn: React.FC<BusScheduleHourColumnProps> = ({
     <S.BusScheduleHourColumn key={hourKey} ref={busScheduleHourColumn}>
       <S.BusScheduleHeader>{hourKey}</S.BusScheduleHeader>
 
-      {scheduleTimes.map((time) => (
+      {scheduleTimes.map((busTime) => (
         <BusScheduleItem
-          key={time && time.toString() + Math.random()}
-          time={time}
+          key={busTime && busTime.time.toString() + Math.random()}
+          time={busTime}
         />
       ))}
       <IoIosAddCircleOutline

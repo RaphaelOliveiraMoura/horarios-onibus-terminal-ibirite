@@ -2,7 +2,7 @@ import React from 'react'
 
 import { NextPageContext } from 'next'
 
-import database from 'infra/memory-database'
+import database from 'infra/repositories/memory/db'
 
 const BASE_URL = 'https://www.terminal-ibirite.com'
 
@@ -11,7 +11,7 @@ class Sitemap extends React.Component {
     function createSitemap() {
       const pages: string[] = [
         '/',
-        ...database.map((bus) => `/linhas/${bus.name}`)
+        ...database.map(({ bus }) => `/linhas/${bus.name}`)
       ]
 
       function appendPage(page: string) {

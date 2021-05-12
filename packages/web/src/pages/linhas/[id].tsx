@@ -1,9 +1,14 @@
-import { BusSchedule, BusScheduleJSON } from 'domain/models'
 import {
   getBusLinesService,
   getBusScheduleService
 } from 'main/services/server-side'
 import { GetServerSidePropsContext } from 'next'
+
+import {
+  fromJson,
+  toJson,
+  HttpBusScheduleResponse
+} from 'infra/repositories/http/entities/bus-schedule'
 
 import BusScheduleDetailsPage from 'presentation/pages/bus-schedule-details'
 
@@ -19,11 +24,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     String(context.params?.id)
   )
 
-  return { props: { busOptions, busSchedule: BusSchedule.toJson(busSchedule) } }
+  return { props: { busOptions, busSchedule: toJson(busSchedule) } }
 }
 
 type PageProps = {
-  busSchedule: BusScheduleJSON
+  busSchedule: HttpBusScheduleResponse
   busOptions: { label: string; value: string }[]
 }
 
@@ -31,7 +36,7 @@ const Page: React.FC<PageProps> = ({ busSchedule, busOptions }) => {
   return (
     <BusScheduleDetailsPage
       busOptions={busOptions}
-      busSchedule={BusSchedule.fromJson(busSchedule)}
+      busSchedule={fromJson(busSchedule)}
     />
   )
 }

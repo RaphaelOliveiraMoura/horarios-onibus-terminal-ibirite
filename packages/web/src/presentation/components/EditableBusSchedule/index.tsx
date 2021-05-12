@@ -1,4 +1,4 @@
-import { Time } from 'domain/models'
+import { BusTime } from 'domain/models'
 import BusScheduleHourColumn from 'presentation/components/EditableBusSchedule/components/BusScheduleHourColumn'
 import {
   useEditableBusSchedule,
@@ -9,8 +9,8 @@ import * as S from './styles'
 
 export type EditableBusScheduleProps = {
   title: string
-  schedule: Time[]
-  onUpdateBusSchedule: (schedule: Time[]) => void
+  schedule: BusTime[]
+  onUpdateBusSchedule: (schedule: BusTime[]) => void
 }
 
 const EditableBusSchedule: React.FC<EditableBusScheduleProps> = ({ title }) => {

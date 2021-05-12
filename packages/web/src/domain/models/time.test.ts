@@ -1,3 +1,4 @@
+import { InvalidHoursError, InvalidMinutesError } from 'domain/errors'
 import { Time } from './time'
 
 describe('TimeModel', () => {
@@ -15,19 +16,13 @@ describe('TimeModel', () => {
   })
 
   it('should create invalid times', () => {
-    const testCases: [() => Time, string][] = [
-      [() => new Time(-1, 0), `invalid-hours: '-1' must be in range 0 - 23`],
-      [() => new Time(24, 0), `invalid-hours: '24' must be in range 0 - 23`],
-      [
-        () => new Time(1000, 0),
-        `invalid-hours: '1000' must be in range 0 - 23`
-      ],
-      [() => new Time(0, -1), `invalid-minutes: '-1' must be in range 0 - 59`],
-      [() => new Time(0, 60), `invalid-minutes: '60' must be in range 0 - 59`],
-      [
-        () => new Time(0, 1000),
-        `invalid-minutes: '1000' must be in range 0 - 59`
-      ]
+    const testCases: [() => Time, Error][] = [
+      [() => new Time(-1, 0), new InvalidHoursError(-1)],
+      [() => new Time(24, 0), new InvalidHoursError(24)],
+      [() => new Time(1000, 0), new InvalidHoursError(1000)],
+      [() => new Time(0, -1), new InvalidMinutesError(-1)],
+      [() => new Time(0, 60), new InvalidMinutesError(60)],
+      [() => new Time(0, 1000), new InvalidMinutesError(1000)]
     ]
 
     testCases.forEach(([expected, error]) => {
