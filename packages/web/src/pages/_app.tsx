@@ -10,11 +10,10 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Hórarios de ônibus - terminal ibirité ATUALIZADOS</title>
-        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/img/icon-200.png" />
         <link rel="apple-touch-icon" href="/img/icon-200.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
         <meta
           name="description"
           content="Encontre todos horários de ônibus do terminal de ibirité sempre atualizados"
