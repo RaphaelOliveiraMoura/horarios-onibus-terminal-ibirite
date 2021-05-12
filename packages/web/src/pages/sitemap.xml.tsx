@@ -11,7 +11,7 @@ class Sitemap extends React.Component {
     function createSitemap() {
       const pages: string[] = [
         '/',
-        ...database.map(({ bus }) => `/linhas/${bus.name}`)
+        ...database.map(({ bus }) => `/linhas/${bus.id}`)
       ]
 
       function appendPage(page: string) {
