@@ -26,6 +26,15 @@ import _3560 from './3560.json'
 import _C001 from './C001.json'
 import _C002 from './C002.json'
 
+import _1013P from './1013P.json'
+import _1015P from './1015P.json'
+import _1020P from './1020P.json'
+import _1021P from './1021P.json'
+import _1024P from './1024P.json'
+import _1025P from './1025P.json'
+import _1030P from './1030P.json'
+import _1031P from './1031P.json'
+
 import * as BuScheduleEntity from '../entities/bus-schedule'
 
 const buses = [
@@ -55,7 +64,18 @@ const buses = [
   _3540,
   _3560,
   _C001,
-  _C002
-].map(BuScheduleEntity.parse)
+  _C002,
+
+  _1013P,
+  _1015P,
+  _1020P,
+  _1021P,
+  _1024P,
+  _1025P,
+  _1030P,
+  _1031P
+]
+  .map(BuScheduleEntity.parse)
+  .sort((a, b) => (a.bus.name > b.bus.name ? 1 : -1))
 
 export default buses
