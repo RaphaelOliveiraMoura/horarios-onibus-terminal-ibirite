@@ -1,6 +1,7 @@
 {
   "id": "C001",
   "name": "C001 - Circular Hospital",
+  "labels": {},
   "workingDays": [
     "06:00",
     "07:00",
