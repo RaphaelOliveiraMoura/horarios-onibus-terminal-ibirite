@@ -2,12 +2,11 @@
   "id": "1024P",
   "name": "1024 - (Previsão) Terminal Ibirité / Los Angeles",
   "labels": {
-    "prev": "(Previsão) - Terminal Ibirité / Los Angeles",
-    "pi": "Partida do bairro"
+    "prev": "(Previsão) - Terminal Ibirité / Los Angeles"
   },
   "workingDays": [
-    "05:15:prev,pi",
-    "06:05:prev,pi",
+    "05:15:prev",
+    "06:05:prev",
     "06:50:prev",
     "07:30:prev",
     "08:00:prev",
@@ -44,7 +43,7 @@
     "21:00:prev"
   ],
   "sundays": [
-    "05:45:prev,pi",
+    "05:45:prev",
     "06:40:prev",
     "07:40:prev",
     "08:40:prev",

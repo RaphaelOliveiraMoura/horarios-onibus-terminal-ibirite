@@ -2,11 +2,10 @@
   "id": "1025P",
   "name": "1025 - (Previsão) Terminal Ibirité / Durval de Barros",
   "labels": {
-    "prev": "(Previsão) - Terminal Ibirité / Durval de Barros",
-    "pi": "Partida do bairro"
+    "prev": "(Previsão) - Terminal Ibirité / Durval de Barros"
   },
   "workingDays": [
-    "05:35:prev,pi",
+    "05:35:prev",
     "06:40:prev",
     "07:25:prev",
     "08:20:prev",
@@ -25,7 +24,7 @@
     "21:40:prev"
   ],
   "saturdays": [
-    "05:35:prev,pi",
+    "05:35:prev",
     "07:00:prev",
     "08:20:prev",
     "09:40:prev",
@@ -38,7 +37,7 @@
     "21:00:prev"
   ],
   "sundays": [
-    "05:55:prev,pi",
+    "05:55:prev",
     "07:00:prev",
     "08:30:prev",
     "09:40:prev",

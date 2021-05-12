@@ -2,11 +2,10 @@
   "id": "1015P",
   "name": "1015 - (Previsão) Terminal Ibirité / Palmeiras - Fazendinha",
   "labels": {
-    "prev": "(Previsão) - Terminal Ibirité / Palmeiras - Fazendinha",
-    "pi": "Partida do bairro"
+    "prev": "(Previsão) - Terminal Ibirité / Palmeiras - Fazendinha"
   },
   "workingDays": [
-    "05:10:prev,pi",
+    "05:10:prev",
     "05:55:prev",
     "06:25:prev",
     "06:55:prev",
@@ -23,7 +22,7 @@
     "20:45:prev"
   ],
   "saturdays": [
-    "05:30:prev,pi",
+    "05:30:prev",
     "06:15:prev",
     "07:35:prev",
     "08:45:prev",

@@ -2,11 +2,10 @@
   "id": "1021P",
   "name": "1021 - (Previsão) Terminal Ibirité / Recanto Verde",
   "labels": {
-    "prev": "(Previsão) - Terminal Ibirité / Recanto Verde",
-    "pi": "Partida do bairro"
+    "prev": "(Previsão) - Terminal Ibirité / Recanto Verde"
   },
   "workingDays": [
-    "05:20:prev,pi",
+    "05:20:prev",
     "06:30:prev",
     "08:00:prev",
     "09:30:prev",
@@ -19,7 +18,7 @@
     "20:50:prev"
   ],
   "saturdays": [
-    "06:20:prev,pi",
+    "06:20:prev",
     "07:30:prev",
     "09:15:prev",
     "11:00:prev",
@@ -30,7 +29,7 @@
     "20:45:prev"
   ],
   "sundays": [
-    "06:40:prev,pi",
+    "06:40:prev",
     "08:00:prev",
     "10:00:prev",
     "12:00:prev",
