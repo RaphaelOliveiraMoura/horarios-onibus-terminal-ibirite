@@ -1,6 +1,9 @@
 {
   "id": "C002",
   "name": "C002 - Circular Parte Alta",
+  "labels": {
+    "pi": "Partida do bairro"
+  },
   "workingDays": [
     "06:00:pi",
     "07:00",

@@ -1,6 +1,12 @@
 {
   "id": "",
   "name": "",
+  "labels": {
+    "prev": "",
+    "pi": "",
+    "ri": "",
+    "al": ""
+  },
   "workingDays": [],
   "saturdays": [],
   "sundays": []

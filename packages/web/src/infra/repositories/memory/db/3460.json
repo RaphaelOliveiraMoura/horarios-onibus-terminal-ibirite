@@ -1,6 +1,9 @@
 {
   "id": "3460",
   "name": "3460 - Terminal Ibirité / Monsenhor Horta – Ibirité",
+  "labels": {
+    "pi": "Partida do bairro"
+  },
   "workingDays": [
     "04:30:pi",
     "04:30",

@@ -1,6 +1,9 @@
 {
   "id": "3370",
   "name": "3370 - Terminal Ibirité / Canoas – Ibirité",
+  "labels": {
+    "pi": "Partida do bairro"
+  },
   "workingDays": [
     "05:00",
     "05:10:pi",

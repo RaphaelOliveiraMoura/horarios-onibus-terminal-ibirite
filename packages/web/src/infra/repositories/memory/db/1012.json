@@ -1,6 +1,9 @@
 {
   "id": "1012",
   "name": "1012 - Terminal Ibirité / Vista Alegre / Morada da Serra",
+  "labels": {
+    "pi": "Partida do bairro"
+  },
   "workingDays": [
     "04:50",
     "05:00:pi",

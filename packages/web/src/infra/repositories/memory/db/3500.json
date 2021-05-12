@@ -1,6 +1,9 @@
 {
   "id": "3500",
   "name": "3500 - Terminal Ibirité / Dea Marly – Ibirité",
+  "labels": {
+    "pi": "Partida do bairro"
+  },
   "workingDays": [
     "04:25:pi",
     "04:30",

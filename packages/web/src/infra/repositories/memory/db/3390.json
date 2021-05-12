@@ -1,6 +1,9 @@
 {
   "id": "3390",
   "name": "3390 - Terminal Ibirité / Jardim das Rosas – Ibirité",
+  "labels": {
+    "pi": "Partida do bairro"
+  },
   "workingDays": [
     "04:00:pi",
     "04:30:pi",
