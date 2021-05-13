@@ -32,4 +32,8 @@ export const Wrapper = styled.div`
     background: #444 !important;
     color: #fff !important;
   }
+
+  .react-select__menu-list {
+    max-height: 400px;
+  }
 `

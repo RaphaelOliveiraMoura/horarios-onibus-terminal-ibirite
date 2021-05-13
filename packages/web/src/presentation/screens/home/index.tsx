@@ -51,6 +51,7 @@ const HomePage: React.FC = () => {
           Consulte os horários de ônibus do terminal de ibirité atualizados
         </S.Title>
         <AutoCompĺete
+          id="bus-line"
           options={busOptions}
           onChange={onSelectBusLine}
           placeholder="Selecione a linha de ônibus"

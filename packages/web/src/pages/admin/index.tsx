@@ -8,7 +8,7 @@ import {
   getBusLinesService
 } from 'main/services/client-side'
 
-import * as S from 'presentation/pages/bus-schedule-details/styles'
+import * as S from 'presentation/screens/bus-schedule-details/styles'
 import { useEffect, useState } from 'react'
 
 type Option = { value: string; label: string }
@@ -81,6 +81,7 @@ const BusScheduleDetailsAdminPage: React.FC = () => {
       <S.Header>
         <S.Title>Quadro de horários Terminal de Ibirité</S.Title>
         <AutoCompĺete
+          id="bus-line"
           options={busOptions}
           onChange={onSelectBusOption}
           placeholder="Selecione a linha de ônibus"
