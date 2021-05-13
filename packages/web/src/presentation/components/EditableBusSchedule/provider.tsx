@@ -53,7 +53,7 @@ export const EditableBusScheduleProvider: React.FC<EditableBusScheduleProviderPr
     const hourKeyMap = String(busTime.time.hours)
 
     const indexToRemove = draft[hourKeyMap].findIndex((currentTime) =>
-      currentTime?.time.isEqual(busTime.time)
+      currentTime?.isEqual(busTime)
     )
 
     if (indexToRemove < 0) throw new Error('Try removing a invalid time')

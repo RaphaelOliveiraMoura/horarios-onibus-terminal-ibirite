@@ -1,17 +1,21 @@
 import { ChangeEvent, useState } from 'react'
-import { AiOutlineDelete } from 'react-icons/ai'
+// import { AiOutlineDelete } from 'react-icons/ai'
+import { AiOutlineInfoCircle } from 'react-icons/ai'
 
 import { BusTime, Time } from 'domain/models'
+
 import { useEditableBusSchedule } from 'presentation/components/EditableBusSchedule/provider'
+import { useDialog } from 'presentation/components/Dialog/provider'
 
 import * as S from './styles'
 
 type BusScheduleItemProps = {
-  time: BusTime | null
+  busTime: BusTime | null
 }
 
-const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ time }) => {
+const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ busTime }) => {
   const { onEditTime, onRemoveTime } = useEditableBusSchedule()
+  const { openDialog } = useDialog()
 
   const [isFocused, setFocus] = useState(false)
 
@@ -21,25 +25,45 @@ const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ time }) => {
 
       const [newHours, newMinutes] = inputValue.split(':').map(Number)
 
-      onEditTime(time, new BusTime(new Time(newHours, newMinutes)))
+      onEditTime(busTime, new BusTime(new Time(newHours, newMinutes)))
 
       setFocus(false)
     } catch (error) {
-      onRemoveTime(time)
+      onRemoveTime(busTime)
       setFocus(true)
     }
   }
 
+  function openModifiersModal() {
+    openDialog((close) => (
+      <div>
+        Alterar modificadores
+        <label>
+          PI
+          <input type="checkbox" name="PI" id="pi" />
+        </label>
+        <button onClick={close}>Cancelar</button>
+        <button onClick={close}>Confirmar</button>
+      </div>
+    ))
+  }
+
   return (
-    <S.BusScheduleItem focused={isFocused}>
-      <S.BusScheduleInput
-        defaultValue={time ? time.time.toString() : ''}
-        maxLength={5}
-        onFocus={() => setFocus(true)}
-        onBlur={onBlur}
-      />
-      <AiOutlineDelete color="red" onClick={() => onRemoveTime(time)} />
-    </S.BusScheduleItem>
+    <>
+      <S.BusScheduleItem focused={isFocused}>
+        <S.BusScheduleInput
+          defaultValue={busTime ? busTime.time.toString() : ''}
+          maxLength={5}
+          onFocus={() => setFocus(true)}
+          onBlur={onBlur}
+        />
+        {/* <AiOutlineDelete color="red" onClick={() => onRemoveTime(busTime)} /> */}
+        <AiOutlineInfoCircle
+          color="#333"
+          onClick={() => openModifiersModal()}
+        />
+      </S.BusScheduleItem>
+    </>
   )
 }
 

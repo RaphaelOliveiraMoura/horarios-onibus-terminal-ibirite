@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-import AutoCompĺete from 'presentation/components/AutoCompĺete'
+import AutoCompĺete, { Option } from 'presentation/components/AutoCompĺete'
 
 import * as S from './styles'
 import Loader from 'presentation/components/Loader'
 import { getBusLinesService } from 'main/services/client-side'
-
-type Option = { value: string; label: string }
 
 const HomePage: React.FC = () => {
   const router = useRouter()
