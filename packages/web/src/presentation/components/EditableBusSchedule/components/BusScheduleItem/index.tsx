@@ -7,50 +7,10 @@ import { useEditableBusSchedule } from 'presentation/components/EditableBusSched
 import { useDialog } from 'presentation/components/Dialog/provider'
 
 import * as S from './styles'
+import { modifiersMap } from 'presentation/components/ModifiersTooltip'
 
 type BusScheduleItemProps = {
   busTime: BusTime | null
-}
-
-const modifiersMap = {
-  [BusModifiers.AL]: function Widget(key: string) {
-    return (
-      <S.Widget key={key} text="Trajeto pela 040">
-        <span>AL</span>
-      </S.Widget>
-    )
-  },
-  [BusModifiers.PI]: function Widget(key: string) {
-    return (
-      <S.Widget
-        key={key}
-        text="Ônibus sai do bairro"
-        color="#333"
-        background="#ddd"
-      >
-        <span>PI</span>
-      </S.Widget>
-    )
-  },
-  [BusModifiers.PREV]: function Widget(key: string) {
-    return (
-      <S.Widget key={key} text="Previsão">
-        <span>PR</span>
-      </S.Widget>
-    )
-  },
-  [BusModifiers.RI]: function Widget(key: string) {
-    return (
-      <S.Widget
-        key={key}
-        text="Ônibus chega no bairro e recolhe"
-        color="#333"
-        background="#ddd"
-      >
-        <span>RI</span>
-      </S.Widget>
-    )
-  }
 }
 
 const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ busTime }) => {

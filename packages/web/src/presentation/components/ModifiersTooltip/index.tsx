@@ -40,5 +40,12 @@ export const modifiersMap = {
         <span>RI</span>
       </S.Widget>
     )
+  },
+  [BusModifiers.WARN]: function Widget(key: string) {
+    return (
+      <S.Widget key={key} text="Alerta" color="#ddd" background="#f55c47">
+        <span>WR</span>
+      </S.Widget>
+    )
   }
 }
