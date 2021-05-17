@@ -1,8 +1,7 @@
 import { ChangeEvent, useState } from 'react'
-// import { AiOutlineDelete } from 'react-icons/ai'
 import { AiOutlineInfoCircle } from 'react-icons/ai'
 
-import { BusTime, Time } from 'domain/models'
+import { BusModifiers, BusTime, Time } from 'domain/models'
 
 import { useEditableBusSchedule } from 'presentation/components/EditableBusSchedule/provider'
 import { useDialog } from 'presentation/components/Dialog/provider'
@@ -13,11 +12,50 @@ type BusScheduleItemProps = {
   busTime: BusTime | null
 }
 
-const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ busTime }) => {
-  const { onEditTime, onRemoveTime } = useEditableBusSchedule()
-  const { openDialog } = useDialog()
+const modifiersMap = {
+  [BusModifiers.AL]: function Widget(key: string) {
+    return (
+      <S.Widget key={key} text="Trajeto pela 040">
+        <span>AL</span>
+      </S.Widget>
+    )
+  },
+  [BusModifiers.PI]: function Widget(key: string) {
+    return (
+      <S.Widget
+        key={key}
+        text="Ônibus sai do bairro"
+        color="#333"
+        background="#ddd"
+      >
+        <span>PI</span>
+      </S.Widget>
+    )
+  },
+  [BusModifiers.PREV]: function Widget(key: string) {
+    return (
+      <S.Widget key={key} text="Previsão">
+        <span>PR</span>
+      </S.Widget>
+    )
+  },
+  [BusModifiers.RI]: function Widget(key: string) {
+    return (
+      <S.Widget
+        key={key}
+        text="Ônibus chega no bairro e recolhe"
+        color="#333"
+        background="#ddd"
+      >
+        <span>RI</span>
+      </S.Widget>
+    )
+  }
+}
 
-  const [isFocused, setFocus] = useState(false)
+const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ busTime }) => {
+  const { onEditTime, onRemoveTime, changeModifier } = useEditableBusSchedule()
+  const { openDialog } = useDialog()
 
   function onBlur(event: ChangeEvent<HTMLInputElement>) {
     try {
@@ -26,41 +64,102 @@ const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ busTime }) => {
       const [newHours, newMinutes] = inputValue.split(':').map(Number)
 
       onEditTime(busTime, new BusTime(new Time(newHours, newMinutes)))
-
-      setFocus(false)
     } catch (error) {
       onRemoveTime(busTime)
-      setFocus(true)
     }
   }
 
   function openModifiersModal() {
-    openDialog((close) => (
-      <div>
-        Alterar modificadores
-        <label>
-          PI
-          <input type="checkbox" name="PI" id="pi" />
-        </label>
-        <button onClick={close}>Cancelar</button>
-        <button onClick={close}>Confirmar</button>
-      </div>
-    ))
+    if (!busTime) return
+
+    openDialog(function Builder({ close }: { close: () => void }) {
+      const [modifiers, setModifiers] = useState(busTime.modifiers)
+
+      function onChangeModifier(modifier: BusModifiers) {
+        return function (e: ChangeEvent<HTMLInputElement>) {
+          const draftModifiers = [...modifiers]
+
+          const modifierIndex = draftModifiers.indexOf(modifier)
+
+          if (modifierIndex >= 0) draftModifiers.splice(modifierIndex, 1)
+
+          if (e.target.checked) {
+            draftModifiers.push(modifier)
+
+            if (
+              draftModifiers.includes(BusModifiers.PI) &&
+              draftModifiers.includes(BusModifiers.RI)
+            ) {
+              const indexToRemove =
+                modifier === BusModifiers.PI
+                  ? modifiers.indexOf(BusModifiers.RI)
+                  : modifiers.indexOf(BusModifiers.PI)
+
+              draftModifiers.splice(indexToRemove, 1)
+            }
+          }
+
+          setModifiers(draftModifiers)
+        }
+      }
+
+      return (
+        <S.ModifiersModalWrapper>
+          <S.ModifiersModalTitle>Alterar modificadores</S.ModifiersModalTitle>
+          <S.ModifiersModalContent>
+            <label>
+              <input
+                type="checkbox"
+                name="PI"
+                id="pi"
+                checked={modifiers.includes(BusModifiers.PI)}
+                onChange={onChangeModifier(BusModifiers.PI)}
+              />
+              <strong>PI</strong>&nbsp;(Sai do bairro)
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="RI"
+                id="ri"
+                checked={modifiers.includes(BusModifiers.RI)}
+                onChange={onChangeModifier(BusModifiers.RI)}
+              />
+              <strong>RI</strong>&nbsp;(Chega no bairro)
+            </label>
+          </S.ModifiersModalContent>
+          <S.ModifiersModalButton
+            onClick={() => {
+              changeModifier(busTime, modifiers)
+              close()
+            }}
+          >
+            Salvar
+          </S.ModifiersModalButton>
+        </S.ModifiersModalWrapper>
+      )
+    })
   }
 
   return (
     <>
-      <S.BusScheduleItem focused={isFocused}>
+      <S.BusScheduleItem>
+        {busTime && busTime.modifiers.length > 0 && (
+          <S.WidgetsContainer>
+            {busTime.modifiers.map((modifier) =>
+              modifiersMap[modifier](`${busTime.time.toString()}${modifier}`)
+            )}
+          </S.WidgetsContainer>
+        )}
+
         <S.BusScheduleInput
           defaultValue={busTime ? busTime.time.toString() : ''}
           maxLength={5}
-          onFocus={() => setFocus(true)}
           onBlur={onBlur}
         />
-        {/* <AiOutlineDelete color="red" onClick={() => onRemoveTime(busTime)} /> */}
         <AiOutlineInfoCircle
           color="#333"
-          onClick={() => openModifiersModal()}
+          onMouseDown={() => openModifiersModal()}
         />
       </S.BusScheduleItem>
     </>

@@ -28,6 +28,6 @@ export const Dialog = styled.div<DialogProps>`
 
 export const DialogContent = styled.div`
   background: #fff;
-  padding: 0.8rem;
+  padding: 1.2rem;
   border-radius: 8px;
 `

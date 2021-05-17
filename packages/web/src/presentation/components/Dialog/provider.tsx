@@ -2,11 +2,11 @@ import React, { useState, createContext, useContext } from 'react'
 
 import { Dialog } from '.'
 
-type openDialogParam = (close: () => void) => React.ReactElement
+type openDialogParam = React.FC<{ close: () => void }>
 
 type DialogContextValues = {
   isOpen: boolean
-  openDialog: (builder: openDialogParam) => void
+  openDialog: (param: openDialogParam) => void
 }
 
 const DialogContext = createContext<DialogContextValues>(
@@ -16,12 +16,13 @@ const DialogContext = createContext<DialogContextValues>(
 export const DialogProvider: React.FC = ({ children }) => {
   const [isOpen, setOpen] = useState(false)
 
-  const [dialogBuilder, setDialogBuilder] = useState<openDialogParam | null>(
-    null
-  )
+  const [
+    DialogComponent,
+    setDialogComponent
+  ] = useState<openDialogParam | null>(null)
 
   function openDialog(builder: openDialogParam) {
-    setDialogBuilder(() => builder)
+    setDialogComponent(() => builder)
     setOpen(true)
   }
 
@@ -34,7 +35,7 @@ export const DialogProvider: React.FC = ({ children }) => {
       {children}
 
       <Dialog isOpen={isOpen} close={close}>
-        {dialogBuilder && dialogBuilder(close)}
+        {DialogComponent && <DialogComponent close={close} />}
       </Dialog>
     </DialogContext.Provider>
   )
