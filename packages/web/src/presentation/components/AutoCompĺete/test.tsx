@@ -4,6 +4,7 @@ import AutoComplete, { AutoCompleteProps } from '.'
 
 const BaseComponent = (props: Partial<AutoCompleteProps>) => (
   <AutoComplete
+    id="input-id"
     label="default-label"
     placeholder="default-placeholder"
     options={[]}

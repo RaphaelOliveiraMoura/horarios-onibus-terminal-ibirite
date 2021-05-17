@@ -41,7 +41,7 @@ const BusScheduleHourColumn: React.FC<BusScheduleHourColumnProps> = ({
       {scheduleTimes.map((busTime) => (
         <BusScheduleItem
           key={busTime && busTime.time.toString() + Math.random()}
-          time={busTime}
+          busTime={busTime}
         />
       ))}
       <IoIosAddCircleOutline

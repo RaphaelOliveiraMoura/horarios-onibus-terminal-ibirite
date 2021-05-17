@@ -76,6 +76,6 @@ const buses = [
   _1031P
 ]
   .map(BuScheduleEntity.parse)
-  .sort((a, b) => (a.bus.name > b.bus.name ? 1 : -1))
+  .sort((a, b) => (a.bus.id > b.bus.id ? 1 : -1))
 
 export default buses

@@ -1,4 +1,4 @@
-import { BusTime } from 'domain/models'
+import { BusModifiers, BusTime } from 'domain/models'
 import {
   BusScheduleViewModel,
   emptyScheduleMap,
@@ -12,6 +12,7 @@ type EditableBusScheduleContextValues = {
   onAddTime: (hourKey: string) => void
   onRemoveTime: (busTime: BusTime | null) => void
   onEditTime: (oldTime: BusTime | null, newTime: BusTime | null) => void
+  changeModifier: (busTime: BusTime, modifiers: BusModifiers[]) => void
 }
 
 const EditableBusScheduleContext = createContext<EditableBusScheduleContextValues>(
@@ -53,7 +54,7 @@ export const EditableBusScheduleProvider: React.FC<EditableBusScheduleProviderPr
     const hourKeyMap = String(busTime.time.hours)
 
     const indexToRemove = draft[hourKeyMap].findIndex((currentTime) =>
-      currentTime?.time.isEqual(busTime.time)
+      currentTime?.isEqual(busTime)
     )
 
     if (indexToRemove < 0) throw new Error('Try removing a invalid time')
@@ -90,9 +91,38 @@ export const EditableBusScheduleProvider: React.FC<EditableBusScheduleProviderPr
     setScheduleMap({ ...emptyScheduleMap(), ...sanitizedScheduleMap })
   }
 
+  function changeModifier(busTime: BusTime, modifiers: BusModifiers[]) {
+    const draft = { ...scheduleMap }
+
+    const hourKeyMap = String(busTime.time.hours)
+
+    const indexToUpdate = draft[hourKeyMap].findIndex((currentTime) =>
+      currentTime?.isEqual(busTime)
+    )
+
+    if (indexToUpdate < 0) return
+
+    const findedBusTime = draft[hourKeyMap][indexToUpdate]
+
+    if (!findedBusTime) return
+
+    draft[hourKeyMap][indexToUpdate] = new BusTime(
+      findedBusTime.time,
+      modifiers
+    )
+
+    _setScheduleMap(draft)
+  }
+
   return (
     <EditableBusScheduleContext.Provider
-      value={{ scheduleMap, onRemoveTime, onAddTime, onEditTime }}
+      value={{
+        scheduleMap,
+        onRemoveTime,
+        onAddTime,
+        onEditTime,
+        changeModifier
+      }}
     >
       {children}
     </EditableBusScheduleContext.Provider>

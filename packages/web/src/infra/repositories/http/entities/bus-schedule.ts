@@ -1,4 +1,4 @@
-import { BusSchedule } from 'domain/models'
+import { BusModifiers, BusSchedule } from 'domain/models'
 
 import * as ScheduleEntity from './schedule'
 
@@ -7,6 +7,7 @@ export type HttpBusScheduleResponse = {
     id: string
     name: string
   }
+  labels: { [key in BusModifiers]?: string }
   schedule: {
     workingDays: string[]
     saturdays: string[]
@@ -19,6 +20,7 @@ export function toJson(
 ): HttpBusScheduleResponse {
   return {
     bus: httpBusScheduleResponse.bus,
+    labels: httpBusScheduleResponse.labels,
     schedule: ScheduleEntity.toJson(httpBusScheduleResponse.schedule)
   }
 }
@@ -28,6 +30,7 @@ export function fromJson(
 ): BusSchedule {
   return {
     bus: httpBusScheduleResponse.bus,
+    labels: httpBusScheduleResponse.labels,
     schedule: ScheduleEntity.fromJson(httpBusScheduleResponse.schedule)
   }
 }

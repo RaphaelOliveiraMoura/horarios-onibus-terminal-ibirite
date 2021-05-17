@@ -26,6 +26,11 @@ export function toTimeMap(rawBusTime: string) {
 
 export function toStringMap(busTime: BusTime) {
   const modifiers = busTime.modifiers.join(',')
+
+  if (modifiers.length === 0) {
+    return busTime.time.toString()
+  }
+
   return `${busTime.time.toString()}:${modifiers}`
 }
 

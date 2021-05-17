@@ -1,26 +1,56 @@
 import { useState } from 'react'
 
-import AutoCompĺete from 'presentation/components/AutoCompĺete'
-import BusSchedule from 'presentation/components/BusSchedule'
-import { BusSchedule as BusScheduleModel } from 'domain/models'
-
-import * as S from './styles'
+import { GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+
+import { Bus } from 'domain/models'
+
+import AutoCompĺete from 'presentation/components/AutoCompĺete'
+import BusSchedule from 'presentation/components/BusSchedule'
 import Loader from 'presentation/components/Loader'
 
+import * as BusScheduleEntity from 'infra/repositories/http/entities/bus-schedule'
+
+import {
+  getBusLinesService,
+  getBusScheduleService
+} from 'main/services/server-side'
+
+import * as S from './styles'
+import LabelsLegend from 'presentation/components/LabelsLegend'
+
 type BusScheduleDetailsPageProps = {
-  busOptions: { label: string; value: string }[]
-  busSchedule: BusScheduleModel
+  busLines: Bus[]
+  busScheduleRaw: BusScheduleEntity.HttpBusScheduleResponse
 }
 
-const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
-  busOptions,
-  busSchedule
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const busLines = await getBusLinesService.execute()
+
+  const busSchedule = await getBusScheduleService.execute(
+    String(context.params?.id)
+  )
+
+  return {
+    props: { busLines, busScheduleRaw: BusScheduleEntity.toJson(busSchedule) }
+  } as { props: BusScheduleDetailsPageProps }
+}
+
+export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
+  busLines,
+  busScheduleRaw
 }) => {
   const router = useRouter()
 
   const { id } = router.query
+
+  const busOptions = busLines.map(({ id, name }) => ({
+    value: id,
+    label: name
+  }))
+
+  const busSchedule = BusScheduleEntity.fromJson(busScheduleRaw)
 
   const [loading, setLoading] = useState(false)
 
@@ -28,6 +58,7 @@ const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
     if (!inputValue) return
 
     setLoading(true)
+
     router.push(`/linhas/${inputValue.value}`).finally(() => setLoading(false))
   }
 
@@ -44,6 +75,7 @@ const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
             Consulte os horários de ônibus do terminal de ibirité atualizados
           </S.Title>
           <AutoCompĺete
+            id="bus-line"
             options={busOptions}
             onChange={onSelectBusLine}
             placeholder="Selecione a linha de ônibus"
@@ -58,6 +90,9 @@ const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
             <S.BusLineTitle>
               Horários da linha: <strong>{busSchedule.bus.name}</strong>
             </S.BusLineTitle>
+
+            <LabelsLegend labels={busSchedule.labels} />
+
             <S.BusScheduleContainer>
               <BusSchedule
                 title="Dias úteis"
@@ -78,5 +113,3 @@ const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
     </>
   )
 }
-
-export default BusScheduleDetailsPage
