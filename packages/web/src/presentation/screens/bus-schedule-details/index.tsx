@@ -18,6 +18,7 @@ import {
 } from 'main/services/server-side'
 
 import * as S from './styles'
+import LabelsLegend from 'presentation/components/LabelsLegend'
 
 type BusScheduleDetailsPageProps = {
   busLines: Bus[]
@@ -89,6 +90,9 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
             <S.BusLineTitle>
               Horários da linha: <strong>{busSchedule.bus.name}</strong>
             </S.BusLineTitle>
+
+            <LabelsLegend labels={busSchedule.labels} />
+
             <S.BusScheduleContainer>
               <BusSchedule
                 title="Dias úteis"

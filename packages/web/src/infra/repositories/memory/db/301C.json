@@ -1,7 +1,9 @@
 {
   "id": "301C",
   "name": "301C - Terminal Ibirité / BH Via Amazonas",
-  "labels": {},
+  "labels": {
+    "al": "Ônibus passa pela 040"
+  },
   "workingDays": [
     "04:30",
     "04:45",
