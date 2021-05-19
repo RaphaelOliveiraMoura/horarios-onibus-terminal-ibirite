@@ -2,17 +2,21 @@ import AsyncSelect from 'react-select'
 
 import * as S from './styles'
 
+export type Option = { value: string; label: string }
+
 export type AutoCompleteProps = {
+  id: string
   defaultValue?: string
-  options: { value: string; label: string }[]
+  options: Option[]
   label: string
   placeholder: string
-  onChange?: (input: { value: string; label: string } | null) => void
+  onChange?: (input: Option | null) => void
   onFocus?: () => void
   onBlur?: () => void
 }
 
 const AutoComplete: React.FC<AutoCompleteProps> = ({
+  id,
   defaultValue = '',
   onChange = () => '',
   onFocus,
@@ -24,6 +28,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
   return (
     <S.Wrapper>
       <AsyncSelect
+        inputId={id}
         defaultInputValue={defaultValue}
         onChange={onChange}
         options={options}

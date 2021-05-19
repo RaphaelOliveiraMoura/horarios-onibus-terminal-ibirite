@@ -10,6 +10,7 @@ export default {
 
 export const Default: Story = () => (
   <AutoCompĺete
+    id="AutoCompleteId"
     label="AutoCompleteLabel"
     placeholder="AutoCompletePlaceholder"
     options={[]}

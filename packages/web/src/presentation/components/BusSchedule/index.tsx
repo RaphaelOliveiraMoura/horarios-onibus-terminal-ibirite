@@ -1,55 +1,16 @@
-import { BusTime, BusModifiers } from 'domain/models'
+import { BusTime } from 'domain/models'
 import {
   BusScheduleViewModel,
   ScheduleMapNonNull
 } from 'presentation/view-model'
+
+import { modifiersMap } from '../ModifiersTooltip'
 
 import * as S from './styles'
 
 export type BusScheduleProps = {
   title: string
   schedule: BusTime[]
-}
-
-const modifiersMap = {
-  [BusModifiers.AL]: function Widget(key: string) {
-    return (
-      <S.Widget key={key} text="Trajeto pela 040">
-        <span>AL</span>
-      </S.Widget>
-    )
-  },
-  [BusModifiers.PI]: function Widget(key: string) {
-    return (
-      <S.Widget
-        key={key}
-        text="Ônibus sai do bairro"
-        color="#333"
-        background="#ddd"
-      >
-        <span>PI</span>
-      </S.Widget>
-    )
-  },
-  [BusModifiers.PREV]: function Widget(key: string) {
-    return (
-      <S.Widget key={key} text="Previsão">
-        <span>PR</span>
-      </S.Widget>
-    )
-  },
-  [BusModifiers.RI]: function Widget(key: string) {
-    return (
-      <S.Widget
-        key={key}
-        text="Ônibus chega no bairro e recolhe"
-        color="#333"
-        background="#ddd"
-      >
-        <span>RI</span>
-      </S.Widget>
-    )
-  }
 }
 
 const BusSchedule: React.FC<BusScheduleProps> = ({ title, schedule }) => {

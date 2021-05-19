@@ -44,6 +44,7 @@ export class BusRepositoryMongo implements BusRepository {
 
     return {
       bus: { id: '', name: '' },
+      labels: {},
       schedule: { workingDays: [], saturdays: [], sundays: [] }
     }
   }

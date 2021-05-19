@@ -4,6 +4,7 @@ import {
   useEditableBusSchedule,
   EditableBusScheduleProvider
 } from 'presentation/components/EditableBusSchedule/provider'
+import { DialogProvider } from 'presentation/components/Dialog/provider'
 
 import * as S from './styles'
 
@@ -38,16 +39,18 @@ const EditableBusScheduleWithProvider: React.FC<EditableBusScheduleProps> = ({
   onUpdateBusSchedule,
   ...props
 }) => (
-  <EditableBusScheduleProvider
-    schedule={schedule}
-    onUpdateBusSchedule={onUpdateBusSchedule}
-  >
-    <EditableBusSchedule
+  <DialogProvider>
+    <EditableBusScheduleProvider
       schedule={schedule}
       onUpdateBusSchedule={onUpdateBusSchedule}
-      {...props}
-    />
-  </EditableBusScheduleProvider>
+    >
+      <EditableBusSchedule
+        schedule={schedule}
+        onUpdateBusSchedule={onUpdateBusSchedule}
+        {...props}
+      />
+    </EditableBusScheduleProvider>
+  </DialogProvider>
 )
 
 export default EditableBusScheduleWithProvider

@@ -1,5 +1,3 @@
-import HomePage from 'presentation/pages/home'
+import HomePage from 'presentation/screens/home'
 
-export default function Home() {
-  return <HomePage />
-}
+export default HomePage

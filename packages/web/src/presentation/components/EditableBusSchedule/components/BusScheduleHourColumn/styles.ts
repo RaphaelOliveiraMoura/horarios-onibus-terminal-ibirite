@@ -4,6 +4,9 @@ export const BusScheduleHourColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2.4rem;
+  flex: 1;
+  min-width: 64px;
 
   & > #remove-time-button {
     opacity: 0;
