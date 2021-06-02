@@ -25,13 +25,11 @@ function App({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
         {/* Google AdSense */}
-        {process.browser && (
-          <script
-            data-ad-client="ca-pub-3607857001646781"
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          ></script>
-        )}
+        <script
+          data-ad-client="ca-pub-3607857001646781"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
         {/* Google Analytics */}
         {process.browser && !disableAnalytics && (
           <>
