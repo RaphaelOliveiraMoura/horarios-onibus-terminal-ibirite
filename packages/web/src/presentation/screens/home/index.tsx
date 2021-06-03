@@ -45,6 +45,8 @@ const HomePage: React.FC = () => {
   return (
     <S.Wrapper>
       <S.ContentWrapper inputFocused={inputFocused}>
+        <S.AlertBanner text="Sexta-feira dia 4 de junho de 2021 todos os ônibus municipais irão atuar com o horário de sábado" />
+
         <S.Title>
           Consulte os horários de ônibus do terminal de ibirité atualizados
         </S.Title>

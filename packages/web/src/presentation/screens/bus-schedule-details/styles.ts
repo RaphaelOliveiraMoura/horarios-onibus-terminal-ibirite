@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { AlertBanner as SAlertBanner } from 'presentation/components/AlertBanner'
+
 export const Wrapper = styled.header`
   width: 100%;
   padding: 2rem;
@@ -58,4 +60,8 @@ export const UpdateButton = styled.button`
   &:focus {
     box-shadow: 1px 1px 3px #a0937d;
   }
+`
+
+export const AlertBanner = styled(SAlertBanner)`
+  margin-top: 16px;
 `

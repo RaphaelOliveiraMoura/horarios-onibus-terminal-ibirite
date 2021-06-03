@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import { AlertBanner as SAlertBanner } from 'presentation/components/AlertBanner'
+
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 50rem;
@@ -36,4 +38,8 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
 export const Title = styled.h1`
   text-align: center;
   margin-bottom: 1.6rem;
+`
+
+export const AlertBanner = styled(SAlertBanner)`
+  margin-bottom: 26px;
 `
