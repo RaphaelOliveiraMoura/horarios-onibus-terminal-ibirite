@@ -87,8 +87,6 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
 
         {!loading && (
           <>
-            <S.AlertBanner text="Sexta-feira dia 4 de junho de 2021 todos os ônibus municipais irão atuar com o horário de sábado" />
-
             <S.BusLineTitle>
               Horários da linha: <strong>{busSchedule.bus.name}</strong>
             </S.BusLineTitle>
