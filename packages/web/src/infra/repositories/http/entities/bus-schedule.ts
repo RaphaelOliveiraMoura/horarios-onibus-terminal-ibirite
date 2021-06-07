@@ -7,6 +7,7 @@ export type HttpBusScheduleResponse = {
     id: string
     name: string
   }
+  map?: string
   labels: { [key in BusModifiers]?: string }
   schedule: {
     workingDays: string[]
@@ -18,11 +19,14 @@ export type HttpBusScheduleResponse = {
 export function toJson(
   httpBusScheduleResponse: BusSchedule
 ): HttpBusScheduleResponse {
-  return {
-    bus: httpBusScheduleResponse.bus,
-    labels: httpBusScheduleResponse.labels,
-    schedule: ScheduleEntity.toJson(httpBusScheduleResponse.schedule)
-  }
+  return JSON.parse(
+    JSON.stringify({
+      bus: httpBusScheduleResponse.bus,
+      map: httpBusScheduleResponse.map,
+      labels: httpBusScheduleResponse.labels,
+      schedule: ScheduleEntity.toJson(httpBusScheduleResponse.schedule)
+    })
+  )
 }
 
 export function fromJson(
@@ -30,6 +34,7 @@ export function fromJson(
 ): BusSchedule {
   return {
     bus: httpBusScheduleResponse.bus,
+    map: httpBusScheduleResponse.map,
     labels: httpBusScheduleResponse.labels,
     schedule: ScheduleEntity.fromJson(httpBusScheduleResponse.schedule)
   }

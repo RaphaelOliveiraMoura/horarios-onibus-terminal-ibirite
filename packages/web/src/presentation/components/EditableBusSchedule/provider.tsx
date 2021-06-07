@@ -73,6 +73,8 @@ export const EditableBusScheduleProvider: React.FC<EditableBusScheduleProviderPr
   }
 
   function onEditTime(oldTime: BusTime | null, newTime: BusTime | null) {
+    if (newTime && oldTime?.isEqual(newTime)) return
+
     const schedule = BusScheduleViewModel.unparse(scheduleMap)
 
     if (oldTime) {
@@ -106,10 +108,16 @@ export const EditableBusScheduleProvider: React.FC<EditableBusScheduleProviderPr
 
     if (!findedBusTime) return
 
-    draft[hourKeyMap][indexToUpdate] = new BusTime(
-      findedBusTime.time,
-      modifiers
-    )
+    const busWithModifiers = new BusTime(findedBusTime.time, modifiers)
+
+    const busWithModifiersAlreadyExists =
+      draft[hourKeyMap].findIndex((currentTime) =>
+        currentTime?.isEqual(busWithModifiers)
+      ) >= 0
+
+    if (busWithModifiersAlreadyExists) return
+
+    draft[hourKeyMap][indexToUpdate] = busWithModifiers
 
     _setScheduleMap(draft)
   }

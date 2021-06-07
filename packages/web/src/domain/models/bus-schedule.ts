@@ -4,6 +4,7 @@ import { Schedule } from './schedule'
 
 export type BusSchedule = {
   bus: Bus
+  map?: string
   schedule: Schedule
   labels: { [key in BusModifiers]?: string }
 }

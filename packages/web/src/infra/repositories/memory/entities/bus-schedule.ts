@@ -3,6 +3,7 @@ import { BusModifiers, BusSchedule, BusTime, Time } from 'domain/models'
 type DbSchedule = {
   id: string
   name: string
+  map?: string
   labels: { [key in BusModifiers]?: string }
   workingDays: string[]
   saturdays: string[]
@@ -33,6 +34,7 @@ export function parse(dbSchedule: DbSchedule): BusSchedule {
       id: dbSchedule.id,
       name: dbSchedule.name
     },
+    map: dbSchedule.map,
     labels: dbSchedule.labels,
     schedule: {
       workingDays: dbSchedule.workingDays.map(toTimeMap),

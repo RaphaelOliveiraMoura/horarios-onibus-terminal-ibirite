@@ -68,6 +68,10 @@ export class BusScheduleViewModel {
     if (!busTime1) return -1
     if (!busTime2) return 1
 
+    if (busTime1.isEqual(busTime2)) {
+      return busTime1.modifiers.length > busTime2.modifiers.length ? -1 : 1
+    }
+
     return busTime1.time.isAfter(busTime2.time) ? 1 : -1
   }
 

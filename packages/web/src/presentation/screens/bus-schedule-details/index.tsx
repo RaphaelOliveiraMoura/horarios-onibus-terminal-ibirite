@@ -115,6 +115,15 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
                 schedule={busSchedule.schedule.sundays}
               />
             </S.BusScheduleContainer>
+
+            {busSchedule.map && (
+              <iframe
+                src={busSchedule.map}
+                width="640"
+                height="480"
+                style={{ maxWidth: '100%', marginTop: '12px' }}
+              ></iframe>
+            )}
           </>
         )}
       </S.Wrapper>

@@ -23,7 +23,12 @@ const BusScheduleItem: React.FC<BusScheduleItemProps> = ({ busTime }) => {
 
       const [newHours, newMinutes] = inputValue.split(':').map(Number)
 
-      onEditTime(busTime, new BusTime(new Time(newHours, newMinutes)))
+      const busTimeToUpdate = new BusTime(
+        new Time(newHours, newMinutes),
+        busTime?.modifiers
+      )
+
+      onEditTime(busTime, busTimeToUpdate)
     } catch (error) {
       onRemoveTime(busTime)
     }

@@ -11,17 +11,19 @@ const client = new MongoClient(uri, {
 })
 
 export class BusRepositoryMongo implements BusRepository {
+  static async initialize() {
+    await client.connect()
+  }
+
   async getBusLines(): Promise<Bus[]> {
     return []
   }
 
   async getBusSchedule(busId: string): Promise<BusSchedule> {
-    await client.connect()
-
     const busSchedule = await client
       .db()
       .collection('bus_schedule')
-      .findOne({ bus_id: '301C' })
+      .findOne({ bus_id: busId })
 
     if (!busSchedule) throw Error(`busSchedule with id '${busId}' not found`)
 
