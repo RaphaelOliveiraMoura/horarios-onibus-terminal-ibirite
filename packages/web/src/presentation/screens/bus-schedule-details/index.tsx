@@ -83,12 +83,40 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
           />
         </S.Header>
 
-        {['1024', 'c002'].includes(id.toLowerCase()) && (
-          <img
-            src="/img/c002_1024_alert.jpeg"
-            width="400px"
-            style={{ maxWidth: '100%', borderRadius: '12px' }}
-          />
+        {['1024', '1024p', 'c002'].includes(id.toLowerCase()) && (
+          <>
+            <img
+              src="/img/logo_ibiritrans.png"
+              alt="Logo da Ibiritrans"
+              style={{ width: 200, marginTop: 16 }}
+            />
+            <h2
+              style={{
+                maxWidth: 450,
+                marginTop: 12,
+                fontSize: 12,
+                fontWeight: 'normal',
+                textAlign: 'center'
+              }}
+            >
+              Conforme processo movido contra a Prefeitura pelo Consórcio Via
+              Amazonas / Saritur, a partir de segunda feira (07 de junho), as
+              linhas C002 e 1024 (sentido Los Angeles) deixarão de atender á
+              Avenida Expedito Faria Tavares, passando a operar pela Rua José
+              Tavares Filho nos dois sentidos
+            </h2>
+            <iframe
+              src="https://www.google.com/maps/d/u/0/embed?mid=13A1diuK1YI1_O9WljpQ9mv6YyE4hDsc6"
+              width="300"
+              height="480"
+              style={{
+                maxWidth: '100%',
+                borderRadius: '8px',
+                marginTop: '12px',
+                marginBottom: '12px'
+              }}
+            ></iframe>
+          </>
         )}
 
         {loading && <Loader />}
