@@ -83,6 +83,14 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
           />
         </S.Header>
 
+        {['1024', 'c002'].includes(id.toLowerCase()) && (
+          <img
+            src="/img/c002_1024_alert.jpeg"
+            width="400px"
+            style={{ maxWidth: '100%', borderRadius: '12px' }}
+          />
+        )}
+
         {loading && <Loader />}
 
         {!loading && (
