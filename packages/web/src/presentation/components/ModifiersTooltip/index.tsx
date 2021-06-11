@@ -47,5 +47,12 @@ export const modifiersMap = {
         <span>WR</span>
       </S.Widget>
     )
+  },
+  [BusModifiers.NT]: function Widget(key: string) {
+    return (
+      <S.Widget key={key} text="Noturno" color="#fff" background="#000">
+        <span>NT</span>
+      </S.Widget>
+    )
   }
 }
