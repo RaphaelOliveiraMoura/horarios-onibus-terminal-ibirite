@@ -103,6 +103,16 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
           />
         )}
 
+        {['302h'].includes(id.toLowerCase()) && (
+          <embed
+            style={{ marginTop: 16, maxWidth: 500 }}
+            src="/pdf/302H.pdf"
+            width="100%"
+            height="375"
+            type="application/pdf"
+          />
+        )}
+
         {['1024', '1024p', 'c002'].includes(id.toLowerCase()) && (
           <>
             <img
