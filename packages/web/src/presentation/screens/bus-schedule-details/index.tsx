@@ -96,7 +96,7 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
         {['305r'].includes(id.toLowerCase()) && (
           <embed
             style={{ marginTop: 16, maxWidth: 500 }}
-            src="/pdf/304M.pdf"
+            src="/pdf/305R.pdf"
             width="100%"
             height="375"
             type="application/pdf"
