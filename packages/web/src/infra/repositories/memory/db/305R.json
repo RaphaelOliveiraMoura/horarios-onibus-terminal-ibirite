@@ -1,0 +1,17 @@
+{
+  "id": "305R",
+  "name": "305R - Terminal Ibirité / Barreiro / Estação Eldorado",
+  "labels": {},
+  "workingDays": [
+    "04:55",
+    "05:55",
+    "06:50",
+    "07:50",
+    "14:50",
+    "16:15",
+    "16:55",
+    "18:30"
+  ],
+  "saturdays": [],
+  "sundays": []
+}

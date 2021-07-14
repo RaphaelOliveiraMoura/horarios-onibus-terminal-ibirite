@@ -11,6 +11,8 @@ import _300C from './300C.json'
 import _301C from './301C.json'
 import _302H from './302H.json'
 import _303M from './303M.json'
+import _304M from './304M.json'
+import _305R from './305R.json'
 import _306R from './306R.json'
 import _3356 from './3356.json'
 import _3370 from './3370.json'
@@ -51,6 +53,8 @@ const buses = [
   _301C,
   _302H,
   _303M,
+  _304M,
+  _305R,
   _306R,
   _3356,
   _3370,
