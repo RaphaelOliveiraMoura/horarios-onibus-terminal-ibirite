@@ -20,7 +20,6 @@ import _3390 from './3390.json'
 import _3450 from './3450.json'
 import _3460 from './3460.json'
 import _3480 from './3480.json'
-import _3490 from './3490.json'
 import _3500 from './3500.json'
 import _3520 from './3520.json'
 import _3540 from './3540.json'
@@ -62,7 +61,6 @@ const buses = [
   _3450,
   _3460,
   _3480,
-  _3490,
   _3500,
   _3520,
   _3540,
