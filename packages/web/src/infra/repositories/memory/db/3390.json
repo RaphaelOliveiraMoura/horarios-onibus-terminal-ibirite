@@ -6,6 +6,7 @@
     "nt": "Noturno: atende Canaã e São Pedro"
   },
   "workingDays": [
+    "01:00:nt",
     "04:00:pi",
     "04:30:pi",
     "04:50:pi",
