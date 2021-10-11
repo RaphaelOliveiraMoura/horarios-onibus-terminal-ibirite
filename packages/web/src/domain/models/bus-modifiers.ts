@@ -4,5 +4,6 @@ export enum BusModifiers {
   AL = 'al',
   NT = 'nt',
   PREV = 'prev',
-  WARN = 'warn'
+  WARN = 'warn',
+  EXTRA = 'ex'
 }
