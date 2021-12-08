@@ -1,5 +1,5 @@
 import { InvalidBusModifiersError } from 'errors'
-import { BusModifiers, Time } from '.'
+import { BusModifiers, Time } from 'models'
 
 export class BusTime {
   public time: Time

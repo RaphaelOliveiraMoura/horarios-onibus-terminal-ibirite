@@ -1,5 +1,5 @@
 import { InvalidHoursError, InvalidMinutesError } from 'errors'
-import { Time } from '.'
+import { Time } from 'models'
 
 describe('TimeModel', () => {
   it('should create valid times', () => {

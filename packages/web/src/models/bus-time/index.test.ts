@@ -3,7 +3,7 @@ import {
   InvalidMinutesError,
   InvalidBusModifiersError
 } from 'errors'
-import { BusModifiers, BusTime, Time } from '.'
+import { BusModifiers, BusTime, Time } from 'models'
 
 describe('BusTime', () => {
   it('should create valid busTimes', () => {

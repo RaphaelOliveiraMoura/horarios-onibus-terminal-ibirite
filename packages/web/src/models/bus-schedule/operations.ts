@@ -1,32 +1,10 @@
-import { BusModifiers, BusTime, Time } from '.'
-
-export type BusSchedule = {
-  bus: {
-    id: string
-    name: string
-  }
-  map?: string
-  schedule: {
-    workingDays: BusTime[]
-    saturdays: BusTime[]
-    sundays: BusTime[]
-  }
-  labels: { [key in BusModifiers]?: string }
-}
-
-export type RawBusSchedule = {
-  bus: {
-    id: string
-    name: string
-  }
-  map?: string
-  schedule: {
-    workingDays: string[]
-    saturdays: string[]
-    sundays: string[]
-  }
-  labels: { [key in BusModifiers]?: string }
-}
+import {
+  BusModifiers,
+  BusTime,
+  Time,
+  BusSchedule,
+  RawBusSchedule
+} from 'models'
 
 export function toTimeMap(rawBusTime: string) {
   const [hours, minutes, rawModifiers] = rawBusTime.split(':')
@@ -82,9 +60,4 @@ export function fromJson(rawSchedule: RawBusSchedule): BusSchedule {
       sundays: rawSchedule.schedule.sundays.map(toTimeMap)
     }
   }
-}
-
-export const BusScheduleOperations = {
-  toJson,
-  fromJson
 }
