@@ -1,3 +1,4 @@
+import { InvalidBusModifiersError } from 'errors'
 import {
   BusModifiers,
   BusTime,
@@ -16,7 +17,7 @@ export function toTimeMap(rawBusTime: string) {
       modifier as BusModifiers
     )
 
-    if (!isValidModifier) throw new Error(`Invalid DB Modifier: "${modifier}"`)
+    if (!isValidModifier) throw new InvalidBusModifiersError(modifier)
   })
 
   const time = new Time(Number(hours), Number(minutes))

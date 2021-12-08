@@ -1,4 +1,4 @@
-import { InvalidBusModifiersError } from 'errors'
+import { InconsistentBusModifiersError } from 'errors'
 import { BusModifiers, Time } from 'models'
 
 export class BusTime {
@@ -13,7 +13,7 @@ export class BusTime {
       this.modifiers.includes(BusModifiers.PI) &&
       this.modifiers.includes(BusModifiers.RI)
     ) {
-      throw new InvalidBusModifiersError(this.modifiers)
+      throw new InconsistentBusModifiersError(this.modifiers)
     }
   }
 

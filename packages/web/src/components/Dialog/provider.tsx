@@ -1,3 +1,4 @@
+import { ContextOutsideProviderError } from 'errors'
 import React, { useState, createContext, useContext } from 'react'
 
 import { Dialog } from '.'
@@ -45,7 +46,7 @@ export const useDialog = () => {
   const context = useContext(DialogContext)
 
   if (!context) {
-    throw new Error('You just can access this context inside a provider')
+    throw new ContextOutsideProviderError('useDialog')
   }
 
   return context

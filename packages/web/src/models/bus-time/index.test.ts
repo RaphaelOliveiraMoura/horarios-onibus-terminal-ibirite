@@ -1,7 +1,7 @@
 import {
   InvalidHoursError,
   InvalidMinutesError,
-  InvalidBusModifiersError
+  InconsistentBusModifiersError
 } from 'errors'
 import { BusModifiers, BusTime, Time } from 'models'
 
@@ -31,7 +31,7 @@ describe('BusTime', () => {
       [() => new BusTime(new Time(15, 80)), new InvalidMinutesError(80)],
       [
         () => new BusTime(new Time(0, 0), [BusModifiers.PI, BusModifiers.RI]),
-        new InvalidBusModifiersError([BusModifiers.PI, BusModifiers.RI])
+        new InconsistentBusModifiersError([BusModifiers.PI, BusModifiers.RI])
       ]
     ]
 
