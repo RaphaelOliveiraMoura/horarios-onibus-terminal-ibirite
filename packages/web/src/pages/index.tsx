@@ -1,3 +1,3 @@
-import HomePage from 'presentation/screens/home'
-
-export default HomePage
+export default function Page() {
+  return <div>em manutenção</div>
+}
