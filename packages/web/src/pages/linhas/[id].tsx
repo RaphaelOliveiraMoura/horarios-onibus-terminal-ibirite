@@ -1,3 +1,5 @@
-export default function Page() {
-  return <div>em manutenção</div>
-}
+import { BusScheduleDetailsPage } from 'presentation/screens/bus-schedule-details'
+
+export { getServerSideProps } from 'presentation/screens/bus-schedule-details'
+
+export default BusScheduleDetailsPage
