@@ -1,12 +1,12 @@
-import _1012 from './1012.json'
-import _1013 from './1013.json'
-import _1015 from './1015.json'
-import _1020 from './1020.json'
-import _1021 from './1021.json'
-import _1024 from './1024.json'
-import _1025 from './1025.json'
-import _1030 from './1030.json'
-import _1031 from './1031.json'
+// import _1012 from './1012.json'
+// import _1013 from './1013.json'
+// import _1015 from './1015.json'
+// import _1020 from './1020.json'
+// import _1021 from './1021.json'
+// import _1024 from './1024.json'
+// import _1025 from './1025.json'
+// import _1030 from './1030.json'
+// import _1031 from './1031.json'
 import _300C from './300C.json'
 import _301C from './301C.json'
 import _302H from './302H.json'
@@ -24,8 +24,8 @@ import _3500 from './3500.json'
 import _3520 from './3520.json'
 import _3540 from './3540.json'
 import _3560 from './3560.json'
-import _C001 from './C001.json'
-import _C002 from './C002.json'
+// import _C001 from './C001.json'
+// import _C002 from './C002.json'
 
 // import _1013P from './1013P.json'
 // import _1015P from './1015P.json'
@@ -39,15 +39,15 @@ import _C002 from './C002.json'
 import * as BuScheduleEntity from '../entities/bus-schedule'
 
 const buses = [
-  _1012,
-  _1013,
-  _1015,
-  _1020,
-  _1021,
-  _1024,
-  _1025,
-  _1030,
-  _1031,
+  // _1012,
+  // _1013,
+  // _1015,
+  // _1020,
+  // _1021,
+  // _1024,
+  // _1025,
+  // _1030,
+  // _1031,
   _300C,
   _301C,
   _302H,
@@ -64,9 +64,9 @@ const buses = [
   _3500,
   _3520,
   _3540,
-  _3560,
-  _C001,
-  _C002
+  _3560
+  // _C001,
+  // _C002
 
   // _1013P,
   // _1015P,
