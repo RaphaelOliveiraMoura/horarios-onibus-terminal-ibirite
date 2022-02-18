@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
-import GlobalStyles from 'presentation/styles/global'
+import GlobalStyles from 'styles/global'
 
 function App({ Component, pageProps }: AppProps) {
   const disableAnalytics = process.env.NEXT_PUBLIC_DISABLE_ANALYTICS === 'true'
