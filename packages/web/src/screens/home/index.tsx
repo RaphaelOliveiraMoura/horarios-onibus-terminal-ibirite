@@ -66,6 +66,7 @@ const HomePage: React.FC = () => {
             label="horarios-onibus"
             onFocus={() => setInputFocused(true)}
             onBlur={() => setInputFocused(false)}
+            variant="large"
           />
 
           {loading && <Loader />}
@@ -160,14 +161,18 @@ const HomePage: React.FC = () => {
         </Text>
 
         <ul>
-          Resumindo:
+          <Text as="span">Resumindo:</Text>
           <li>
-            Integração de linhas municipais:{' '}
-            <strong>{municipal_integration_value}</strong>
+            <Text as="span">
+              Integração de linhas municipais:{' '}
+              <strong>{municipal_integration_value}</strong>
+            </Text>
           </li>
           <li>
-            Integração de linhas alimentadoras:{' '}
-            <strong>{internal_integration_value}</strong>
+            <Text as="span">
+              Integração de linhas alimentadoras:{' '}
+              <strong>{internal_integration_value}</strong>
+            </Text>
           </li>
         </ul>
 

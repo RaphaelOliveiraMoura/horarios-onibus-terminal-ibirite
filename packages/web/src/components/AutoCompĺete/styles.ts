@@ -1,7 +1,34 @@
-import styled from 'styled-components'
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
+import { AutoCompleteVariants } from '.'
 
-export const Wrapper = styled.div`
+type VariantsDecorators = {
+  [key in AutoCompleteVariants]: FlattenSimpleInterpolation
+}
+
+const variantDecorators: VariantsDecorators = {
+  default: css``,
+  large: css`
+    .react-select-container {
+      font-size: 1.7rem;
+    }
+
+    .react-select__menu-list {
+      max-height: 800px;
+    }
+
+    input {
+      height: 40px;
+    }
+  `
+}
+
+type WrapperProps = {
+  $variant: AutoCompleteVariants
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   width: 100%;
+  text-align: start;
 
   .react-select-container {
     font-size: 1.4rem;
@@ -36,4 +63,6 @@ export const Wrapper = styled.div`
   .react-select__menu-list {
     max-height: 400px;
   }
+
+  ${(p) => variantDecorators[p.$variant]}
 `

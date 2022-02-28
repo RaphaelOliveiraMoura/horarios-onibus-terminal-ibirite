@@ -27,7 +27,6 @@ export const Wrapper = styled.div`
 
     ul {
       margin-bottom: 12px;
-      font-size: 1.4rem;
       width: 100%;
       border: 2px dashed #ddd;
       color: #444;
@@ -74,24 +73,12 @@ export const BackgroundContainer = styled.header<BackgroundContainerProps>`
     z-index: 1;
     transition: all 0.4s;
     max-width: 600px;
+    text-align: center;
 
     ${TextStyles.Wrapper}.title {
       margin-bottom: 16px;
       color: white;
       padding: 0 12px;
-      text-align: center;
-    }
-
-    .react-select-container {
-      font-size: 1.7rem;
-    }
-
-    .react-select__menu-list {
-      max-height: 800px;
-    }
-
-    input {
-      height: 40px;
     }
 
     ${(p) =>

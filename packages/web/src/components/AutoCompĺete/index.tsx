@@ -4,12 +4,15 @@ import * as S from './styles'
 
 export type Option = { value: string; label: string }
 
+export type AutoCompleteVariants = 'default' | 'large'
+
 export type AutoCompleteProps = {
   id: string
   defaultValue?: string
   options: Option[]
   label: string
   placeholder: string
+  variant?: AutoCompleteVariants
   onChange?: (input: Option | null) => void
   onFocus?: () => void
   onBlur?: () => void
@@ -23,10 +26,11 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
   onBlur,
   options,
   label,
-  placeholder
+  placeholder,
+  variant = 'default'
 }) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper $variant={variant}>
       <AsyncSelect
         inputId={id}
         defaultInputValue={defaultValue}
