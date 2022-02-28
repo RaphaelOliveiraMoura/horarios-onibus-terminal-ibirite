@@ -58,7 +58,6 @@
   "resolutions": {
     "glob-parent": "^5.1.2",
     "trim": "^0.0.3",
-    "node-fetch": "^2.6.7",
-    "postcss": "^7.0.36"
+    "node-fetch": "^2.6.7"
   }
 }

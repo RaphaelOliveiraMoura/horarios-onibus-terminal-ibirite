@@ -52,7 +52,7 @@ export default class MyDocument extends Document {
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           ></script>
           {/* Google Analytics */}
-          {process.browser && !this.disableAnalytics && (
+          {typeof window === 'undefined' && !this.disableAnalytics && (
             <>
               <script
                 async
