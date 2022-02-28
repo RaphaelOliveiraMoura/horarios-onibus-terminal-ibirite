@@ -43,6 +43,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
         isSearchable
         className="react-select-container"
         classNamePrefix="react-select"
+        noOptionsMessage={() => 'Nenhum item encontrado'}
       />
     </S.Wrapper>
   )
