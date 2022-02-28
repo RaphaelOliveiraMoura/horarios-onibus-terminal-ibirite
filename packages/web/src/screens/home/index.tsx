@@ -7,6 +7,7 @@ import Loader from 'components/Loader'
 import { getBusLines } from 'use-cases/get-bus-lines'
 
 import * as S from './styles'
+import { Text } from 'components/Text'
 
 const external_bus_value = 'R$ 7,65'
 
@@ -55,7 +56,7 @@ const HomePage: React.FC = () => {
     <S.Wrapper>
       <S.BackgroundContainer $inputFocused={inputFocused}>
         <div className="content">
-          <h1>Horários de ônibus do Terminal de Ibirité</h1>
+          <Text variant="title">Horários de ônibus do Terminal de Ibirité</Text>
 
           <AutoCompĺete
             id="bus-line"
@@ -79,70 +80,68 @@ const HomePage: React.FC = () => {
       </S.BackgroundContainer>
 
       <section className="updated-lines">
-        <h1>⌛ Horários sempre atualizados</h1>
-        <p>Consulte os horários de ônibus do terminal de ibirité atualizados</p>
-
-        <p>
+        <Text variant="title">⌛ Horários sempre atualizados</Text>
+        <Text>
+          Consulte os horários de ônibus do terminal de ibirité atualizados
+        </Text>
+        <Text>
           Atualizamos o site frequentemente para mantermos você sempre
           atualizado sobre os novos horários de ônibus
-        </p>
+        </Text>
       </section>
 
       <section className="bus-types">
-        <h1>🚌 Linhas de ônibus</h1>
-        <h2>Troncal</h2>
-        <p>
+        <Text variant="title">🚌 Linhas de ônibus</Text>
+        <Text variant="subtitle">Troncal</Text>
+        <Text>
           São linhas gerenciadas pelo DERR (Departamento de Edificações e
           Estradas de Rodagem de Minas Gerais) e tem o trajeto do terminal para
           outros municípios
-        </p>
-
-        <h2>Alimentadora</h2>
-        <p>
+        </Text>
+        <Text variant="subtitle">Alimentadora</Text>
+        <Text>
           São linhas também gerenciadas pelo DERR, que fazem o trajeto dos
           bairros para o terminal de Ibirité
-        </p>
-
-        <h2>Municipal</h2>
-        <p>
+        </Text>
+        <Text variant="subtitle">Municipal</Text>
+        <Text>
           Essas linhas são gerenciadas pela Prefeitura de Ibirité e também fazem
           o trajeto dos bairros para o terminal de Ibirité
-        </p>
+        </Text>
       </section>
 
       <section className="values">
-        <h1>💰 Valor da passagem</h1>
-
-        <p>
+        <Text variant="title">💰 Valor da passagem</Text>
+        <Text>
           A tarifa dos ônibus das linhas <strong>troncais</strong>, tem o valor
           de <strong>{external_bus_value}</strong>.
-        </p>
-
-        <p>
+        </Text>
+        <Text>
           Enquanto a tarifa dos ônibus das linhas <strong>alimentadoras</strong>
           , tem o valor de <strong>{internal_bus_value}</strong>.
-        </p>
-
-        <p>
+        </Text>
+        <Text>
           Já a tarifa dos ônibus das linhas <strong>municipais</strong>, tem o
           valor de <strong>{municipal_bus_value}</strong>.
-        </p>
+        </Text>
       </section>
 
       <section className="integration">
-        <h1>💳 Como funciona a integração?</h1>
+        <Text variant="title">💳 Como funciona a integração?</Text>
 
-        <p>
+        <Text>
           Quando você pegar algum ônibus das linhas municipais ou alimentadoras{' '}
-          <span className="sample">(linhas de bairro)</span> com destino ao
-          terminal e em seguida for pegar um ônibus troncal{' '}
-          <span className="sample">
+          <Text variant="smooth" as="span">
+            (linhas de bairro)
+          </Text>{' '}
+          com destino ao terminal e em seguida for pegar um ônibus troncal{' '}
+          <Text variant="smooth" as="span">
             (linhas que vão para outros municípios)
-          </span>{' '}
+          </Text>{' '}
           você não vai precisar pagar mais {external_bus_value} para isso.
-        </p>
+        </Text>
 
-        <p className="sample">
+        <Text variant="smooth">
           Exemplo: Peguei o 3356 pagando {internal_bus_value}, em seguida irei
           pegar o 301C, desse modo eu não vou precisar pagar mais{' '}
           {external_bus_value}, irei pagar apenas a{' '}
@@ -151,14 +150,14 @@ const HomePage: React.FC = () => {
           <strong>
             totalizando {internal_integration_value} da integração.
           </strong>
-        </p>
+        </Text>
 
-        <p>
+        <Text>
           Caso você for pegar um ônibus municipal a integração será{' '}
           {municipal_integration_value}. Pois serão {external_bus_value} -{' '}
           {municipal_bus_value},{' '}
           <strong>totalizando {municipal_integration_value}.</strong>
-        </p>
+        </Text>
 
         <ul>
           Resumindo:
@@ -172,12 +171,10 @@ const HomePage: React.FC = () => {
           </li>
         </ul>
 
-        <p className="disclaimer">
-          <strong>
-            Porém a integração só é valida se você realizar o pagamento com o
-            cartão Ótimo
-          </strong>
-        </p>
+        <Text variant="disclaimer">
+          Porém a integração só é valida se você realizar o pagamento com o
+          cartão Ótimo
+        </Text>
       </section>
     </S.Wrapper>
   )
