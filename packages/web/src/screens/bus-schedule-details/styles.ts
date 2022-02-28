@@ -2,27 +2,43 @@ import styled from 'styled-components'
 
 import { AlertBanner as SAlertBanner } from 'components/AlertBanner'
 
-export const Wrapper = styled.header`
+export const Wrapper = styled.div`
   width: 100%;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+  section {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
-export const Header = styled.div`
+export const Header = styled.header`
   width: 100%;
-  max-width: 50rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
+  height: 80px;
+  box-shadow: #c9bcbc 0em 2px 3px 0px;
+  padding: 0 2rem;
 
-export const Title = styled.h1`
-  text-align: center;
-  margin-bottom: 1.6rem;
+  .content {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+
+    div.input {
+      max-width: 300px;
+      width: 100%;
+    }
+
+    svg {
+      cursor: pointer;
+      margin-right: 8px;
+    }
+  }
 `
 
 export const BusLineTitle = styled.h2`

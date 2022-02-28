@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { IoMdArrowBack } from 'react-icons/io'
 
 import { GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
@@ -60,7 +61,16 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
     router.push(`/linhas/${inputValue.value}`).finally(() => setLoading(false))
   }
 
-  if (typeof id !== 'string') return <div>error</div>
+  function handleBackNavigation() {
+    setLoading(true)
+
+    router.push(`/`).finally(() => setLoading(false))
+  }
+
+  if (typeof id !== 'string') {
+    router.push(`/`)
+    return <Loader />
+  }
 
   return (
     <>
@@ -69,119 +79,123 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
       </Head>
       <S.Wrapper>
         <S.Header>
-          <S.Title>
-            Consulte os horários de ônibus do terminal de ibirité atualizados
-          </S.Title>
-          <AutoCompĺete
-            id="bus-line"
-            options={busOptions}
-            onChange={onSelectBusLine}
-            placeholder="Selecione a linha de ônibus"
-            label="horarios-onibus"
-          />
+          <div className="content">
+            <IoMdArrowBack size={24} onClick={handleBackNavigation} />
+            <div className="input">
+              <AutoCompĺete
+                id="bus-line"
+                options={busOptions}
+                onChange={onSelectBusLine}
+                placeholder="Selecione outra linha de ônibus"
+                label="horarios-onibus"
+              />
+            </div>
+          </div>
         </S.Header>
 
-        {['3490', '304m'].includes(id.toLowerCase()) && (
-          <embed
-            style={{ marginTop: 16, maxWidth: 500 }}
-            src="/pdf/304M.pdf"
-            width="100%"
-            height="375"
-            type="application/pdf"
-          />
-        )}
+        <section>
+          {loading && <Loader />}
 
-        {['305r'].includes(id.toLowerCase()) && (
-          <embed
-            style={{ marginTop: 16, maxWidth: 500 }}
-            src="/pdf/305R.pdf"
-            width="100%"
-            height="375"
-            type="application/pdf"
-          />
-        )}
-
-        {['302h'].includes(id.toLowerCase()) && (
-          <embed
-            style={{ marginTop: 16, maxWidth: 500 }}
-            src="/pdf/302H.pdf"
-            width="100%"
-            height="375"
-            type="application/pdf"
-          />
-        )}
-
-        {['1024', '1024p', 'c002'].includes(id.toLowerCase()) && (
-          <>
-            <img
-              src="/img/logo_ibiritrans.png"
-              alt="Logo da Ibiritrans"
-              style={{ width: 200, marginTop: 16 }}
+          {['3490', '304m'].includes(id.toLowerCase()) && (
+            <embed
+              style={{ marginTop: 16, maxWidth: 500 }}
+              src="/pdf/304M.pdf"
+              width="100%"
+              height="375"
+              type="application/pdf"
             />
-            <h2
-              style={{
-                maxWidth: 450,
-                marginTop: 12,
-                fontSize: 12,
-                fontWeight: 'normal',
-                textAlign: 'center'
-              }}
-            >
-              Conforme processo movido contra a Prefeitura pelo Consórcio Via
-              Amazonas / Saritur, a partir de segunda feira (07 de junho), as
-              linhas C002 e 1024 (sentido Los Angeles) deixarão de atender á
-              Avenida Expedito Faria Tavares, passando a operar pela Rua José
-              Tavares Filho nos dois sentidos
-            </h2>
-            <iframe
-              src="https://www.google.com/maps/d/u/0/embed?mid=13A1diuK1YI1_O9WljpQ9mv6YyE4hDsc6"
-              width="300"
-              height="480"
-              style={{
-                maxWidth: '100%',
-                borderRadius: '8px',
-                marginTop: '12px',
-                marginBottom: '12px'
-              }}
-            ></iframe>
-          </>
-        )}
+          )}
 
-        {loading && <Loader />}
+          {['305r'].includes(id.toLowerCase()) && (
+            <embed
+              style={{ marginTop: 16, maxWidth: 500 }}
+              src="/pdf/305R.pdf"
+              width="100%"
+              height="375"
+              type="application/pdf"
+            />
+          )}
 
-        {!loading && (
-          <>
-            <S.BusLineTitle>
-              Horários da linha: <strong>{busSchedule.bus.name}</strong>
-            </S.BusLineTitle>
+          {['302h'].includes(id.toLowerCase()) && (
+            <embed
+              style={{ marginTop: 16, maxWidth: 500 }}
+              src="/pdf/302H.pdf"
+              width="100%"
+              height="375"
+              type="application/pdf"
+            />
+          )}
 
-            <LabelsLegend labels={busSchedule.labels} />
-
-            <S.BusScheduleContainer>
-              <BusSchedule
-                title="Dias úteis"
-                schedule={busSchedule.schedule.workingDays}
+          {['1024', '1024p', 'c002'].includes(id.toLowerCase()) && (
+            <>
+              <img
+                src="/img/logo_ibiritrans.png"
+                alt="Logo da Ibiritrans"
+                style={{ width: 200, marginTop: 16 }}
               />
-              <BusSchedule
-                title="Sábados"
-                schedule={busSchedule.schedule.saturdays}
-              />
-              <BusSchedule
-                title="Domingos e feriados"
-                schedule={busSchedule.schedule.sundays}
-              />
-            </S.BusScheduleContainer>
-
-            {busSchedule.map && (
+              <h2
+                style={{
+                  maxWidth: 450,
+                  marginTop: 12,
+                  fontSize: 12,
+                  fontWeight: 'normal',
+                  textAlign: 'center'
+                }}
+              >
+                Conforme processo movido contra a Prefeitura pelo Consórcio Via
+                Amazonas / Saritur, a partir de segunda feira (07 de junho), as
+                linhas C002 e 1024 (sentido Los Angeles) deixarão de atender á
+                Avenida Expedito Faria Tavares, passando a operar pela Rua José
+                Tavares Filho nos dois sentidos
+              </h2>
               <iframe
-                src={busSchedule.map}
-                width="640"
+                src="https://www.google.com/maps/d/u/0/embed?mid=13A1diuK1YI1_O9WljpQ9mv6YyE4hDsc6"
+                width="300"
                 height="480"
-                style={{ maxWidth: '100%', marginTop: '12px' }}
+                style={{
+                  maxWidth: '100%',
+                  borderRadius: '8px',
+                  marginTop: '12px',
+                  marginBottom: '12px'
+                }}
               ></iframe>
-            )}
-          </>
-        )}
+            </>
+          )}
+
+          {!loading && (
+            <>
+              <S.BusLineTitle>
+                Horários da linha: <strong>{busSchedule.bus.name}</strong>
+              </S.BusLineTitle>
+
+              <LabelsLegend labels={busSchedule.labels} />
+
+              <S.BusScheduleContainer>
+                <BusSchedule
+                  title="Dias úteis"
+                  schedule={busSchedule.schedule.workingDays}
+                />
+                <BusSchedule
+                  title="Sábados"
+                  schedule={busSchedule.schedule.saturdays}
+                />
+                <BusSchedule
+                  title="Domingos e feriados"
+                  schedule={busSchedule.schedule.sundays}
+                />
+              </S.BusScheduleContainer>
+
+              {busSchedule.map && (
+                <iframe
+                  src={busSchedule.map}
+                  width="640"
+                  height="480"
+                  style={{ maxWidth: '100%', marginTop: '12px' }}
+                ></iframe>
+              )}
+            </>
+          )}
+        </section>
       </S.Wrapper>
     </>
   )
