@@ -83,7 +83,7 @@ const HomePage: React.FC = () => {
         <p>Consulte os horários de ônibus do terminal de ibirité atualizados</p>
 
         <p>
-          Atualizamos o site frequentemnete para mantermos você sempre
+          Atualizamos o site frequentemente para mantermos você sempre
           atualizado sobre os novos horários de ônibus
         </p>
       </section>
@@ -114,28 +114,28 @@ const HomePage: React.FC = () => {
         <h1>💰 Valor da passagem</h1>
 
         <p>
-          A tarifa dos ônibus das linhas <strong>troncais</strong>, custa{' '}
-          <strong>{external_bus_value}</strong>.
+          A tarifa dos ônibus das linhas <strong>troncais</strong>, tem o valor
+          de <strong>{external_bus_value}</strong>.
         </p>
 
         <p>
           Enquanto a tarifa dos ônibus das linhas <strong>alimentadoras</strong>
-          , custa <strong>{internal_bus_value}</strong>.
+          , tem o valor de <strong>{internal_bus_value}</strong>.
         </p>
 
         <p>
-          Já a tarifa dos ônibus das linhas <strong>municipais</strong>, custa{' '}
-          <strong>{municipal_bus_value}</strong>.
+          Já a tarifa dos ônibus das linhas <strong>municipais</strong>, tem o
+          valor de <strong>{municipal_bus_value}</strong>.
         </p>
       </section>
 
       <section className="integration">
-        <h1>💳 Como funciona a integração</h1>
+        <h1>💳 Como funciona a integração?</h1>
 
         <p>
-          Quando você pega algum ônibus das linhas municipais ou alimentadoras{' '}
+          Quando você pegar algum ônibus das linhas municipais ou alimentadoras{' '}
           <span className="sample">(linhas de bairro)</span> com destino ao
-          terminal, caso você em seguida for pegar um ônibus troncal{' '}
+          terminal e em seguida for pegar um ônibus troncal{' '}
           <span className="sample">
             (linhas que vão para outros municípios)
           </span>{' '}
@@ -145,11 +145,11 @@ const HomePage: React.FC = () => {
         <p className="sample">
           Exemplo: Peguei o 3356 pagando {internal_bus_value}, em seguida irei
           pegar o 301C, desse modo eu não vou precisar pagar mais{' '}
-          {external_bus_value}, eu irei pagar apenas a{' '}
+          {external_bus_value}, irei pagar apenas a{' '}
           <strong>integração no valor de {internal_integration_value}</strong>.
           Pois serão {external_bus_value} - {internal_bus_value},{' '}
           <strong>
-            totalizando {internal_integration_value} da integração
+            totalizando {internal_integration_value} da integração.
           </strong>
         </p>
 
@@ -157,7 +157,7 @@ const HomePage: React.FC = () => {
           Caso você for pegar um ônibus municipal a integração será{' '}
           {municipal_integration_value}. Pois serão {external_bus_value} -{' '}
           {municipal_bus_value},{' '}
-          <strong>totalizando {municipal_integration_value}</strong>
+          <strong>totalizando {municipal_integration_value}.</strong>
         </p>
 
         <ul>
@@ -174,8 +174,8 @@ const HomePage: React.FC = () => {
 
         <p className="disclaimer">
           <strong>
-            Porém a integração só é valida quando o passageiro faz o pagamento
-            com o cartão Ótimo
+            Porém a integração só é valida se você realizar o pagamento com o
+            cartão Ótimo
           </strong>
         </p>
       </section>
