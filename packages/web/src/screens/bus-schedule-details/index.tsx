@@ -96,36 +96,6 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
         <section>
           {loading && <Loader />}
 
-          {['3490', '304m'].includes(id.toLowerCase()) && (
-            <embed
-              style={{ marginTop: 16, maxWidth: 500 }}
-              src="/pdf/304M.pdf"
-              width="100%"
-              height="375"
-              type="application/pdf"
-            />
-          )}
-
-          {['305r'].includes(id.toLowerCase()) && (
-            <embed
-              style={{ marginTop: 16, maxWidth: 500 }}
-              src="/pdf/305R.pdf"
-              width="100%"
-              height="375"
-              type="application/pdf"
-            />
-          )}
-
-          {['302h'].includes(id.toLowerCase()) && (
-            <embed
-              style={{ marginTop: 16, maxWidth: 500 }}
-              src="/pdf/302H.pdf"
-              width="100%"
-              height="375"
-              type="application/pdf"
-            />
-          )}
-
           {['1024', '1024p', 'c002'].includes(id.toLowerCase()) && (
             <>
               <img
