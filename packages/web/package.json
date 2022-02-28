@@ -10,7 +10,8 @@
     "test:watch": "yarn test --watch",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s ./public",
-    "pre-commit": "yarn lint-staged"
+    "pre-commit": "yarn lint-staged",
+    "pre-push": "yarn lint && yarn build"
   },
   "lint-staged": {
     "src/**/*": [
