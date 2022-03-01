@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { IoMdArrowBack } from 'react-icons/io'
 
 import { GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
@@ -16,6 +15,7 @@ import { getBusSchedule } from 'use-cases/get-bus-schedule'
 import { BusScheduleOperations, RawBusSchedule } from 'models'
 
 import * as S from './styles'
+import { Toolbar } from 'components/Toolbar'
 
 type BusScheduleDetailsPageProps = {
   busLines: { id: string; name: string }[]
@@ -61,12 +61,6 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
     router.push(`/linhas/${inputValue.value}`).finally(() => setLoading(false))
   }
 
-  function handleBackNavigation() {
-    setLoading(true)
-
-    router.push(`/`).finally(() => setLoading(false))
-  }
-
   if (typeof id !== 'string') {
     router.push(`/`)
     return <Loader />
@@ -78,20 +72,17 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
         <title>Hórarios ônibus {busSchedule.bus.name} ATUALIZADO</title>
       </Head>
       <S.Wrapper>
-        <S.Header>
-          <div className="content">
-            <IoMdArrowBack size={24} onClick={handleBackNavigation} />
-            <div className="input">
-              <AutoCompĺete
-                id="bus-line"
-                options={busOptions}
-                onChange={onSelectBusLine}
-                placeholder="Selecione outra linha de ônibus"
-                label="horarios-onibus"
-              />
-            </div>
+        <Toolbar setLoading={setLoading}>
+          <div className="input">
+            <AutoCompĺete
+              id="bus-line"
+              options={busOptions}
+              onChange={onSelectBusLine}
+              placeholder="Selecione outra linha de ônibus"
+              label="horarios-onibus"
+            />
           </div>
-        </S.Header>
+        </Toolbar>
 
         <section>
           {loading && <Loader />}
