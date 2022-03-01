@@ -1,7 +1,4 @@
-import {
-  BusScheduleDetailsPage,
-  getServerSideProps
-} from 'screens/bus-schedule-details'
+import { BusScheduleDetailsPage, getServerSideProps } from 'screens'
 
 export { getServerSideProps }
 

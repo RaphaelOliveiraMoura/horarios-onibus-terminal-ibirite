@@ -1,15 +1,15 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import AutoCompĺete from '.'
+import { AutoComplete } from '.'
 
 export default {
-  title: 'AutoCompĺete',
-  component: AutoCompĺete,
+  title: 'AutoComplete',
+  component: AutoComplete,
   args: {}
 } as Meta
 
 export const Default: Story = () => (
-  <AutoCompĺete
+  <AutoComplete
     id="AutoCompleteId"
     label="AutoCompleteLabel"
     placeholder="AutoCompletePlaceholder"

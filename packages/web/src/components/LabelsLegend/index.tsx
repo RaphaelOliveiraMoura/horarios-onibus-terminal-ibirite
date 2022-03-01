@@ -1,5 +1,5 @@
 import { BusModifiers } from 'models'
-import { modifiersMap } from 'components/ModifiersTooltip'
+import { modifiersMap } from 'components'
 
 import * as S from './styles'
 
@@ -7,7 +7,7 @@ export type LabelsLegendProps = {
   labels: { [key in BusModifiers]?: string }
 }
 
-const LabelsLegend: React.FC<LabelsLegendProps> = ({ labels }) => {
+export const LabelsLegend: React.FC<LabelsLegendProps> = ({ labels }) => {
   const labelsEntries = Object.entries(labels)
 
   if (labelsEntries.length === 0) return <></>
@@ -23,5 +23,3 @@ const LabelsLegend: React.FC<LabelsLegendProps> = ({ labels }) => {
     </S.Wrapper>
   )
 }
-
-export default LabelsLegend

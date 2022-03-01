@@ -51,8 +51,3 @@ export const useDialog = () => {
 
   return context
 }
-
-export default {
-  DialogProvider,
-  useDialog
-}

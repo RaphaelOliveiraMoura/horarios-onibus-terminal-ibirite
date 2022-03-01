@@ -18,7 +18,7 @@ export type AutoCompleteProps = {
   onBlur?: () => void
 }
 
-const AutoComplete: React.FC<AutoCompleteProps> = ({
+export const AutoComplete: React.FC<AutoCompleteProps> = ({
   id,
   defaultValue = '',
   onChange = () => '',
@@ -48,5 +48,3 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
     </S.Wrapper>
   )
 }
-
-export default AutoComplete

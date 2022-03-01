@@ -8,7 +8,7 @@ export interface TooltipProps {
   position?: 'top' | 'bottom'
 }
 
-const Tooltip = ({
+export const Tooltip = ({
   className,
   children,
   text,
@@ -22,5 +22,3 @@ const Tooltip = ({
     </S.Wrapper>
   )
 }
-
-export default Tooltip

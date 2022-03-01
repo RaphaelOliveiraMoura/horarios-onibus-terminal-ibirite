@@ -1,4 +1,4 @@
-import { TextStyles } from 'components/Text'
+import * as TextStyles from 'components/Text/styles'
 import styled from 'styled-components'
 
 export const Content = styled.div`

@@ -1,4 +1,4 @@
-import { TextStyles } from 'components/Text'
+import * as TextStyles from 'components/Text/styles'
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`

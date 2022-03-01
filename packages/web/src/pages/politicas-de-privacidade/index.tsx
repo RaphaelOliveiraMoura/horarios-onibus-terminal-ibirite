@@ -1,3 +1,3 @@
-import PrivacyPoliciesPage from 'screens/privacy-policies'
+import { PrivacyPoliciesPage } from 'screens'
 
 export default PrivacyPoliciesPage

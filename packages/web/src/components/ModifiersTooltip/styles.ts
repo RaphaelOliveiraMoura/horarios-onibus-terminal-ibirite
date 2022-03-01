@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Tooltip from 'components/Tooltip'
+import { Tooltip } from 'components/Tooltip'
 
 type WidgetProps = {
   color?: string

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   :root {
     --lighter-gray: #f4f4f4;
     --ligth-gray: #DDDDDD;
@@ -34,5 +34,3 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Noto Sans JP', sans-serif;
   }
 `
-
-export default GlobalStyles

@@ -1,3 +1,3 @@
-import HomePage from 'screens/home'
+import { HomePage } from 'screens'
 
 export default HomePage

@@ -1,6 +1,6 @@
 import { BusTime } from 'models'
 import { BusScheduleViewModel, ScheduleMapNonNull } from 'view-model'
-import { modifiersMap } from 'components/ModifiersTooltip'
+import { modifiersMap } from 'components'
 
 import * as S from './styles'
 
@@ -9,7 +9,10 @@ export type BusScheduleProps = {
   schedule: BusTime[]
 }
 
-const BusSchedule: React.FC<BusScheduleProps> = ({ title, schedule }) => {
+export const BusSchedule: React.FC<BusScheduleProps> = ({
+  title,
+  schedule
+}) => {
   const scheduleMap = BusScheduleViewModel.parse(schedule) as ScheduleMapNonNull
 
   return (
@@ -40,5 +43,3 @@ const BusSchedule: React.FC<BusScheduleProps> = ({ title, schedule }) => {
     </S.Wrapper>
   )
 }
-
-export default BusSchedule
