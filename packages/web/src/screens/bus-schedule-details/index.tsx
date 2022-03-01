@@ -4,6 +4,9 @@ import { GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
+import { getBusLines } from 'use-cases/get-bus-lines'
+import { getBusSchedule } from 'use-cases/get-bus-schedule'
+import { BusScheduleOperations, RawBusSchedule } from 'models'
 import {
   AutoComplete,
   BusSchedule,
@@ -12,11 +15,6 @@ import {
   Toolbar,
   Footer
 } from 'components'
-
-import { getBusLines } from 'use-cases/get-bus-lines'
-import { getBusSchedule } from 'use-cases/get-bus-schedule'
-
-import { BusScheduleOperations, RawBusSchedule } from 'models'
 
 import * as S from './styles'
 

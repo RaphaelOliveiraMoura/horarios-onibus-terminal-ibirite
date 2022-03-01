@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
+
 import { useRouter } from 'next/router'
 
 import { AutoComplete, Option, Loader, Text, Footer } from 'components'
-
 import { getBusLines } from 'use-cases/get-bus-lines'
 
 import * as S from './styles'

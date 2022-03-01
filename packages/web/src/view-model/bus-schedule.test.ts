@@ -1,4 +1,5 @@
 import { BusTime, Time } from 'models'
+
 import { BusScheduleViewModel } from './bus-schedule'
 
 describe('BusScheduleViewModel', () => {

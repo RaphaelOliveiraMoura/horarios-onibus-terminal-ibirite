@@ -1,5 +1,6 @@
-import { ContextOutsideProviderError } from 'errors'
 import React, { useState, createContext, useContext } from 'react'
+
+import { ContextOutsideProviderError } from 'errors'
 
 import { Dialog } from '.'
 

@@ -1,4 +1,5 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
+
 import { AutoCompleteVariants } from '.'
 
 type VariantsDecorators = {

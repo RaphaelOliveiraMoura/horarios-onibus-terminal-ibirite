@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { AlertBanner as SAlertBanner } from 'components'
 
 export const Wrapper = styled.div`

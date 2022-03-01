@@ -1,5 +1,7 @@
-import { Footer, Loader, Text, Toolbar } from 'components'
 import { useState } from 'react'
+
+import { Footer, Loader, Text, Toolbar } from 'components'
+
 import * as S from './styles'
 
 export const PrivacyPoliciesPage: React.FC = () => {
