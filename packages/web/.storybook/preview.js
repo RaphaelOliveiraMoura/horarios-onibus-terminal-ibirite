@@ -1,8 +1,4 @@
-import { addDecorator } from '@storybook/react'
-import { withNextRouter } from 'storybook-addon-next-router'
-import GlobalStyles from '../src/presentation/styles/global'
-
-addDecorator(withNextRouter())
+import GlobalStyles from '../src/styles/global'
 
 export const decorators = [
   (Story) => (

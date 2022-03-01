@@ -1,3 +1,4 @@
+import { TextStyles } from 'components/Text'
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
@@ -9,31 +10,23 @@ export const Wrapper = styled.div`
     padding-bottom: 24px;
     text-align: center;
 
-    h1 {
-      font-size: 2.4rem;
+    ${TextStyles.Wrapper} {
+      margin-bottom: 12px;
+      padding: 0 12px;
+    }
+
+    ${TextStyles.Wrapper}.title {
       margin-bottom: 8px;
       padding: 0 8px;
     }
 
-    p {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-      color: #333;
-      padding: 0 12px;
-    }
-
-    p.disclaimer {
-      font-size: 1.6rem;
-    }
-
-    .sample {
-      color: #888;
-      font-size: 1.3rem;
+    span${TextStyles.Wrapper}, ${TextStyles.Wrapper}.subtitle {
+      padding: 0;
+      margin: 0;
     }
 
     ul {
       margin-bottom: 12px;
-      font-size: 1.4rem;
       width: 100%;
       border: 2px dashed #ddd;
       color: #444;
@@ -57,7 +50,7 @@ export const Wrapper = styled.div`
     background-color: #eee;
   }
 
-  section.updated-lines {
+  section#linhas-atualizadas {
     padding-top: 64px;
   }
 `
@@ -78,27 +71,14 @@ export const BackgroundContainer = styled.header<BackgroundContainerProps>`
     width: 100%;
     padding: 8px;
     z-index: 1;
-    text-align: center;
     transition: all 0.4s;
     max-width: 600px;
+    text-align: center;
 
-    h1 {
+    ${TextStyles.Wrapper}.title {
       margin-bottom: 16px;
-      font-size: 2.4rem;
       color: white;
       padding: 0 12px;
-    }
-
-    .react-select-container {
-      font-size: 1.7rem;
-    }
-
-    .react-select__menu-list {
-      max-height: 800px;
-    }
-
-    input {
-      height: 40px;
     }
 
     ${(p) =>
