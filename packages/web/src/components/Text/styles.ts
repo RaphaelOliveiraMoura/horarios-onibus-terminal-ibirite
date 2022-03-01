@@ -11,7 +11,9 @@ const variantDecorators: VariantsDecorators = {
   title: css`
     font-size: 2.4rem;
   `,
-  subtitle: css``,
+  subtitle: css`
+    font-size: 1.5rem;
+  `,
   smooth: css`
     color: #888;
     font-size: 1.3rem;
@@ -20,6 +22,11 @@ const variantDecorators: VariantsDecorators = {
     font-size: 1.6rem;
     font-weight: bold;
     display: block;
+  `,
+  link: css`
+    display: block;
+    text-decoration: underline;
+    font-size: 1.3rem;
   `
 }
 

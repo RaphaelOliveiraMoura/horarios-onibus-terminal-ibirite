@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
     background-color: #eee;
   }
 
-  section.updated-lines {
+  section#linhas-atualizadas {
     padding-top: 64px;
   }
 `

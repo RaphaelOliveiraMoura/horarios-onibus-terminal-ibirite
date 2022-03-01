@@ -11,6 +11,7 @@ class Sitemap extends React.Component {
     function createSitemap() {
       const pages: string[] = [
         '/',
+        '/politicas-de-privacidade',
         ...busesMemory.map(({ id }) => `/linhas/${id}`)
       ]
 

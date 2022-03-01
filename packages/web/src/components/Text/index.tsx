@@ -10,11 +10,13 @@ export type TextVariants =
   | 'subtitle'
   | 'smooth'
   | 'disclaimer'
+  | 'link'
 
 export interface TextProps {
   children: React.ReactNode
   variant?: TextVariants
   as?: ValidHtmlTextTags
+  href?: string
 }
 
 type TagsMap = { [key in TextVariants]: ValidHtmlTextTags }
@@ -24,17 +26,24 @@ const tagsMap: TagsMap = {
   title: 'h1',
   subtitle: 'h2',
   smooth: 'p',
-  disclaimer: 'strong'
+  disclaimer: 'strong',
+  link: 'a'
 }
 
 export const Text: React.FC<TextProps> = ({
   children,
   as,
-  variant = 'default'
+  variant = 'default',
+  ...props
 }) => {
   const textHtmlTag = as || tagsMap[variant]
   return (
-    <S.Wrapper as={textHtmlTag} $variant={variant} className={variant}>
+    <S.Wrapper
+      as={textHtmlTag}
+      $variant={variant}
+      className={variant}
+      {...props}
+    >
       {children}
     </S.Wrapper>
   )

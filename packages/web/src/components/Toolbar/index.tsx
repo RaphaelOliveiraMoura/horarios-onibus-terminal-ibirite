@@ -20,10 +20,10 @@ export const Toolbar: React.FC<ToolbarProps> = ({
 
   return (
     <S.Wrapper>
-      <div className="content">
+      <S.Content>
         <IoMdArrowBack size={24} onClick={handleBackNavigation} />
         {children}
-      </div>
+      </S.Content>
     </S.Wrapper>
   )
 }

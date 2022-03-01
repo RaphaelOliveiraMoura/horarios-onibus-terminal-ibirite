@@ -8,6 +8,7 @@ import { getBusLines } from 'use-cases/get-bus-lines'
 
 import * as S from './styles'
 import { Text } from 'components/Text'
+import { Footer } from 'components/Footer'
 
 const external_bus_value = 'R$ 7,65'
 
@@ -80,7 +81,7 @@ const HomePage: React.FC = () => {
         <img className="bus" src="/img/onibus.png" alt="Imagem de um onibus" />
       </S.BackgroundContainer>
 
-      <section className="updated-lines">
+      <section id="linhas-atualizadas">
         <Text variant="title">⌛ Horários sempre atualizados</Text>
         <Text>
           Consulte os horários de ônibus do terminal de ibirité atualizados
@@ -91,27 +92,48 @@ const HomePage: React.FC = () => {
         </Text>
       </section>
 
-      <section className="bus-types">
+      <section id="tipos-de-linhas">
         <Text variant="title">🚌 Linhas de ônibus</Text>
         <Text variant="subtitle">Troncal</Text>
         <Text>
-          São linhas gerenciadas pelo DERR (Departamento de Edificações e
-          Estradas de Rodagem de Minas Gerais) e tem o trajeto do terminal para
-          outros municípios
+          São linhas gerenciadas pelo{' '}
+          <a
+            href="http://www.consultas.der.mg.gov.br/grgx/sgtm/consulta_linha.xhtml"
+            target="_blank"
+            rel="noreferrer"
+          >
+            DEER (Departamento de Edificações e Estradas de Rodagem de Minas
+            Gerais)
+          </a>{' '}
+          e tem o trajeto do terminal para outros municípios
         </Text>
         <Text variant="subtitle">Alimentadora</Text>
         <Text>
-          São linhas também gerenciadas pelo DERR, que fazem o trajeto dos
-          bairros para o terminal de Ibirité
+          São linhas também gerenciadas pelo{' '}
+          <a
+            href="http://www.consultas.der.mg.gov.br/grgx/sgtm/consulta_linha.xhtml"
+            target="_blank"
+            rel="noreferrer"
+          >
+            DEER
+          </a>
+          , que fazem o trajeto dos bairros para o terminal de Ibirité
         </Text>
         <Text variant="subtitle">Municipal</Text>
         <Text>
-          Essas linhas são gerenciadas pela Prefeitura de Ibirité e também fazem
-          o trajeto dos bairros para o terminal de Ibirité
+          Essas linhas são gerenciadas pela{' '}
+          <a
+            href="https://www.ibirite.mg.gov.br/detalhe-da-materia/info/horarios-de-onibus/6504"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Prefeitura de Ibirité
+          </a>{' '}
+          e também fazem o trajeto dos bairros para o terminal de Ibirité
         </Text>
       </section>
 
-      <section className="values">
+      <section id="valores-passagem">
         <Text variant="title">💰 Valor da passagem</Text>
         <Text>
           A tarifa dos ônibus das linhas <strong>troncais</strong>, tem o valor
@@ -127,7 +149,7 @@ const HomePage: React.FC = () => {
         </Text>
       </section>
 
-      <section className="integration">
+      <section id="integracao">
         <Text variant="title">💳 Como funciona a integração?</Text>
 
         <Text>
@@ -181,6 +203,8 @@ const HomePage: React.FC = () => {
           cartão Ótimo
         </Text>
       </section>
+
+      <Footer />
     </S.Wrapper>
   )
 }

@@ -16,6 +16,7 @@ import { BusScheduleOperations, RawBusSchedule } from 'models'
 
 import * as S from './styles'
 import { Toolbar } from 'components/Toolbar'
+import { Footer } from 'components/Footer'
 
 type BusScheduleDetailsPageProps = {
   busLines: { id: string; name: string }[]
@@ -157,6 +158,8 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
             </>
           )}
         </section>
+
+        <Footer />
       </S.Wrapper>
     </>
   )
