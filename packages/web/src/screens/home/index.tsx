@@ -4,16 +4,17 @@ import { useRouter } from 'next/router'
 
 import { AutoComplete, Option, Loader, Text, Footer } from 'components'
 import { getBusLines } from 'use-cases/get-bus-lines'
+import { configs } from 'configs'
 
 import * as S from './styles'
 
-const external_bus_value = 'R$ 7,65'
-
-const internal_bus_value = 'R$ 5,30'
-const internal_integration_value = 'R$ 2,35'
-
-const municipal_bus_value = 'R$ 4,25'
-const municipal_integration_value = 'R$ 3,40'
+const {
+  external_bus_value,
+  internal_bus_value,
+  internal_integration_value,
+  municipal_bus_value,
+  municipal_integration_value
+} = configs.busValues
 
 export const HomePage: React.FC = () => {
   const router = useRouter()
