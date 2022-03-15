@@ -5,7 +5,7 @@
     "prev": "Previsão - Ônibus que está voltando do bairro São Pedro, o hórario de saída é apenas uma estimativa"
   },
   "workingDays": [
-    "05:20:prev",
+    "05:15:prev",
     "06:30:prev",
     "08:00:prev",
     "09:30:prev",
@@ -18,7 +18,7 @@
     "20:50:prev"
   ],
   "saturdays": [
-    "06:20:prev",
+    "06:15:prev",
     "07:30:prev",
     "09:15:prev",
     "11:00:prev",
@@ -29,7 +29,7 @@
     "20:45:prev"
   ],
   "sundays": [
-    "06:40:prev",
+    "06:45:prev",
     "08:00:prev",
     "10:00:prev",
     "12:00:prev",

@@ -5,43 +5,30 @@
     "prev": "Previsão - Ônibus que está voltando do bairro Jardim Rosário, o hórario de saída é apenas uma estimativa"
   },
   "workingDays": [
-    "05:10:prev",
-    "05:55:prev",
     "06:25:prev",
-    "06:55:prev",
-    "07:55:prev",
-    "08:55:prev",
-    "10:15:prev",
+    "08:05:prev",
+    "09:55:prev",
     "11:45:prev",
-    "13:15:prev",
-    "14:45:prev",
+    "14:15:prev",
     "16:15:prev",
-    "17:15:prev",
     "18:15:prev",
-    "19:15:prev",
     "20:45:prev"
   ],
   "saturdays": [
-    "05:30:prev",
     "06:15:prev",
     "07:35:prev",
-    "08:45:prev",
     "09:55:prev",
-    "10:55:prev",
     "12:55:prev",
-    "14:40:prev",
     "16:25:prev",
     "18:10:prev",
     "20:15:prev"
   ],
   "sundays": [
-    "06:10:prev",
+    "06:15:prev",
     "08:45:prev",
-    "10:45:prev",
     "12:45:prev",
-    "14:45:prev",
-    "16:45:prev",
-    "18:45:prev",
+    "15:15:prev",
+    "18:15:prev",
     "20:45:prev"
   ]
 }

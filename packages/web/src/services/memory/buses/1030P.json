@@ -5,46 +5,37 @@
     "prev": "Previsão - Ônibus que está voltando do bairro Vila Ideal, o hórario de saída é apenas uma estimativa"
   },
   "workingDays": [
-    "05:50:prev",
-    "06:05:prev",
-    "06:40:prev",
-    "07:40:prev",
-    "08:30:prev",
-    "09:30:prev",
-    "11:25:prev",
-    "12:50:prev",
+    "05:40:prev",
+    "07:10:prev",
+    "08:50:prev",
+    "10:20:prev",
+    "11:50:prev",
     "13:50:prev",
-    "14:50:prev",
     "15:50:prev",
-    "16:50:prev",
-    "17:50:prev",
+    "17:20:prev",
     "18:50:prev",
-    "20:00:prev",
-    "21:20:prev"
+    "20:20:prev",
+    "21:50:prev"
   ],
   "saturdays": [
-    "06:50:prev",
+    "06:40:prev",
     "08:20:prev",
     "09:50:prev",
     "11:20:prev",
     "12:50:prev",
-    "13:20:prev",
     "15:50:prev",
     "17:20:prev",
     "18:50:prev",
     "20:50:prev"
   ],
   "sundays": [
-    "06:15:prev",
-    "07:45:prev",
-    "09:15:prev",
-    "10:45:prev",
-    "12:15:prev",
-    "13:45:prev",
-    "15:15:prev",
-    "16:45:prev",
-    "18:15:prev",
-    "19:45:prev",
-    "21:15:prev"
+    "07:40:prev",
+    "09:20:prev",
+    "10:50:prev",
+    "12:20:prev",
+    "15:20:prev",
+    "16:50:prev",
+    "18:20:prev",
+    "19:50:prev"
   ]
 }

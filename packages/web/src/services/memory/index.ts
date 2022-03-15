@@ -27,14 +27,14 @@ import _3520 from './buses/3520.json'
 import _3540 from './buses/3540.json'
 import _3560 from './buses/3560.json'
 
-// import _1013P from './buses/1013P.json'
-// import _1015P from './buses/1015P.json'
-// import _1020P from './buses/1020P.json'
-// import _1021P from './buses/1021P.json'
-// import _1024P from './buses/1024P.json'
-// import _1025P from './buses/1025P.json'
-// import _1030P from './buses/1030P.json'
-// import _1031P from './buses/1031P.json'
+import _1013P from './buses/1013P.json'
+import _1015P from './buses/1015P.json'
+import _1020P from './buses/1020P.json'
+import _1021P from './buses/1021P.json'
+import _1024P from './buses/1024P.json'
+import _1025P from './buses/1025P.json'
+import _1030P from './buses/1030P.json'
+import _1031P from './buses/1031P.json'
 
 type BusJSON = {
   id: string
@@ -75,14 +75,14 @@ export const busesMemory: BusJSON[] = [
   _3500,
   _3520,
   _3540,
-  _3560
+  _3560,
 
-  // _1013P,
-  // _1015P,
-  // _1020P,
-  // _1021P,
-  // _1024P,
-  // _1025P,
-  // _1030P,
-  // _1031P
+  _1013P,
+  _1015P,
+  _1020P,
+  _1021P,
+  _1024P,
+  _1025P,
+  _1030P,
+  _1031P
 ]

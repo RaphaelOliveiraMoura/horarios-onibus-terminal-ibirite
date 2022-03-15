@@ -5,8 +5,8 @@
     "prev": "Previsão - Ônibus que está voltando do bairro Cascata, o hórario de saída é apenas uma estimativa"
   },
   "workingDays": [
-    "05:15:prev",
-    "06:05:prev",
+    "05:10:prev",
+    "06:00:prev",
     "06:50:prev",
     "07:30:prev",
     "08:00:prev",
@@ -27,7 +27,7 @@
     "20:30:prev"
   ],
   "saturdays": [
-    "06:10:prev",
+    "06:00:prev",
     "07:00:prev",
     "08:00:prev",
     "09:00:prev",
@@ -43,7 +43,7 @@
     "21:00:prev"
   ],
   "sundays": [
-    "05:45:prev",
+    "05:40:prev",
     "06:40:prev",
     "07:40:prev",
     "08:40:prev",
