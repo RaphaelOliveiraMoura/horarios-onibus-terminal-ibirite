@@ -124,6 +124,30 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
             </>
           )}
 
+          {['3450', '3460', '3455', '3465'].includes(id.toLowerCase()) && (
+            <>
+              <h2
+                style={{
+                  maxWidth: 450,
+                  marginTop: 12,
+                  fontSize: 20,
+                  fontWeight: 'normal',
+                  textAlign: 'center',
+                  border: '1px solid #ddd',
+                  borderRadius: 8,
+                  padding: 12,
+                  background: '#E83A14',
+                  color: '#fff'
+                }}
+              >
+                A partir do dia <strong>27/03/22</strong> as linhas{' '}
+                <strong>3450</strong> e <strong>3460</strong> serão substituidas
+                aos domingos pelas linhas <strong>3455</strong> e{' '}
+                <strong>3465</strong>
+              </h2>
+            </>
+          )}
+
           {!loading && (
             <>
               <S.BusLineTitle>
