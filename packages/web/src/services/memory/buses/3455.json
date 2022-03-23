@@ -1,0 +1,10 @@
+{
+  "id": "3455",
+  "name": "3455 - Terminal Ibirité / Bosque / Monsenhor Horta – Ibirité",
+  "labels": {
+    "pi": "Partida do bairro"
+  },
+  "workingDays": [],
+  "saturdays": [],
+  "sundays": ["06:30", "08:10", "10:30", "13:00", "15:20", "17:40", "20:10"]
+}

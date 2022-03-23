@@ -36,6 +36,9 @@ import _1025P from './buses/1025P.json'
 import _1030P from './buses/1030P.json'
 import _1031P from './buses/1031P.json'
 
+import _3455 from './buses/3455.json'
+import _3465 from './buses/3465.json'
+
 type BusJSON = {
   id: string
   name: string
@@ -84,5 +87,8 @@ export const busesMemory: BusJSON[] = [
   _1024P,
   _1025P,
   _1030P,
-  _1031P
+  _1031P,
+
+  _3455,
+  _3465
 ]
