@@ -1,11 +1,10 @@
-import { Footer } from 'components/Footer'
-import Loader from 'components/Loader'
-import { Text } from 'components/Text'
-import { Toolbar } from 'components/Toolbar'
 import { useState } from 'react'
+
+import { Footer, Loader, Text, Toolbar } from 'components'
+
 import * as S from './styles'
 
-const PrivacyPoliciesPage: React.FC = () => {
+export const PrivacyPoliciesPage: React.FC = () => {
   const [loading, setLoading] = useState(false)
 
   return (
@@ -214,5 +213,3 @@ const PrivacyPoliciesPage: React.FC = () => {
     </S.Wrapper>
   )
 }
-
-export default PrivacyPoliciesPage

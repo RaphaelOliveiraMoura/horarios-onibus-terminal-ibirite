@@ -1,6 +1,6 @@
 import * as S from './styles'
 
-const Loader: React.FC = () => {
+export const Loader: React.FC = () => {
   return (
     <S.Wrapper>
       <div></div>
@@ -9,5 +9,3 @@ const Loader: React.FC = () => {
     </S.Wrapper>
   )
 }
-
-export default Loader

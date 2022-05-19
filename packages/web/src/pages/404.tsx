@@ -1,6 +1,8 @@
-import Loader from 'components/Loader'
-import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+
+import { useRouter } from 'next/router'
+
+import { Loader } from 'components'
 
 export default function Page404() {
   const router = useRouter()

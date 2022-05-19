@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
-import AutoComplete, { AutoCompleteProps } from '.'
+import { AutoComplete, AutoCompleteProps } from '.'
 
 const BaseComponent = (props: Partial<AutoCompleteProps>) => (
   <AutoComplete

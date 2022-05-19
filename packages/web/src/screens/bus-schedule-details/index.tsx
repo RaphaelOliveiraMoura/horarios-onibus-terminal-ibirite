@@ -4,19 +4,19 @@ import { GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import AutoCompĺete from 'components/AutoCompĺete'
-import BusSchedule from 'components/BusSchedule'
-import Loader from 'components/Loader'
-import LabelsLegend from 'components/LabelsLegend'
-
 import { getBusLines } from 'use-cases/get-bus-lines'
 import { getBusSchedule } from 'use-cases/get-bus-schedule'
-
 import { BusScheduleOperations, RawBusSchedule } from 'models'
+import {
+  AutoComplete,
+  BusSchedule,
+  Loader,
+  LabelsLegend,
+  Toolbar,
+  Footer
+} from 'components'
 
 import * as S from './styles'
-import { Toolbar } from 'components/Toolbar'
-import { Footer } from 'components/Footer'
 
 type BusScheduleDetailsPageProps = {
   busLines: { id: string; name: string }[]
@@ -75,7 +75,7 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
       <S.Wrapper>
         <Toolbar setLoading={setLoading}>
           <div className="input">
-            <AutoCompĺete
+            <AutoComplete
               id="bus-line"
               options={busOptions}
               onChange={onSelectBusLine}

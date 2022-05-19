@@ -1,5 +1,7 @@
-import { Text } from 'components/Text'
 import React from 'react'
+
+import { Text } from 'components'
+
 import * as S from './styles'
 
 export const Footer: React.FC = () => {

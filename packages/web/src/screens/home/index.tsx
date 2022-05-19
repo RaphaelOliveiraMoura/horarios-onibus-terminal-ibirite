@@ -1,24 +1,22 @@
 import { useEffect, useState } from 'react'
+
 import { useRouter } from 'next/router'
 
-import AutoCompĺete, { Option } from 'components/AutoCompĺete'
-import Loader from 'components/Loader'
-
+import { AutoComplete, Option, Loader, Text, Footer } from 'components'
 import { getBusLines } from 'use-cases/get-bus-lines'
+import { configs } from 'configs'
 
 import * as S from './styles'
-import { Text } from 'components/Text'
-import { Footer } from 'components/Footer'
 
-const external_bus_value = 'R$ 7,65'
+const {
+  external_bus_value,
+  internal_bus_value,
+  internal_integration_value,
+  municipal_bus_value,
+  municipal_integration_value
+} = configs.busValues
 
-const internal_bus_value = 'R$ 5,30'
-const internal_integration_value = 'R$ 2,35'
-
-const municipal_bus_value = 'R$ 4,25'
-const municipal_integration_value = 'R$ 3,40'
-
-const HomePage: React.FC = () => {
+export const HomePage: React.FC = () => {
   const router = useRouter()
 
   const [busOptions, setBusOptions] = useState<Option[]>([])
@@ -59,7 +57,7 @@ const HomePage: React.FC = () => {
         <div className="content">
           <Text variant="title">Horários de ônibus do Terminal de Ibirité</Text>
 
-          <AutoCompĺete
+          <AutoComplete
             id="bus-line"
             options={busOptions}
             onChange={onSelectBusLine}
@@ -208,5 +206,3 @@ const HomePage: React.FC = () => {
     </S.Wrapper>
   )
 }
-
-export default HomePage

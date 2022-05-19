@@ -1,5 +1,6 @@
-import { ContextOutsideProviderError } from 'errors'
 import React, { useState, createContext, useContext } from 'react'
+
+import { ContextOutsideProviderError } from 'errors'
 
 import { Dialog } from '.'
 
@@ -50,9 +51,4 @@ export const useDialog = () => {
   }
 
   return context
-}
-
-export default {
-  DialogProvider,
-  useDialog
 }

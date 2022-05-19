@@ -1,4 +1,5 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
+
 import { TextVariants } from '.'
 
 type VariantsDecorators = { [key in TextVariants]: FlattenSimpleInterpolation }

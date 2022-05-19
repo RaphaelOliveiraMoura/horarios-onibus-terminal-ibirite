@@ -1,6 +1,7 @@
 import { BusNotFoundError } from 'errors'
 import { BusModifiers, BusScheduleOperations } from 'models'
 import { busesMemory } from 'services/memory'
+
 import { GetBusSchedule } from './types'
 
 export const getBusSchedule: GetBusSchedule = async ({ busId }) => {
