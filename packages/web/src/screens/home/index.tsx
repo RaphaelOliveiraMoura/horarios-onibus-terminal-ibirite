@@ -16,7 +16,7 @@ const internal_bus_value = 'R$ 5,30'
 const internal_integration_value = 'R$ 2,35'
 
 const municipal_bus_value = 'R$ 05,30'
-const municipal_integration_value = 'R$ 3,40'
+const municipal_integration_value = 'R$ 2,35'
 
 const HomePage: React.FC = () => {
   const router = useRouter()
