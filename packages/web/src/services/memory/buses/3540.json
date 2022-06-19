@@ -2,7 +2,8 @@
   "id": "3540",
   "name": "3540 - Terminal Ibirité / Eldorado Via Ibirité",
   "labels": {
-    "pi": "Partida do bairro"
+    "pi": "Partida do bairro",
+    "ri": "Não retorna pro terminal"
   },
   "workingDays": [
     "05:30:pi",
@@ -15,7 +16,7 @@
     "15:00",
     "17:00",
     "18:20",
-    "20:00"
+    "20:00:ri"
   ],
   "saturdays": [],
   "sundays": []

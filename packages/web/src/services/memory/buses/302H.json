@@ -2,7 +2,15 @@
   "id": "302H",
   "name": "302H - Terminal Ibirité / Hospitais",
   "labels": {},
-  "workingDays": ["05:40", "12:20", "17:00"],
+  "workingDays": [
+    "05:40",
+    "06:05",
+    "08:00",
+    "12:20",
+    "14:00",
+    "16:00",
+    "17:07"
+  ],
   "saturdays": [],
   "sundays": []
 }
