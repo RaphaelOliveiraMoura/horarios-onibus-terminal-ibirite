@@ -23,7 +23,9 @@ import _3450 from './buses/3450.json'
 import _3460 from './buses/3460.json'
 import _3480 from './buses/3480.json'
 import _3500 from './buses/3500.json'
+import _3505 from './buses/3505.json'
 import _3520 from './buses/3520.json'
+import _3525 from './buses/3525.json'
 import _3540 from './buses/3540.json'
 import _3560 from './buses/3560.json'
 
@@ -93,7 +95,9 @@ export const busesMemory: BusJSON[] = [
   _3460,
   _3480,
   _3500,
+  _3505,
   _3520,
+  _3525,
   _3540,
   _3560,
 
