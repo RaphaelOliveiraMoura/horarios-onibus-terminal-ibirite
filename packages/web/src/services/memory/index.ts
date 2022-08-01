@@ -8,7 +8,7 @@ import _1025 from './buses/1025.json'
 import _1030 from './buses/1030.json'
 import _1031 from './buses/1031.json'
 import _C001 from './buses/C001.json'
-import _C002 from './buses/C002.json'
+// import _C002 from './buses/C002.json'
 import _300C from './buses/300C.json'
 import _301C from './buses/301C.json'
 import _302H from './buses/302H.json'
@@ -79,7 +79,7 @@ export const busesMemory: BusJSON[] = [
   _1031P,
 
   _C001,
-  _C002,
+  // _C002,
 
   _300C,
   _301C,
