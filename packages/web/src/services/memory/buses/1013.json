@@ -1,10 +1,12 @@
 {
   "id": "1013",
   "name": "1013 - Terminal Ibirité / Recanto das Árvores / Terminal Ibirité / Palmeiras",
-  "labels": {},
+  "labels": {
+    "pi": "Partida do bairro"
+  },
   "workingDays": [
     "05:30",
-    "05:50",
+    "05:50:pi",
     "07:40",
     "10:00",
     "12:20",
