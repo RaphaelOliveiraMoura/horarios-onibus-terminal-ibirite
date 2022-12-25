@@ -5,12 +5,13 @@
     "prev": "Previsão - Ônibus que está voltando do bairro Jardim Rosário, o hórario de saída é apenas uma estimativa"
   },
   "workingDays": [
-    "06:25:prev",
-    "08:05:prev",
+    "06:15:prev",
+    "07:45:prev",
     "09:55:prev",
-    "11:45:prev",
-    "14:15:prev",
+    "12:55:prev",
+    "15:35:prev",
     "16:15:prev",
+    "17:25:prev",
     "18:15:prev",
     "20:45:prev"
   ],
