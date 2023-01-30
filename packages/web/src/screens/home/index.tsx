@@ -15,8 +15,8 @@ const external_bus_value = 'R$ 7,65'
 const internal_bus_value = 'R$ 5,30'
 const internal_integration_value = 'R$ 2,35'
 
-const municipal_bus_value = 'R$ 05,30'
-const municipal_integration_value = 'R$ 2,35'
+const municipal_bus_value = 'R$ 00,00 (GRÁTIS)'
+// const municipal_integration_value = 'R$ 2,35'
 
 const HomePage: React.FC = () => {
   const router = useRouter()
@@ -175,21 +175,21 @@ const HomePage: React.FC = () => {
           </strong>
         </Text>
 
-        <Text>
+        {/* <Text>
           Caso você for pegar um ônibus municipal a integração será{' '}
           {municipal_integration_value}. Pois serão {external_bus_value} -{' '}
           {municipal_bus_value},{' '}
           <strong>totalizando {municipal_integration_value}.</strong>
-        </Text>
+        </Text> */}
 
         <ul>
           <Text as="span">Resumindo:</Text>
-          <li>
+          {/* <li>
             <Text as="span">
               Integração de linhas municipais:{' '}
               <strong>{municipal_integration_value}</strong>
             </Text>
-          </li>
+          </li> */}
           <li>
             <Text as="span">
               Integração de linhas alimentadoras:{' '}
