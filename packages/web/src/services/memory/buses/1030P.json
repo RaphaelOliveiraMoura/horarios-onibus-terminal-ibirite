@@ -6,18 +6,21 @@
   },
   "workingDays": [
     "05:40:prev",
-    "06:50:prev",
-    "08:20:prev",
-    "10:00:prev",
-    "11:30:prev",
-    "12:50:prev",
-    "14:50:prev",
+    "06:20:prev",
+    "08:10:prev",
+    "08:50:prev",
+    "10:20:prev",
+    "11:50:prev",
+    "13:50:prev",
+    "15:50:prev",
     "17:20:prev",
     "18:50:prev",
-    "21:20:prev"
+    "19:25:prev",
+    "20:20:prev",
+    "21:45:prev"
   ],
   "saturdays": [
-    "06:40:prev",
+    "06:45:prev",
     "08:20:prev",
     "09:50:prev",
     "11:20:prev",
@@ -28,8 +31,8 @@
     "20:50:prev"
   ],
   "sundays": [
-    "07:40:prev",
-    "09:20:prev",
+    "07:45:prev",
+    "08:15:prev",
     "10:50:prev",
     "12:20:prev",
     "15:20:prev",
