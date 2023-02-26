@@ -8,28 +8,28 @@
     "06:25:prev",
     "08:05:prev",
     "09:55:prev",
-    "11:45:prev",
-    "14:15:prev",
-    "16:15:prev",
+    "12:00:prev",
+    "14:05:prev",
+    "16:05:prev",
     "17:45:prev",
-    "18:15:prev",
-    "20:45:prev"
+    "18:25:prev",
+    "20:55:prev"
   ],
   "saturdays": [
-    "06:15:prev",
+    "06:05:prev",
     "07:35:prev",
     "09:55:prev",
     "12:55:prev",
-    "16:25:prev",
-    "18:10:prev",
+    "16:15:prev",
+    "18:15:prev",
     "20:15:prev"
   ],
   "sundays": [
-    "06:15:prev",
+    "06:05:prev",
     "08:45:prev",
-    "12:45:prev",
+    "13:00:prev",
     "15:15:prev",
     "18:15:prev",
-    "20:45:prev"
+    "20:55:prev"
   ]
 }
