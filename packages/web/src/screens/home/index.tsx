@@ -10,9 +10,9 @@ import * as S from './styles'
 import { Text } from 'components/Text'
 import { Footer } from 'components/Footer'
 
-const external_bus_value = 'R$ 7,65'
+const external_bus_value = 'R$ 8,35'
 
-const internal_bus_value = 'R$ 5,30'
+const internal_bus_value = 'R$ 5,80'
 const internal_integration_value = 'R$ 2,35'
 
 const municipal_bus_value = 'R$ 00,00 (GRÁTIS)'
