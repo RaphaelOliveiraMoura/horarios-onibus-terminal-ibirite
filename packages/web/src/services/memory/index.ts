@@ -7,7 +7,7 @@ import _1024 from './buses/1024.json'
 import _1025 from './buses/1025.json'
 import _1030 from './buses/1030.json'
 import _1031 from './buses/1031.json'
-import _C001 from './buses/C001.json'
+// import _C001 from './buses/C001.json'
 // import _C002 from './buses/C002.json'
 import _300C from './buses/300C.json'
 import _301C from './buses/301C.json'
@@ -33,8 +33,8 @@ import _1013P from './buses/1013P.json'
 import _1015P from './buses/1015P.json'
 import _1020P from './buses/1020P.json'
 import _1021P from './buses/1021P.json'
-import _1024P from './buses/1024P.json'
-import _1025P from './buses/1025P.json'
+// import _1024P from './buses/1024P.json'
+// import _1025P from './buses/1025P.json'
 import _1030P from './buses/1030P.json'
 import _1031P from './buses/1031P.json'
 
@@ -67,10 +67,10 @@ export const busesMemory: BusJSON[] = [
   _1021P,
 
   _1024,
-  _1024P,
+  // _1024P,
 
   _1025,
-  _1025P,
+  // _1025P,
 
   _1030,
   _1030P,
@@ -78,7 +78,7 @@ export const busesMemory: BusJSON[] = [
   _1031,
   _1031P,
 
-  _C001,
+  // _C001,
   // _C002,
 
   _300C,
