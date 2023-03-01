@@ -3,8 +3,10 @@ import _1013 from './buses/1013.json'
 import _1015 from './buses/1015.json'
 import _1020 from './buses/1020.json'
 import _1021 from './buses/1021.json'
+import _1023 from './buses/1023.json'
 import _1024 from './buses/1024.json'
 import _1025 from './buses/1025.json'
+import _1026 from './buses/1026.json'
 import _1030 from './buses/1030.json'
 import _1031 from './buses/1031.json'
 // import _C001 from './buses/C001.json'
@@ -66,11 +68,15 @@ export const busesMemory: BusJSON[] = [
   _1021,
   _1021P,
 
+  _1023,
+
   _1024,
   // _1024P,
 
   _1025,
   // _1025P,
+
+  _1026,
 
   _1030,
   _1030P,
