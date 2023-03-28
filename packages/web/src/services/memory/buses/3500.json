@@ -6,6 +6,7 @@
     "nt": "Noturno: atende Novo Horizonte e Monsenhor Horta"
   },
   "workingDays": [
+    "00:10:nt",
     "01:00:nt",
     "02:40:nt",
     "04:25:pi",
