@@ -1,0 +1,51 @@
+{
+  "id": "1016",
+  "name": "1016 (Previsão) - Terminal Ibirité / Várzea",
+  "labels": {
+    "prev": "Previsão - Ônibus que está voltando do bairro Jardim Rosário, o hórario de saída é apenas uma estimativa"
+  },
+  "workingDays": [
+    "06:05:prev",
+    "06:35:prev",
+    "07:25:prev",
+    "08:25:prev",
+    "09:55:prev",
+    "12:00:prev",
+    "12:45:prev",
+    "14:05:prev",
+    "14:45:prev",
+    "16:25:prev",
+    "16:55:prev",
+    "19:25:prev",
+    "20:35:prev",
+    "21:15:prev",
+    "22:55:prev"
+  ],
+  "saturdays": [
+    "05:35:prev",
+    "06:15:prev",
+    "06:55:prev",
+    "07:35:prev",
+    "08:15:prev",
+    "08:55:prev",
+    "09:35:prev",
+    "10:15:prev",
+    "11:15:prev",
+    "12:55:prev",
+    "14:45:prev",
+    "16:15:prev",
+    "17:45:prev",
+    "19:15:prev",
+    "20:45:prev"
+  ],
+  "sundays": [
+    "08:05:prev",
+    "10:45:prev",
+    "11:45:prev",
+    "13:35:prev",
+    "15:25:prev",
+    "17:15:prev",
+    "19:05:prev",
+    "20:45:prev"
+  ]
+}
