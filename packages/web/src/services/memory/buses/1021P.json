@@ -6,17 +6,17 @@
   },
   "workingDays": [
     "04:50:prev",
-    "06:00:prev",
+    "06:10:prev",
     "07:50:prev",
-    "08:30:prev",
-    "11:10:prev",
-    "12:50:prev",
-    "13:30:prev",
-    "16:10:prev",
-    "17:50:prev",
-    "18:30:prev",
-    "21:20:prev",
-    "23:10:prev"
+    "09:40:prev",
+    "11:20:prev",
+    "13:00:prev",
+    "14:30:prev",
+    "15:40:prev",
+    "17:20:prev",
+    "18:20:prev",
+    "21:30:prev",
+    "23:20:prev"
   ],
   "saturdays": [
     "05:25:prev",
