@@ -13,7 +13,7 @@ import { Footer } from 'components/Footer'
 const external_bus_value = 'R$ 8,95'
 
 const internal_bus_value = 'R$ 6,20'
-const internal_integration_value = 'R$ 2,55'
+const internal_integration_value = 'R$ 2,75'
 
 const municipal_bus_value = 'R$ 00,00 (GRÁTIS)'
 // const municipal_integration_value = 'R$ 2,35'
