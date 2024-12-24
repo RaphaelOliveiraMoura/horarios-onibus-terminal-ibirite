@@ -88,6 +88,35 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
         <section>
           {loading && <Loader />}
 
+          {[
+            '300c',
+            '301c',
+            '302h',
+            '303m',
+            '304m',
+            '306r',
+            '3356',
+            '3370',
+            '3390',
+            '3450',
+            '3455',
+            '3460',
+            '3465',
+            '3480',
+            '3500',
+            '3505',
+            '3520',
+            '3525',
+            '3540',
+            '3560'
+          ].includes(id.toLowerCase()) && (
+            <img
+              src="/img/alerta-natal.jpeg"
+              alt="Aviso sobre mudanças de horários para natal"
+              style={{ width: 300, marginTop: 16 }}
+            />
+          )}
+
           {['1024', '1024p', 'c002'].includes(id.toLowerCase()) && (
             <>
               <img
