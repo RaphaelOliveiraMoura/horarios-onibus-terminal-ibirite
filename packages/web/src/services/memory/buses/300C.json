@@ -2,7 +2,16 @@
   "id": "300C",
   "name": "300C - Terminal Ibirité / BH Via Expressa – Direta",
   "labels": {},
-  "workingDays": ["05:35", "05:57", "06:20", "16:12", "16:36", "16:52"],
+  "workingDays": [
+    "05:35",
+    "05:55",
+    "06:20",
+    "06:45",
+    "16:17",
+    "16:38",
+    "16:52",
+    "17:34"
+  ],
   "saturdays": [],
   "sundays": []
 }

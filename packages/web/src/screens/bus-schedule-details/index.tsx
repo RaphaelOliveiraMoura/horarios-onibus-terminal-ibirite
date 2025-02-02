@@ -88,7 +88,7 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
         <section>
           {loading && <Loader />}
 
-          {[
+          {/* {[
             '300c',
             '301c',
             '302h',
@@ -115,7 +115,7 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
               alt="Aviso sobre mudanças de horários para natal"
               style={{ width: 300, marginTop: 16 }}
             />
-          )}
+          )} */}
 
           {['1024', '1024p', 'c002'].includes(id.toLowerCase()) && (
             <>
