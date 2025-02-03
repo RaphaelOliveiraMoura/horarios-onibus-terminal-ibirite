@@ -153,7 +153,7 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
             </>
           )}
 
-          {['3450', '3460', '3455', '3465'].includes(id.toLowerCase()) && (
+          {/* {['3450', '3460', '3455', '3465'].includes(id.toLowerCase()) && (
             <>
               <h2
                 style={{
@@ -175,7 +175,7 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
                 <strong>3465</strong>
               </h2>
             </>
-          )}
+          )} */}
 
           {!loading && (
             <>
