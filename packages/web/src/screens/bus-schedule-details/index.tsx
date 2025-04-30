@@ -117,6 +117,14 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
             />
           )} */}
 
+          {['1019', '1020', '1021', '1022'].includes(id.toLowerCase()) && (
+            <img
+              src="/img/01-05-2025.png"
+              alt="Aviso sobre mudanças de horários"
+              style={{ width: 300, marginTop: 16 }}
+            />
+          )}
+
           {['1024', '1024p', 'c002'].includes(id.toLowerCase()) && (
             <>
               <img

@@ -1,6 +1,6 @@
 {
   "id": "1020",
-  "name": "1020 - Terminal Ibirité / Canoas / Terminal Ibirité / Monsenhor Horta",
+  "name": "1020 - Terminal Ibirité / Canoas / Terminal Ibirité / Canoas",
   "map": "https://www.google.com/maps/d/u/0/embed?mid=16-Nirbpodffhp9-Mx72bSqLve3DqZmQ&ehbc=2E312F",
   "labels": {
     "pi": "Partida do bairro"
@@ -8,7 +8,7 @@
   "workingDays": [
     "04:20",
     "05:15:pi",
-    "06:00",
+    "05:55",
     "06:30",
     "07:50",
     "09:40",
@@ -25,7 +25,7 @@
   ],
   "saturdays": [
     "04:20",
-    "05:00:pi",
+    "05:00",
     "06:20",
     "07:50",
     "09:20",
@@ -40,7 +40,6 @@
     "22:30"
   ],
   "sundays": [
-    "04:20",
     "06:00",
     "07:40",
     "09:20",

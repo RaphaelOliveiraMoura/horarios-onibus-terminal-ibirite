@@ -1,6 +1,6 @@
 {
   "id": "1021",
-  "name": "1021 - Terminal Ibirité / São Pedro / Terminal Ibirité / Recanto Verde",
+  "name": "1021 - Terminal Ibirité / São Pedro / Terminal Ibirité / São Pedro",
   "map": "https://www.google.com/maps/d/u/0/embed?mid=1MMvqAvpg2D1sPleFzOwfn5mntvGJqNU&ehbc=2E312F",
   "labels": {
     "pi": "Partida do bairro"
@@ -20,8 +20,8 @@
     "22:40"
   ],
   "saturdays": [
-    "05:20:pi",
-    "06:10",
+    "05:00:pi",
+    "06:00",
     "07:20",
     "08:50",
     "10:20",
@@ -35,7 +35,7 @@
     "22:30"
   ],
   "sundays": [
-    "06:00:pi",
+    "06:00",
     "07:40",
     "09:20",
     "11:00",
