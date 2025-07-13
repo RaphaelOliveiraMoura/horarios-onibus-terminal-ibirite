@@ -36,7 +36,7 @@ import _3560 from './buses/3560.json'
 
 // import _1013P from './buses/1013P.json'
 // import _1015P from './buses/1015P.json'
-import _1016P from './buses/1016P.json'
+// import _1016P from './buses/1016P.json'
 // import _1020P from './buses/1020P.json'
 // import _1021P from './buses/1021P.json'
 // import _1024P from './buses/1024P.json'
@@ -70,7 +70,7 @@ export const busesMemory: BusJSON[] = [
   // _1015P,
 
   _1016,
-  _1016P,
+  // _1016P,
 
   _1019,
   _1020,
