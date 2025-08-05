@@ -2,7 +2,7 @@
   "name": "horarios-onibus-terminal-ibirite-web",
   "version": "1.0.0",
   "engines": {
-    "node": "18"
+    "node": "22"
   },
   "scripts": {
     "dev": "next dev",
