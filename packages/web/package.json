@@ -11,8 +11,6 @@
     "lint": "eslint src --max-warnings=0",
     "test": "jest",
     "test:watch": "npm run test --watch",
-    "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook -s ./public",
     "pre-commit": "lint-staged",
     "pre-push": "npm run lint && npm run build"
   },
@@ -33,8 +31,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/react": "^6.4.19",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^12.1.3",
     "@types/jest": "^27.4.1",
