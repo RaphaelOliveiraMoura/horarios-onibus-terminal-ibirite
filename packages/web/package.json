@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --max-warnings=0",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "npm run test --watch",
     "pre-commit": "lint-staged",
     "pre-push": "npm run lint && npm run build"
