@@ -1,8 +1,9 @@
 import {
   BusScheduleDetailsPage,
-  getServerSideProps
+  getStaticPaths,
+  getStaticProps
 } from 'screens/bus-schedule-details'
 
-export { getServerSideProps }
+export { getStaticPaths, getStaticProps }
 
 export default BusScheduleDetailsPage

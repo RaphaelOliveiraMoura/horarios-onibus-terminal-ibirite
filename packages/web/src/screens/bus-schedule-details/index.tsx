@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { GetServerSidePropsContext } from 'next'
+import { GetStaticPropsContext } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
@@ -13,6 +13,7 @@ import { getBusLines } from 'use-cases/get-bus-lines'
 import { getBusSchedule } from 'use-cases/get-bus-schedule'
 
 import { BusScheduleOperations, RawBusSchedule } from 'models'
+import { busesMemory } from 'services/memory'
 
 import * as S from './styles'
 import { Toolbar } from 'components/Toolbar'
@@ -23,7 +24,21 @@ type BusScheduleDetailsPageProps = {
   busScheduleRaw: RawBusSchedule
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+// ISR: revalidar página estática a cada 24h (reduz Fast Origin Transfer na Vercel)
+const REVALIDATE_SECONDS = 86400
+
+export function getStaticPaths() {
+  const paths = busesMemory.map((bus) => ({
+    params: { id: bus.id }
+  }))
+
+  return {
+    paths,
+    fallback: false
+  }
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
   const busLines = await getBusLines()
 
   const busId = String(context.params?.id)
@@ -33,8 +48,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     props: {
       busLines,
       busScheduleRaw: BusScheduleOperations.toJson(busSchedule)
-    }
-  } as { props: BusScheduleDetailsPageProps }
+    },
+    revalidate: REVALIDATE_SECONDS
+  } as { props: BusScheduleDetailsPageProps; revalidate: number }
 }
 
 export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
