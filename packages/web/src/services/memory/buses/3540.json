@@ -5,17 +5,7 @@
     "pi": "Partida do bairro",
     "ri": "Não retorna pro terminal"
   },
-  "workingDays": [
-    "05:30:pi",
-    "06:10",
-    "07:00",
-    "08:30",
-    "10:00",
-    "12:30",
-    "15:00",
-    "17:00",
-    "18:40"
-  ],
+  "workingDays": ["05:30:pi", "06:10", "07:00", "17:00", "18:45"],
   "saturdays": [],
   "sundays": []
 }
