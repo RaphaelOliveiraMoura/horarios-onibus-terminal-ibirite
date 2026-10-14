@@ -14,13 +14,13 @@ const DialogContext = createContext<DialogContextValues>(
   {} as DialogContextValues
 )
 
-export const DialogProvider: React.FC = ({ children }) => {
+export const DialogProvider: React.FC<React.PropsWithChildren> = ({
+  children
+}) => {
   const [isOpen, setOpen] = useState(false)
 
-  const [
-    DialogComponent,
-    setDialogComponent
-  ] = useState<openDialogParam | null>(null)
+  const [DialogComponent, setDialogComponent] =
+    useState<openDialogParam | null>(null)
 
   function openDialog(builder: openDialogParam) {
     setDialogComponent(() => builder)

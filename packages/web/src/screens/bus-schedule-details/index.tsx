@@ -86,7 +86,8 @@ export const BusScheduleDetailsPage: React.FC<BusScheduleDetailsPageProps> = ({
   return (
     <>
       <Head>
-        <title>Hórarios ônibus {busSchedule.bus.name} ATUALIZADO</title>
+        {/* string única: com filhos múltiplos o React 18 insere <!-- --> no título */}
+        <title>{`Hórarios ônibus ${busSchedule.bus.name} ATUALIZADO`}</title>
       </Head>
       <S.Wrapper>
         <Toolbar setLoading={setLoading}>

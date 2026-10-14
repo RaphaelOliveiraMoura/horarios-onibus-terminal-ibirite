@@ -26,7 +26,7 @@ describe('TimeModel', () => {
     ]
 
     testCases.forEach(([expected, error]) => {
-      expect(expected).toThrowError(error)
+      expect(expected).toThrow(error)
     })
   })
 

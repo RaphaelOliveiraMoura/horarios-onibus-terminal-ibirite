@@ -5,7 +5,11 @@ type DialogProps = {
   close: () => void
 }
 
-export const Dialog: React.FC<DialogProps> = ({ children, isOpen, close }) => {
+export const Dialog: React.FC<React.PropsWithChildren<DialogProps>> = ({
+  children,
+  isOpen,
+  close
+}) => {
   return (
     <S.Dialog isOpen={isOpen} onClick={close}>
       <S.DialogContent onClick={(e) => e.stopPropagation()}>

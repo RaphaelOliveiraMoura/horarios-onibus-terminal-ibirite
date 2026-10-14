@@ -7,7 +7,7 @@ export interface ToolbarProps {
   setLoading?: (loading: boolean) => void
 }
 
-export const Toolbar: React.FC<ToolbarProps> = ({
+export const Toolbar: React.FC<React.PropsWithChildren<ToolbarProps>> = ({
   children,
   setLoading = () => null
 }) => {

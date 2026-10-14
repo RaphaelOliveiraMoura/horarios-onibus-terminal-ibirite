@@ -5,12 +5,7 @@ import { ValidHtmlTextTags } from './types'
 export * as TextStyles from './styles'
 
 export type TextVariants =
-  | 'default'
-  | 'title'
-  | 'subtitle'
-  | 'smooth'
-  | 'disclaimer'
-  | 'link'
+  'default' | 'title' | 'subtitle' | 'smooth' | 'disclaimer' | 'link'
 
 export interface TextProps {
   children: React.ReactNode

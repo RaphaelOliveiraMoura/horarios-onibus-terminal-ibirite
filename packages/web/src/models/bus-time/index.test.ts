@@ -22,7 +22,7 @@ describe('BusTime', () => {
       ]
     ]
 
-    testCases.forEach(([busTime]) => expect(busTime).not.toThrowError())
+    testCases.forEach(([busTime]) => expect(busTime).not.toThrow())
   })
 
   it('should create invalid busTimes', () => {
@@ -35,6 +35,6 @@ describe('BusTime', () => {
       ]
     ]
 
-    testCases.forEach(([busTime]) => expect(busTime).toThrowError())
+    testCases.forEach(([busTime]) => expect(busTime).toThrow())
   })
 })
